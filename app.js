@@ -1,13 +1,31 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const { Client } = require('pg');
+const connectionString = 'postgres://postgres:password@localhost:5432/deportesucab';
+
+const client = new Client({
+  connectionString: connectionString
+});
+
+client.connect();
+
+client.query('SELECT * FROM usuario',0,(err, result)=>{
+  console.log(err, result);
+})
+
+
+const app = express();
+
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
