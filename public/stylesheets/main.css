@@ -83,7 +83,7 @@ body, html{
 .dashboard-sideBar{
 	left: 0;
 	z-index: 2;
-	background-image: url('../images/sideBar-font.jpg');
+	background-image: url('../images/sideBar-bg.jpg');
 	border-right: 1px solid rgba(255, 255, 255, .4);
 	overflow: hidden;
 }
