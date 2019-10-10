@@ -83,7 +83,7 @@ body, html{
 .dashboard-sideBar{
 	left: 0;
 	z-index: 2;
-	background-image: url('../images/sideBar-bg.jpg');
+	background-image: url('../images/sideBar-bg.png');
 	border-right: 1px solid rgba(255, 255, 255, .4);
 	overflow: hidden;
 }
@@ -140,7 +140,7 @@ body, html{
 	transition: all .3s ease-in-out;
 }
 .dashboard-sideBar-UserInfo ul > li > a:hover{
-	color: #FF5722;
+	color: #8f80b0;
 }
 .dashboard-sideBar-Menu{
 	padding-top: 15px;
@@ -193,10 +193,11 @@ body, html{
 .dashboard-sideBar-Menu > li > ul > li > a{
 	border-left: 3px solid transparent;
 	outline: none;
+    padding-left: 5px;
 }
 .dashboard-sideBar-Menu > li > ul > li > a:hover{
-	border-left: 3px solid #FF5722;
-	color: #FF5722;
+	border-left: 3px solid #8f80b0;
+	color: #8f80b0;
 }
 /*contentPage*/
 .dashboard-contentPage{
@@ -232,13 +233,13 @@ body, html{
 }
 .dashboard-Navbar > ul > li > a:hover{
 	background-color: rgba(255, 255, 255, .1);
-	color: #FF5722;
+	color: #8f80b0;
 }
 .dashboard-Navbar > ul > li > a > span.badge{
 	position: absolute;
 	top: 7px;
 	right: 6px;
-	background-color: #FF5722;
+	background-color: #8f80b0;
 	transition: all .3s ease-in-out;
 }
 .dashboard-Navbar > ul > li > a:hover span.badge{
@@ -281,7 +282,7 @@ body, html{
 	font-size: 20px;
 }
 .Notifications-body-title{
-	background-color: #FF5722;
+	background-color: #2c2c2c;
 	color: #fff;
 	position: relative;
 }
@@ -561,6 +562,7 @@ body, html{
 	.show-sidebar > .dashboard-sideBar-ct{
 		transform: translateX(0) !important;
 	}
+
 }
 @media (min-width: 768px) and (max-width: 991px){
 	.hide-sidebar{
