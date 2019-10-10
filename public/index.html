@@ -1,330 +1,154 @@
+<!DOCTYPE html>
 <!doctype html>
-<html lang="es">
-	<head>
-		<title>Deportes UCAB</title>
-		<meta charset="utf-8" />
+<html lang="s">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DeportesUCAB</title>
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/zmdi/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+</head>
+<body>
+<!-- SideBar -->
+<section class="full-box cover dashboard-sideBar">
+    <div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
+    <div class="full-box dashboard-sideBar-ct">
+        <!--SideBar Title -->
+        <div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
+            company <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+        </div>
+        <!-- SideBar User info -->
+        <div class="full-box dashboard-sideBar-UserInfo">
+            <figure class="full-box">
+                <img src="images/user.png" alt="UserIcon">
+                <figcaption class="text-center text-titles">User Name</figcaption>
+            </figure>
+            <ul class="full-box list-unstyled text-center">
+                <li>
+                    <a href="#!">
+                        <i class="zmdi zmdi-settings"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#!" class="btn-exit-system">
+                        <i class="zmdi zmdi-power"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- SideBar Menu -->
+        <ul class="list-unstyled full-box dashboard-sideBar-Menu">
+            <li>
+                <a href="home.html">
+                    <i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="#!" class="btn-sideBar-SubMenu">
+                    <i class="zmdi zmdi-case zmdi-hc-fw"></i> Administration <i class="zmdi zmdi-caret-down pull-right"></i>
+                </a>
+                <ul class="list-unstyled full-box">
+                    <li>
+                        <a href="period.html"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Period</a>
+                    </li>
+                    <li>
+                        <a href="subject.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Subject</a>
+                    </li>
+                    <li>
+                        <a href="section.html"><i class="zmdi zmdi-graduation-cap zmdi-hc-fw"></i> Section</a>
+                    </li>
+                    <li>
+                        <a href="salon.html"><i class="zmdi zmdi-font zmdi-hc-fw"></i> Salon</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#!" class="btn-sideBar-SubMenu">
+                    <i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Users <i class="zmdi zmdi-caret-down pull-right"></i>
+                </a>
+                <ul class="list-unstyled full-box">
+                    <li>
+                        <a href="admin.html"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
+                    </li>
+                    <li>
+                        <a href="teacher.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Teacher</a>
+                    </li>
+                    <li>
+                        <a href="student.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i> Student</a>
+                    </li>
+                    <li>
+                        <a href="representative.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Representative</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#!" class="btn-sideBar-SubMenu">
+                    <i class="zmdi zmdi-card zmdi-hc-fw"></i> Payments <i class="zmdi zmdi-caret-down pull-right"></i>
+                </a>
+                <ul class="list-unstyled full-box">
+                    <li>
+                        <a href="registration.html"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registration</a>
+                    </li>
+                    <li>
+                        <a href="payments.html"><i class="zmdi zmdi-money zmdi-hc-fw"></i> Payments</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#!" class="btn-sideBar-SubMenu">
+                    <i class="zmdi zmdi-shield-security zmdi-hc-fw"></i> Settings School <i class="zmdi zmdi-caret-down pull-right"></i>
+                </a>
+                <ul class="list-unstyled full-box">
+                    <li>
+                        <a href="school.html"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> School Data</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</section>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="stylesheets/main.css" />
-		<link rel="stylesheet" href="stylesheets/zmdi/css/material-design-iconic-font.min.css">
+<!-- Content page-->
+<section class="full-box dashboard-contentPage">
+    <!-- NavBar -->
+    <nav class="full-box dashboard-Navbar">
+        <ul class="full-box list-unstyled text-right">
+            <li class="pull-left">
+                <a href="#!" class="btn-menu-dashboard"><i class="zmdi zmdi-more-vert"></i></a>
+            </li>
+            <li>
+                <a href="#!" class="btn-Notifications-area">
+                    <i class="zmdi zmdi-notifications-none"></i>
+                    <span class="badge">7</span>
+                </a>
+            </li>
+            <li>
+                <a href="#!" class="btn-search">
+                    <i class="zmdi zmdi-search"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#!" class="btn-modal-help">
+                    <i class="zmdi zmdi-help-outline"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	</head>
-	<body>
-		<!-- Wrapper -->
-			<div id="wrapper">
+</section>
 
-				<!-- Header -->
-					<header id="header">
-						<h1><a href="#">Deportes UCAB</a></h1>
-						<nav class="links">
-							<ul>
-								<li><a href="#">Inicio</a></li>
-								<li><a href="#">Baloncesto</a></li>
-								<li><a href="#">Fútbol</a></li>
-								<li><a href="#">Futsal</a></li>
-								<li><a href="#">Voleibol</a></li>
-								<li><a href="#">Competiciones</a></li>
-							</ul>
-						</nav>
-						<nav class="main">
-							<ul>
-								<li class="search">
-									<a href="#search">
-										<i class="iconHeader zmdi zmdi-search"></i>
-									</a>
-									<form id="search" method="get" action="#">
-										<input type="text" name="query" placeholder="Buscar"/>
-									</form>
-								</li>
-								<li class="menuHeader">
-									<a class="" href="#menu">
-										<i class="iconHeader zmdi zmdi-menu"></i>
-									</a>
-								</li>
-							</ul>
-						</nav>
-					</header>
-
-				<!-- Menu -->
-					<section id="menu">
-
-						<!-- Search -->
-							<section>
-								<form class="search" method="get" action="#">
-									<input type="text" name="query" placeholder="Search" />
-								</form>
-							</section>
-
-						<!-- Links -->
-							<section>
-								<ul class="links">
-									<li>
-										<a href="#">
-											<h3>Inicio</h3>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>Baloncesto</h3>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>Fútbol</h3>
-										</a>
-									</li>
-									<li>
-										<a href="#">
-											<h3>Futsal</h3>
-										</a>
-									</li>
-
-                                    <li>
-                                        <a href="#">
-                                            <h3>Voleibol</h3>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <h3>Competiciones</h3>
-                                        </a>
-                                    </li>
-								</ul>
-							</section>
-
-					</section>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Post -->
-
-						<!--      Para imágenes dentro de un post <div class="inside-image"><img src="images/pic09.jpg" alt=""></div>-->
-						<!-- Post -->
-						<article class="post">
-							<header>
-								<div class="title">
-									<h2><a href="#">Magna sed adipiscing</a></h2>
-									<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
-								</div>
-								<div class="meta">
-									<div class="day">7</div>
-									<time class="published" datetime="2015-11-01">7 de Septiembre de 2019</time>
-								</div>
-							</header>
-							<a href="#" class="image featured"><img src="images/evento1.jpg" alt="" /></a>
-							<p id="post0">Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-							<footer>
-								<ul class="actions">
-									<li><div id = "pt0" class="button big" onclick="continueReading('0', this.id)">Seguir leyendo</div></li>
-								</ul>
-								<ul class="stats">
-									<li><a href="#" class="icon"><i class="zmdi zmdi-favorite"></i> 28</a></li>
-									<li><a href="#" class="icon"><i class="zmdi zmdi-comment"></i> 128</a></li>
-								</ul>
-							</footer>
-						</article>
-						<!-- Post -->
-						<article class="post">
-							<header>
-								<div class="title">
-									<h2><a href="#">Magna sed adipiscing</a></h2>
-									<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
-								</div>
-								<div class="meta">
-									<div class="day">7</div>
-									<time class="published" datetime="2015-11-01">7 de Septiembre de 2019</time>
-								</div>
-							</header>
-							<a href="#" class="image featured"><img src="images/evento1.jpg" alt="" /></a>
-							<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-							<footer>
-								<ul class="actions">
-									<li><a href="#" class="button big">Seguir leyendo</a></li>
-								</ul>
-								<ul class="stats">
-									<li><a href="#" class="icon"><i class="zmdi zmdi-favorite"></i> 28</a></li>
-									<li><a href="#" class="icon"><i class="zmdi zmdi-comment"></i> 128</a></li>
-								</ul>
-							</footer>
-						</article>
-						<!-- Post -->
-						<article class="post">
-							<header>
-								<div class="title">
-									<h2><a href="#">Magna sed adipiscing</a></h2>
-									<p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p>
-								</div>
-								<div class="meta">
-									<div class="day">7</div>
-									<time class="published" datetime="2015-11-01">7 de Septiembre de 2019</time>
-								</div>
-							</header>
-							<a href="#" class="image featured"><img src="images/evento1.jpg" alt="" /></a>
-							<p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-							<footer>
-								<ul class="actions">
-									<li><a href="#" class="button big">Seguir leyendo</a></li>
-								</ul>
-								<ul class="stats">
-									<li><a href="#" class="icon"><i class="zmdi zmdi-favorite"></i> 28</a></li>
-									<li><a href="#" class="icon"><i class="zmdi zmdi-comment"></i> 128</a></li>
-								</ul>
-							</footer>
-						</article>
-
-						<!-- Pagination
-							<ul class="actions pagination">
-								<li><a href="" class="disabled button big previous"><i class="zmdi zmdi-caret-left"></i> Previous Page</a></li>
-								<li><a href="#" class="button big next">Next Page <i class="zmdi zmdi-caret-right"></i></a></li>
-							</ul>
-						-->
-					</div>
-
-				<!-- Sidebar -->
-					<section id="sidebar">
-
-						<!-- Intro -->
-							<section id="intro">
-								<a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
-								<header>
-									<h2>Deportes UCAB</h2>
-									<p>La distancia entre el querer y el poder se acorta con el entrenamiento</p>
-								</header>
-							</section>
-
-						<!-- Mini Posts -->
-							<section>
-								<div class="mini-posts">
-									<h2>Próximos eventos</h2>
-
-									<!-- Mini Post -->
-									<article class="mini-post">
-											<header>
-												<h3><a href="#">Vitae sed condimentum</a></h3>
-												<time class="published" datetime="2015-10-20">October 20, 2015</time>
-											</header>
-											<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-										</article>
-
-									<!-- Mini Post -->
-									<article class="mini-post">
-										<header>
-											<h3><a href="#">Vitae sed condimentum</a></h3>
-											<time class="published" datetime="2015-10-20">October 20, 2015</time>
-										</header>
-										<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-									</article>
-
-									<!-- Mini Post -->
-									<article class="mini-post">
-										<header>
-											<h3><a href="#">Vitae sed condimentum</a></h3>
-											<time class="published" datetime="2015-10-20">October 20, 2015</time>
-										</header>
-										<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-									</article>
-
-									<!-- Mini Post -->
-									<article class="mini-post">
-										<header>
-											<h3><a href="#">Vitae sed condimentum</a></h3>
-											<time class="published" datetime="2015-10-20">October 20, 2015</time>
-										</header>
-										<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-									</article>
-
-									<!-- Mini Post -->
-									<article class="mini-post">
-										<header>
-											<h3><a href="#">Vitae sed condimentum</a></h3>
-											<time class="published" datetime="2015-10-20">October 20, 2015</time>
-										</header>
-										<a href="#" class="image"><img src="images/pic04.jpg" alt="" /></a>
-									</article>
-								</div>
-							</section>
-
-						<!-- Posts List -->
-							<section>
-								<ul class="posts">
-									<li>
-										<article>
-											<header>
-												<h3><a href="#">Lorem ipsum fermentum ut nisl vitae</a></h3>
-												<time class="published" datetime="2015-10-20">October 20, 2015</time>
-											</header>
-											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
-										</article>
-									</li>
-									<li>
-										<article>
-											<header>
-												<h3><a href="#">Convallis maximus nisl mattis nunc id lorem</a></h3>
-												<time class="published" datetime="2015-10-15">October 15, 2015</time>
-											</header>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-										</article>
-									</li>
-									<li>
-										<article>
-											<header>
-												<h3><a href="#">Euismod amet placerat vivamus porttitor</a></h3>
-												<time class="published" datetime="2015-10-10">October 10, 2015</time>
-											</header>
-											<a href="#" class="image"><img src="images/pic10.jpg" alt="" /></a>
-										</article>
-									</li>
-									<li>
-										<article>
-											<header>
-												<h3><a href="#">Magna enim accumsan tortor cursus ultricies</a></h3>
-												<time class="published" datetime="2015-10-08">October 8, 2015</time>
-											</header>
-											<a href="#" class="image"><img src="images/pic11.jpg" alt="" /></a>
-										</article>
-									</li>
-									<li>
-										<article>
-											<header>
-												<h3><a href="#">Congue ullam corper lorem ipsum dolor</a></h3>
-												<time class="published" datetime="2015-10-06">October 7, 2015</time>
-											</header>
-											<a href="#" class="image"><img src="images/pic12.jpg" alt="" /></a>
-										</article>
-									</li>
-								</ul>
-							</section>
-
-						<!-- About -->
-							<section class="blurb">
-								<h2>Nosotros</h2>
-								<p>Entre las actividades que ofrece la universidad como complemento para tu formación, están las prácticas deportivas. Hasta el año 1971, las actividades deportivas de la UCAB se encontraban reducidas a los torneos organizados por la Secretaría de Deportes del Centro de Estudiantes de Ingeniería. En octubre de 1971 fue creada la Dirección de Deportes para fomentar la práctica deportiva dentro de la comunidad ucabista.</p>
-								<ul class="actions">
-									<li><a href="#" class="button">Seguir leyendo</a></li>
-								</ul>
-							</section>
-
-						<!-- Footer -->
-							<section id="footer">
-								<ul class="icons">
-									<li><a href="#" class="zmdi zmdi-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="zmdi zmdi-facebook"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="zmdi zmdi-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="zmdi zmdi-email"><span class="label">Correo electrónico</span></a></li>
-								</ul>
-							</section>
-
-					</section>
-
-			</div>
-
-
-			<script src="javascripts/jquery.min.js"></script>
-			<script src="javascripts/skel.min.js"></script>
-			<script src="javascripts/util.js"></script>
-			<script src="javascripts/main.js"></script>
-            <script src="javascripts/cards.js"></script>
-	</body>
+<!--====== Scripts -->
+<script src="javascripts/jquery.min.js"></script>
+<script src="javascripts/sweetalert2.min.js"></script>
+<script src="javascripts/main.js"></script>
+<!-----
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/material.min.js"></script>
+<script src="./js/ripples.min.js"></script>
+<script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
+-->
+</body>
 </html>

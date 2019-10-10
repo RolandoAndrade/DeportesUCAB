@@ -1,115 +1,108 @@
-/*
-	Future Imperfect by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+function exitWindow()
+{
+	swal({
+		  	title: '¿Estás seguro?',
+		  	text: "La sesión actual será cerrada",
+		  	type: 'warning',
+		  	showCancelButton: true,
+		  	confirmButtonColor: '#DC8502',
+		  	cancelButtonColor: '#F44336',
+		  	confirmButtonText: 'Sí, ¡quiero salir!',
+		  	cancelButtonText: 'No, cancelar!'
+		}).then(function () {
+			window.location.href="index.html";
+	});
+}
 
-(function($) {
 
-	skel.breakpoints({
-		xlarge:	'(max-width: 1680px)',
-		large:	'(max-width: 1280px)',
-		medium:	'(max-width: 980px)',
-		small:	'(max-width: 736px)',
-		xsmall:	'(max-width: 480px)'
+
+$(document).ready(function(){
+	$('.btn-sideBar-SubMenu').on('click', function(){
+		var SubMenu=$(this).next('ul');
+		var iconBtn=$(this).children('.zmdi-caret-down');
+		if(SubMenu.hasClass('show-sideBar-SubMenu')){
+			iconBtn.removeClass('zmdi-hc-rotate-180');
+			SubMenu.removeClass('show-sideBar-SubMenu');
+		}else{
+			iconBtn.addClass('zmdi-hc-rotate-180');
+			SubMenu.addClass('show-sideBar-SubMenu');
+		}
+	});
+	$('.btn-exit-system').on('click', exitWindow);
+
+	$('.exitSideBar').on('click', exitWindow);
+
+	$('.btn-menu-dashboard').on('click', function(){
+		var body=$('.dashboard-contentPage');
+		var sidebar=$('.dashboard-sideBar');
+		if(sidebar.css('pointer-events')=='none'){
+			body.removeClass('no-paddin-left');
+			sidebar.removeClass('hide-sidebar').addClass('show-sidebar');
+		}else{
+			body.addClass('no-paddin-left');
+			sidebar.addClass('hide-sidebar').removeClass('show-sidebar');
+		}
+	});
+	$('.btn-Notifications-area').on('click', function(){
+		var NotificationsArea=$('.Notifications-area');
+		if(NotificationsArea.css('opacity')=="0"){
+			NotificationsArea.addClass('show-Notification-area');
+		}else{
+			NotificationsArea.removeClass('show-Notification-area');
+		}
+	});
+	$('.btn-search').on('click', function(){
+		swal({
+		  title: 'En este momento no tienes órdenes de recolección',
+		  confirmButtonText: '<i class="zmdi zmdi-check"></i>  Ok',
+		  confirmButtonColor: '#03A9F4',
+		  showCancelButton: true,
+		  cancelButtonColor: '#F44336',
+		  cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> Cancel',
+		  html: '<div class="form-group label-floating">'+
+			  		'<label class="control-label" for="InputSearch">write here</label>'+
+			  		'<input class="form-control" id="InputSearch" type="text">'+
+				'</div>'
+		}).then(function () {
+		  swal(
+		    'You wrote',
+		    ''+$('#InputSearch').val()+'',
+		    'success'
+		  )
+		});
+	});
+	$('.btn-modal-help').on('click', function(){
+		$('#Dialog-Help').modal('show');
 	});
 
-	$(function() {
-
-		var	$window = $(window),
-			$body = $('body'),
-			$menu = $('#menu'),
-			$sidebar = $('#sidebar'),
-			$main = $('#main');
-
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
-
-			$window.on('load', function() {
-				window.setTimeout(function() {
-					$body.removeClass('is-loading');
-				}, 100);
-			});
-
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
-
-		// Prioritize "important" elements on medium.
-			skel.on('+medium -medium', function() {
-				$.prioritize(
-					'.important\\28 medium\\29',
-					skel.breakpoint('medium').active
-				);
-			});
-
-		// IE<=9: Reverse order of main and sidebar.
-			if (skel.vars.IEVersion <= 9)
-				$main.insertAfter($sidebar);
-
-		// Menu.
-			$menu
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right',
-					target: $body,
-					visibleClass: 'is-menu-visible'
-				});
-
-		// Search (header).
-			var $search = $('#search'),
-				$search_input = $search.find('input');
-
-			$body
-				.on('click', '[href="#search"]', function(event) {
-
-					event.preventDefault();
-
-					// Not visible?
-						if (!$search.hasClass('visible')) {
-
-							// Reset form.
-								$search[0].reset();
-
-							// Show.
-								$search.addClass('visible');
-
-							// Focus input.
-								$search_input.focus();
-
-						}
-
-				});
-
-			$search_input
-				.on('keydown', function(event) {
-
-					if (event.keyCode == 27)
-						$search_input.blur();
-
-				})
-				.on('blur', function() {
-					window.setTimeout(function() {
-						$search.removeClass('visible');
-					}, 100);
-				});
-
-		// Intro.
-			var $intro = $('#intro');
-
-			// Move to main on <=large, back to sidebar on >large.
-				skel
-					.on('+large', function() {
-						$intro.prependTo($main);
-					})
-					.on('-large', function() {
-						$intro.prependTo($sidebar);
-					});
-
+	$('.viewSideBar').on('click', function() 
+	{
+		$('.nameofsection').text("ÓRDENES DE RECOLECCIÓN");
+		$('.makeACollectionOrder').hide(300);
+		$('#map').show(300);
 	});
 
+	$('.collectionOrderSideBar').on('click', function() 
+	{
+		$('.nameofsection').text("CREAR ORDEN DE RECOLECCIÓN");
+		$('#map').hide(300);
+		$('.makeACollectionOrder').show(300);
+	});
+
+});
+(function($){
+    $(window).on("load",function(){
+        $(".dashboard-sideBar-ct").mCustomScrollbar({
+        	theme:"light-thin",
+        	scrollbarPosition: "inside",
+        	autoHideScrollbar: true,
+        	scrollButtons: {enable: true}
+        });
+        $(".dashboard-contentPage, .Notifications-body").mCustomScrollbar({
+        	theme:"dark-thin",
+        	scrollbarPosition: "inside",
+        	autoHideScrollbar: true,
+        	scrollButtons: {enable: true}
+        });
+    });
 })(jQuery);
