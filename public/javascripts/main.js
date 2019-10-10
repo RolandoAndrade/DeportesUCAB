@@ -90,6 +90,8 @@ $(document).ready(function(){
 	});
 
 });
+
+/*
 (function($){
     $(window).on("load",function(){
         $(".dashboard-sideBar-ct").mCustomScrollbar({
@@ -105,4 +107,4 @@ $(document).ready(function(){
         	scrollButtons: {enable: true}
         });
     });
-})(jQuery);
+})(jQuery);*/
