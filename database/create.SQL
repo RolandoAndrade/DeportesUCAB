@@ -83,6 +83,7 @@ CREATE TABLE COMPETICION(
     nombre VARCHAR(30) NOT NULL,
     fecha_inicio TIMESTAMP NOT NULL,
     fecha_fin TIMESTAMP NOT NULL,
+    imagen VARCHAR(200),
     estado VARCHAR(10) NOT NULL,
 
     lugar_id INTEGER REFERENCES LUGAR(id_lugar) NOT NULL
