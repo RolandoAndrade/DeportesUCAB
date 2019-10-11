@@ -94,7 +94,82 @@ CREATE TABLE CARACTERISTICA(
     competicion_id INTEGER REFERENCES COMPETICION(id_competicion) NOT NULL
 );
 
-CREATE TABLE TIPO_EVENTO(
-    id_tipo_evento SERIAL PRIMARY KEY,
+CREATE TABLE EVENTO(
+    id_evento SERIAL PRIMARY KEY,
+    estado VARCHAR(10) NOT NULL,
 
+    deporte_id INTEGER REFERENCES DEPORTE(id_deporte) NOT NULL,
+    competicion_id INTEGER REFERENCES COMPETICION(id_competicion) NOT NULL
 );
+
+CREATE TABLE PARTIDO(
+    id_partido SERIAL PRIMARY KEY,
+    fecha TIMESTAMP NOT NULL,
+    valor_victoria INTEGER NOT NULL,
+    valor_derrota INTEGER NOT NULL,
+    valor_empate INTEGER,
+    resultado_local INTEGER,
+    resultado_visitante INTEGER,
+
+    lugar_id INTEGER REFERENCES LUGAR(id_lugar) NOT NULL,
+    evento_id INTEGER REFERENCES EVENTO(id_evento) NOT NULL,
+    equipo_local INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
+    equipo_visitante INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL
+);
+
+CREATE TABLE JUEGO_FUTBOL(
+    id_juego_futbol SERIAL PRIMARY KEY,
+    posicion VARCHAR(10) NOT NULL,
+    goles INTEGER,
+    asistencias INTEGER,
+    faltas INTEGER,
+    tarjetas_amarillas INTEGER,
+    tarjetas_rojas INTEGER,
+    atajadas INTEGER,
+
+    tipo VARCHAR(10) NOT NULL,
+
+    atleta_id INTEGER REFERENCES ATLETA(id_atleta) NOT NULL,
+    partido_id INTEGER REFERENCES PARTIDO(id_partido) NOT NULL
+);
+
+CREATE TABLE JUEGO_BALONCESTO(
+     id_juego_baloncesto SERIAL PRIMARY KEY,
+     posicion VARCHAR(10) NOT NULL,
+     puntos INTEGER,
+     asistencias INTEGER,
+     disparos_tres_puntos INTEGER,
+     faltas INTEGER,
+     bloqueos INTEGER,
+     rebotes INTEGER,
+
+     atleta_id INTEGER REFERENCES ATLETA(id_atleta) NOT NULL,
+     partido_id INTEGER REFERENCES PARTIDO(id_partido) NOT NULL
+);
+
+
+CREATE TABLE JUEGO_VOLEIBOL(
+     id_juego_voleibol SERIAL PRIMARY KEY,
+     puntos INTEGER,
+     saques INTEGER,
+     puntos_en_saques INTEGER,
+     faltas INTEGER,
+
+     atleta_id INTEGER REFERENCES ATLETA(id_atleta) NOT NULL,
+     partido_id INTEGER REFERENCES PARTIDO(id_partido) NOT NULL
+);
+
+CREATE TABLE JUEGO_RUGBY(
+     id_juego_rugby SERIAL PRIMARY KEY,
+     posicion VARCHAR(10) NOT NULL,
+     puntos INTEGER,
+     tries INTEGER,
+     penalties INTEGER,
+     tarjetas_amarillas INTEGER,
+     tarjetas_rojas INTEGER,
+     drops INTEGER,
+
+     atleta_id INTEGER REFERENCES ATLETA(id_atleta) NOT NULL,
+     partido_id INTEGER REFERENCES PARTIDO(id_partido) NOT NULL
+);
+
