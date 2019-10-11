@@ -13,7 +13,7 @@ CREATE TABLE LUGAR(
 CREATE TABLE ROL(
     id_rol SERIAL PRIMARY KEY,
     nombre VARCHAR(30) UNIQUE NOT NULL,
-    descripcion VARCHAR(200)
+    descripcion text
 );
 
 CREATE TABLE DEPORTE(
