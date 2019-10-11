@@ -66,7 +66,9 @@ CREATE TABLE ENTRENAMIENTO(
     id_entrenamiento SERIAL PRIMARY KEY,
     fecha TIMESTAMP NOT NULL,
     duracion FLOAT NOT NULL,
-    estado VARCHAR(10) NOT NULL
+    estado VARCHAR(10) NOT NULL,
+
+    lugar_id INTEGER REFERENCES LUGAR(id_lugar)
 );
 
 CREATE TABLE HISTORIAL_ENTRENAMIENTO(
@@ -173,3 +175,34 @@ CREATE TABLE JUEGO_RUGBY(
      partido_id INTEGER REFERENCES PARTIDO(id_partido) NOT NULL
 );
 
+CREATE TABLE JUEGO_BEISBOL(
+    id_juego_beisbol SERIAL PRIMARY KEY,
+    posicion VARCHAR(30) NOT NULL,
+    bateos INTEGER,
+    jonrores INTEGER,
+    carreras INTEGER,
+    puntos INTEGER,
+    faltas INTEGER,
+    strikes INTEGER,
+    bolas_recibidas INTEGER,
+    bolas_ocasionadas INTEGER,
+
+    atleta_id INTEGER REFERENCES ATLETA(id_atleta) NOT NULL,
+    partido_id INTEGER REFERENCES PARTIDO(id_partido) NOT NULL
+);
+
+
+CREATE TABLE NOTIFICACION(
+    id_notificacion SERIAL PRIMARY KEY,
+    titulo VARCHAR(50) NOT NULL,
+    descripcion text NOT NULL,
+    fecha TIMESTAMP NOT NULL
+);
+
+CREATE TABLE BANDEJA_ENTRADA(
+    id_bandeja_entrada SERIAL PRIMARY KEY,
+    estado VARCHAR(10) NOT NULL,
+
+    usuario_id INTEGER REFERENCES USUARIO(id_usuario) NOT NULL,
+    notificacion_id INTEGER REFERENCES NOTIFICACION(id_notificacion) NOT NULL
+);
