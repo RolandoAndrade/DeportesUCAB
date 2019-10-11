@@ -1,16 +1,18 @@
 .post-card
 {
+    display: flex;
+    flex-direction: row;
     width: 80%;
     margin: 50px auto;
     border-radius: 5px;
     overflow: hidden;
     max-width: 700px;
-    box-shadow: 0px 5px 10px -5px #888;
+    box-shadow: 0px 0px 15px -5px #888;
 }
 
 .card-preview-image
 {
-    width: 100%;
+    width: 50%;
     height: 300px;
     background: url("../images/pic01.jpg") center;
 
@@ -18,17 +20,17 @@
 
 .card-content
 {
+    width: 50%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     font-size: 0.8em;
 }
 .card-data
 {
     display: flex;
     flex-direction: row;
-    width: 40%;
+    width: 100%;
     flex-wrap: wrap;
-    background: url("../images/sideBar-bg.png");
 }
 
 
@@ -76,12 +78,13 @@
 .card-title
 {
     padding: 25px;
-    width: 60%;
+    width: 100%;
     font-size: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    height: 100%;
 
 }
 
@@ -102,4 +105,14 @@
     opacity: 0.8;
     padding: 5px;
     text-align: center;
+}
+
+.note-icon
+{
+    width: ;
+}
+
+.note-more
+{
+
 }
