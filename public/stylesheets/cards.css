@@ -28,6 +28,7 @@
     flex-direction: row;
     width: 40%;
     flex-wrap: wrap;
+    background: url("../images/sideBar-bg.png");
 }
 
 
@@ -40,6 +41,7 @@
     align-items: center;
     padding: 25px;
     background: #5b4e73;
+    opacity: 0.8;
     color: #FFFFFF;
 }
 
@@ -63,6 +65,7 @@
     align-items: center;
     padding: 25px;
     background: #1b4d6b;
+    opacity: 0.8;
     color: #FFFFFF;
     overflow-wrap: break-word;
 }
@@ -88,13 +91,15 @@
     padding: 5px;
     text-align: center;
     background: #433a55;
+    opacity: 0.8;
 }
+
 
 .card-place-icon
 {
     width: 50%;
     background: #13364b;
-
+    opacity: 0.8;
     padding: 5px;
     text-align: center;
 }
