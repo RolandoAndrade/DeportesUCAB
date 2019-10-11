@@ -1,6 +1,8 @@
 /*========= Importando hojas de estilo =========*/
 @import url('./bootstrap.min.css');
 @import url('cards.css');
+@import url('details.css');
+@import url('jquery.mCustomScrollbar.css');
 /*============ Fonts */
 @font-face {
     font-family: 'RobotoCondensedLight';
@@ -216,7 +218,7 @@ body, html{
 	outline: none;
 }
 .dashboard-Navbar{
-	background-color: #000;
+	background-color: #34316b;
 	overflow: hidden;
 }
 .dashboard-Navbar > ul >li,
