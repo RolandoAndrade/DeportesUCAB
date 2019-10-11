@@ -1,6 +1,6 @@
 /*========= Importando hojas de estilo =========*/
 @import url('./bootstrap.min.css');
-
+@import url('cards.css');
 /*============ Fonts */
 @font-face {
     font-family: 'RobotoCondensedLight';
