@@ -48,3 +48,8 @@
     background: #3d3d62;
     border-bottom: solid #FFFFFF;
 }
+
+.inicio-content
+{
+    display: none;
+}

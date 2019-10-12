@@ -43,7 +43,6 @@
     align-items: center;
     padding: 25px;
     background: #5b4e73;
-    opacity: 0.8;
     color: #FFFFFF;
 }
 
@@ -67,7 +66,6 @@
     align-items: center;
     padding: 25px;
     background: #1b4d6b;
-    opacity: 0.8;
     color: #FFFFFF;
     overflow-wrap: break-word;
 }
@@ -94,7 +92,6 @@
     padding: 5px;
     text-align: center;
     background: #433a55;
-    opacity: 0.8;
 }
 
 
@@ -102,17 +99,134 @@
 {
     width: 50%;
     background: #13364b;
-    opacity: 0.8;
     padding: 5px;
     text-align: center;
 }
 
 .note-icon
 {
-    width: ;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: #13364b;
+}
+.note-icon.blue
+{
+    background: #13364b;
+}
+
+.note-icon.red
+{
+    background: #720014;
+}
+
+.note-icon.purple
+{
+    background: #433a55;
+}
+
+.note-icon.yellow
+{
+    background: #4f5526;
 }
 
 .note-more
 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
 
+.card-text
+{
+    text-align: justify;
+}
+
+
+/* SCORE CARDS*/
+.post-card.results
+{
+    flex-wrap: wrap;
+}
+
+.result-title
+{
+    width: 100%;
+    padding: 20px;
+}
+
+.scores-container
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.score-data
+{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+    padding: 15px;
+    border-top: #c5c5c5 solid 1px;
+    border-right: #c5c5c5 solid 1px;
+    justify-content: space-between;
+}
+
+.score-data-team
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+}
+.score-data-team-row
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.data-team
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.data-team-shield
+{
+    width: 20%;
+}
+
+.data-team-shield>img
+{
+    width: 100%;
+    border-radius: 50%;
+}
+
+.data-team-name
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1em;
+}
+
+
+.data-score
+{
+
+}
+
+.score-data-date
+{
+    font-size: 0.8em;
+    padding: 5px;
+    text-align: center;
 }
