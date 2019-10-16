@@ -242,13 +242,41 @@
 
 /*CLASSIFICATION CARDS*/
 
-.classification-board-row
+.classification-table
 {
-    display: flex;
     width: 100%;
 }
 
-.classification-number, .classification-points
+.classification-table td, .classification-table th
 {
-    padding: 10px;
+    text-align: center;
+}
+
+.classification-table th
+{
+    font-weight: lighter;
+    color: #929292;
+}
+
+.classification-table tr
+{
+    border-bottom: solid 1px #e2e2e2;
+}
+
+.classification-team-name
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.classification-team-shield
+{
+    padding: 20px;
+}
+
+.classification-team-shield>img
+{
+    width: 1.5em;
+    border-radius: 50%;
 }
