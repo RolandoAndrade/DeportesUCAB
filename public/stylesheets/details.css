@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: #4a4a77;
+    background: #2196F3;
     color: #FFFFFF;
 }
 .detail-exit
@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: #4a4a77;
+    background: #2196F3;
     color: white;
     font-size: 0.8em;
     box-shadow: 0px 5px 5px -5px #888888;
@@ -39,17 +39,22 @@
 
 .header-detail-option:hover
 {
-    background: #3d3d62;
+    background: #2196F3;
     cursor: pointer;
 }
 
 .header-detail-option.selected
 {
-    background: #3d3d62;
+    background: #1d82d2;
     border-bottom: solid #FFFFFF;
 }
 
 .inicio-content
+{
+    display: none;
+}
+
+.partidos-content
 {
     display: none;
 }

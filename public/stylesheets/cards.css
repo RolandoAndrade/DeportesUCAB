@@ -145,6 +145,7 @@
 
 
 /* SCORE CARDS*/
+
 .post-card.results
 {
     flex-wrap: wrap;
@@ -198,6 +199,7 @@
 {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .data-team-shield
@@ -229,4 +231,24 @@
     font-size: 0.8em;
     padding: 5px;
     text-align: center;
+}
+
+@media (max-width: 800px) {
+    .score-data
+    {
+        width: 100%;
+    }
+}
+
+/*CLASSIFICATION CARDS*/
+
+.classification-board-row
+{
+    display: flex;
+    width: 100%;
+}
+
+.classification-number, .classification-points
+{
+    padding: 10px;
 }
