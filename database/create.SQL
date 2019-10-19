@@ -36,12 +36,12 @@ CREATE TABLE USUARIO(
     apellido VARCHAR(30) NOT NULL,
     correo VARCHAR(30) UNIQUE NOT NULL,
     password VARCHAR(30) NOT NULL,
-    tipo VARCHAR(30) NOT NULL,
     genero VARCHAR(10) NOT NULL,
     cedula VARCHAR(10) NOT NULL,
+    fecha_nac TIMESTAMP NOT NULL,
     imagen VARCHAR(200),
     token VARCHAR(50),
-    fecha_creacion TIMESTAMP,
+
 
     rol_id INTEGER REFERENCES ROL(id_rol) NOT NULL,
     equipo_entrenado_id INTEGER REFERENCES EQUIPO(id_equipo)
@@ -57,6 +57,8 @@ CREATE TABLE HABILIDAD(
 CREATE TABLE ATLETA(
     id_atleta SERIAL PRIMARY KEY,
     estado VARCHAR(10) NOT NULL,
+    fecha_inicio TIMESTAMP NOT NULL,
+    fecha_fin TIMESTAMP,
 
     usuario_id INTEGER REFERENCES USUARIO(id_usuario) NOT NULL,
     equipo_id INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL
@@ -74,6 +76,7 @@ CREATE TABLE ENTRENAMIENTO(
 CREATE TABLE HISTORIAL_ENTRENAMIENTO(
     id_historial_entrenamiento SERIAL PRIMARY KEY,
     puntaje FLOAT,
+
     atleta_id INTEGER REFERENCES ATLETA(id_atleta),
     entrenamiento_id INTEGER REFERENCES ENTRENAMIENTO(id_entrenamiento) NOT NULL
 );
@@ -93,6 +96,7 @@ CREATE TABLE CARACTERISTICA(
     id_caracteristica SERIAL PRIMARY KEY,
     titulo VARCHAR(30) NOT NULL,
     descripcion text NOT NULL,
+    tipo VARCHAR(10) NOT NULL,
 
     competicion_id INTEGER REFERENCES COMPETICION(id_competicion) NOT NULL
 );
@@ -105,19 +109,41 @@ CREATE TABLE EVENTO(
     competicion_id INTEGER REFERENCES COMPETICION(id_competicion) NOT NULL
 );
 
+CREATE TABLE ELIMINATORIA(
+    id_eliminatoria SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+
+    evento_id INTEGER REFERENCES EVENTO(id_evento) NOT NULL
+);
+
+CREATE TABLE CLASIFICACION(
+    id_clasificacion SERIAL PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    puntos_victoria INTEGER NOT NULL,
+    puntos_derrota INTEGER NOT NULL,
+    puntos_empate FLOAT,
+    evento_id INTEGER REFERENCES EVENTO(id_evento) NOT NULL
+);
+
+CREATE TABLE TABLA_CLASIFICACION(
+    id_tabla_clasificacion SERIAL PRIMARY KEY,
+
+    equipo_id INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
+    clasificacion_id INTEGER REFERENCES CLASIFICACION(id_clasificacion) NOT NULL
+);
+
 CREATE TABLE PARTIDO(
     id_partido SERIAL PRIMARY KEY,
     fecha TIMESTAMP NOT NULL,
-    valor_victoria INTEGER NOT NULL,
-    valor_derrota INTEGER NOT NULL,
-    valor_empate INTEGER,
     resultado_local INTEGER,
     resultado_visitante INTEGER,
 
     lugar_id INTEGER REFERENCES LUGAR(id_lugar) NOT NULL,
-    evento_id INTEGER REFERENCES EVENTO(id_evento) NOT NULL,
     equipo_local INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
-    equipo_visitante INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL
+    equipo_visitante INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
+
+    eliminatoria_id INTEGER REFERENCES ELIMINATORIA(id_eliminatoria),
+    clasificacion_id INTEGER REFERENCES CLASIFICACION(id_clasificacion)
 );
 
 CREATE TABLE JUEGO_FUTBOL(
