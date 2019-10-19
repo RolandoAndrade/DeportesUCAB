@@ -94,13 +94,13 @@ $(document).ready(function(){
 (function($){
     $(window).on("load",function(){
         $(".dashboard-sideBar-ct").mCustomScrollbar({
-        	theme:"light-thin",
+        	theme:"dark-thick",
         	scrollbarPosition: "inside",
         	autoHideScrollbar: true,
         	scrollButtons: {enable: true}
         });
         $(".dashboard-contentPage, .Notifications-body").mCustomScrollbar({
-        	theme:"dark-thin",
+        	theme:"dark-thick",
         	scrollbarPosition: "inside",
         	autoHideScrollbar: true,
         	scrollButtons: {enable: true}
