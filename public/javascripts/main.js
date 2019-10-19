@@ -112,11 +112,25 @@ $(document).ready(function(){
 
 function changeViewTo(view)
 {
-	console.log(view.id)
-	$("#inicio-content").hide();
-	$("#partidos-content").hide();
-	$("#clasificacion-content").hide();
-	$("#"+view.id+"-content").show();
+	if(!$("#inicio").hasClass("selected")||view.id!=="inicio")
+	{
+		$('#inicio-content').hide(300);
+		$("#inicio").removeClass("selected");
+	}
+	if(!$("#partidos").hasClass("selected")||view.id!=="partidos")
+	{
+		$('#partidos-content').hide(300);
+		$("#partidos").removeClass("selected");
+	}
+	if(!$("#clasificacion").hasClass("selected")||view.id!=="clasificacion")
+	{
+		$('#clasificacion-content').hide(300);
+		$("#clasificacion").removeClass("selected");
+	}
+
+
+	$("#"+view.id+"-content").show(300);
+	view.classList.add("selected");
 }
 
 
