@@ -51,7 +51,7 @@
 
 .inicio-content
 {
-    display: none;
+
 }
 
 .partidos-content
@@ -59,7 +59,7 @@
     display: none;
 }
 
-.classificacion-content
+.clasificacion-content
 {
-    /*display: none;*/
+    display: none;
 }

@@ -97,13 +97,26 @@ $(document).ready(function(){
         	theme:"dark-thick",
         	scrollbarPosition: "inside",
         	autoHideScrollbar: true,
-        	scrollButtons: {enable: true}
+        	scrollButtons: {enable: true},
+			mouseWheelPixels: 100
         });
         $(".dashboard-contentPage, .Notifications-body").mCustomScrollbar({
         	theme:"dark-thick",
         	scrollbarPosition: "inside",
         	autoHideScrollbar: true,
-        	scrollButtons: {enable: true}
+        	scrollButtons: {enable: true},
+			scrollInertia: 200,
         });
     });
 })(jQuery);
+
+function changeViewTo(view)
+{
+	console.log(view.id)
+	$("#inicio-content").hide();
+	$("#partidos-content").hide();
+	$("#clasificacion-content").hide();
+	$("#"+view.id+"-content").show();
+}
+
+
