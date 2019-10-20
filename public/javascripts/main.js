@@ -135,28 +135,61 @@ function changeViewTo(view)
 	view.classList.add("selected");
 }
 
-let lastPage = undefined;
-let currentSubView = undefined;
-let lastContainerToHide = undefined;
-
 function openDetailsOf(containerToShow, containerToHide, lastTitle, newTitle)
 {
-    $("#"+containerToHide).hide(300);
-    $("#"+containerToShow).show(300);
-    lastPage = lastTitle;
-    window.history.pushState('page2', 'DeportesUCAB', '#'+newTitle);
-    $("#detail-title").html(newTitle);
-    $(".detail-exit").find(".show").removeClass("show");
-    $("#back-icon").addClass("show");
+    window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#detalles?='+newTitle);
+	viewSelection();
+}
+
+function backLevel(all=false)
+{
+	let url = document.location.href;
+	url = all?url.split("#")[0]:url.substring(0,url.lastIndexOf("#"));
+	window.history.pushState('DeportesUCAB', 'DeportesUCAB', url);
 }
 
 function backToLast()
 {
-    if (lastPage)
-    {
-        $("#back-icon").removeClass("show");
-        $("#"+lastPage.toLowerCase()+"-icon").removeClass("show");
-        $("#detail-title").html(lastPage);
-        lastPage = undefined;
-    }
+	backLevel();
+	viewSelection();
 }
+
+function replaceIcon(icon)
+{
+	$(".detail-exit").find(".show").removeClass("show");
+	$("#"+icon).addClass("show");
+}
+
+function showCompetitionDetail()
+{
+	$("#eventos-content").hide(300);
+	$("#competition-detail").show(300);
+	replaceIcon("back-icon");
+	let url = document.location.href;
+	url = decodeURIComponent(url.substring(url.lastIndexOf("?=")+2));
+	$("#detail-title").html(url);
+}
+
+function showInicio()
+{
+	$("#eventos-content").show(300);
+	$("#competition-detail").hide(300);
+	$("#detail-title").html("Inicio");
+	replaceIcon("inicio-icon");
+}
+
+function viewSelection()
+{
+	let url = document.location.href;
+	url = url.substring(url.lastIndexOf("#"));
+	if(url.indexOf("#")===-1)
+	{
+		showInicio();
+	}
+	else if(url.indexOf("#detalles?=")!==-1)
+	{
+		showCompetitionDetail();
+	}
+}
+
+viewSelection();
