@@ -156,9 +156,15 @@ function replaceIcon(icon)
 	$("#"+icon).addClass("show");
 }
 
+function hideAll()
+{
+    $("#eventos-content").hide(300);
+    $("#competition-detail").hide(300);
+}
+
 function showCompetitionDetail()
 {
-	$("#eventos-content").hide(300);
+	hideAll();
 	$("#competition-detail").show(300);
 	replaceIcon("back-icon");
 	let url = document.location.href;
@@ -168,10 +174,18 @@ function showCompetitionDetail()
 
 function showInicio()
 {
+    hideAll();
 	$("#eventos-content").show(300);
-	$("#competition-detail").hide(300);
 	$("#detail-title").html("Inicio");
 	replaceIcon("inicio-icon");
+}
+
+function showCreador()
+{
+    hideAll();
+    $("#creador-content").show(300);
+    $("#detail-title").html("Crear competición");
+    replaceIcon("creador-icon");
 }
 
 function viewSelection()
@@ -180,7 +194,7 @@ function viewSelection()
 	url = url.substring(url.lastIndexOf("#"));
 	if(url.indexOf("#")===-1)
 	{
-		showInicio();
+		showCreador();
 	}
 	else if(url.indexOf("#detalles?=")!==-1)
 	{
@@ -188,7 +202,7 @@ function viewSelection()
 	}
 	else
 	{
-		showInicio();
+        showCreador();
 	}
 }
 
