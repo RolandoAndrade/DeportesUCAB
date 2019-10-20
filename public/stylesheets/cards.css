@@ -398,3 +398,113 @@
     color: #888888;
     margin: 5px;
 }
+
+/*CREATOR*/
+.create-form
+{
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.create-form-title
+{
+    width: 100%;
+    padding: 20px;
+    font-size: 1.5em;
+    color: #555555;
+}
+
+.create-form-content
+{
+    margin: 0 auto;
+    width: 80%;
+}
+.create-content-container
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-container
+{
+    position: relative;
+    width: 100%;
+    margin: 10px;
+}
+
+.create-input
+{
+    color: #424242;
+    width: 100%;
+    background: transparent;
+    border: solid 1px #95929d;
+    border-radius: 5px;
+    font-size: 1em;
+    padding: 10px;
+    transition: 0.5s all;
+}
+
+.create-input:focus
+{
+    outline: none;
+    border: solid 1px #65bdff;
+}
+
+.text-label{
+    color: #888888;
+    position: absolute;
+    pointer-events: none;
+    font-size: 1em;
+    padding: 10px;
+    transition: 0.5s all;
+}
+
+
+.text-label.min
+{
+    height: 10px;
+    font-size: 0.5em;
+}
+
+.gender-selector
+{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.create-gender
+{
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 0.5;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+
+.create-gender.blue
+{
+    background: #4e73df;
+}
+
+.create-gender.red
+{
+    background: #e789cf;
+}
+
+.create-gender.gray
+{
+    background: #858796;
+}
+
+.create-gender:hover
+{
+    opacity: 0.8;
+}

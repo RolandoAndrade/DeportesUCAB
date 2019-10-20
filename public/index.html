@@ -73,7 +73,7 @@
             </li>
             <li>
                 <a href="#!" class="btn-sideBar-SubMenu">
-                    <i class="zmdi zmdi-plus zmdi-hc-fw"></i>Crear competición<i class="zmdi zmdi-caret-down pull-right"></i>
+                    <i class="zmdi zmdi-plus zmdi-hc-fw"></i>Crear competición</i>
                 </a>
             </li>
             <li>
@@ -661,17 +661,45 @@
             </div>
         </div>
         <div id = "creador-content" class="creador-content">
-            <div class="creador-create-form">
+            <div class="post-card create-form">
                 <div class="create-form-title">
                     Datos generales
                 </div>
                 <div class="create-form-content">
                     <div class="create-content-container">
-                        <input type="text" class="create-input" id="crear-titulo-competicion">
+                        <div class="input-container">
+                            <div class="text-label" id="user_label">
+                                Nombre de la competición
+                            </div>
+                            <input type="text" class="create-input" id="crear-titulo-competicion">
+                        </div>
+
                     </div>
                     <div class="create-content-container">
-                        <input type="text" class="create-input fecha-input" id="crear-fecha-inicio-competicion">
-                        <input type="text" class="create-input fecha-input" id="crear-fecha-fin-competicion">
+                        <div class="input-container">
+                            <div class="text-label" id="fecha_inicio_label">
+                                Fecha de inicio
+                            </div>
+                            <input type="text" class="create-input fecha-input" id="crear-fecha-inicio-competicion">
+                        </div>
+                        <div class="input-container">
+                            <div class="text-label" id="fecha_fin_label">
+                                Fecha de fin
+                            </div>
+                            <input type="text" class="create-input fecha-input" id="crear-fecha-fin-competicion">
+                        </div>
+                    </div>
+                    <div class="create-content-container">
+                        <div class="input-container">
+                            <div class="text-label" id="lugar_label">
+                                Lugar de realización
+                            </div>
+                            <input type="text" class="create-input" id="lugar-realizacion">
+                        </div>
+                        <div class="gender-selector">
+                            <div class="create-gender blue"><i class="zmdi zmdi-male-alt"></i></div>
+                            <div class="create-gender red"><i class="zmdi zmdi-female"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
