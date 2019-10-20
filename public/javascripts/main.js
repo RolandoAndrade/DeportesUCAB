@@ -190,6 +190,10 @@ function viewSelection()
 	{
 		showCompetitionDetail();
 	}
+	else
+	{
+		showInicio();
+	}
 }
 
 viewSelection();
