@@ -6,6 +6,8 @@
     align-items: center;
     background: #2196F3;
     color: #FFFFFF;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .detail-exit
 {
@@ -50,7 +52,7 @@
 
 .inicio-content
 {
-
+    display: none;
 }
 
 .partidos-content
@@ -62,3 +64,22 @@
 {
     display: none;
 }
+
+.detail-content
+{
+    display: none;
+}
+.detail-exit i
+{
+    display: none;
+}
+.detail-exit.show
+{
+    display: block;
+}
+
+.competition-detail
+{
+    display: none;
+}
+
