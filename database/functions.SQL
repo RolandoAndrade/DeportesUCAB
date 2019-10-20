@@ -35,3 +35,17 @@ $$ LANGUAGE 'plpgsql';
 
 SELECT * FROM
     mostrarProximasCompeticionesPorDeporte('fútbol','femenino');
+
+CREATE OR REPLACE FUNCTION login(correoP VARCHAR, passwordP VARCHAR)
+    RETURNS TABLE(id INTEGER, token VARCHAR) AS
+$$
+    BEGIN
+        RETURN QUERY
+        SELECT U.id_usuario, U.token
+        FROM USUARIO U
+        WHERE U.correo = correoP AND
+              U.password = passwordP;
+    END;
+$$ LANGUAGE 'plpgsql';
+
+
