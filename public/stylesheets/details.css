@@ -73,3 +73,8 @@
     display: none;
 }
 
+#back-icon
+{
+    cursor: pointer;
+}
+

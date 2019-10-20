@@ -110,6 +110,8 @@ $(document).ready(function(){
     });
 })(jQuery);
 
+
+
 function changeViewTo(view)
 {
 	if(!$("#inicio").hasClass("selected")||view.id!=="inicio")
@@ -133,10 +135,28 @@ function changeViewTo(view)
 	view.classList.add("selected");
 }
 
-function openDetailsOf(containerToShow, containerToHide)
+let lastPage = undefined;
+let currentSubView = undefined;
+let lastContainerToHide = undefined;
+
+function openDetailsOf(containerToShow, containerToHide, lastTitle, newTitle)
 {
-    console.log(containerToShow,containerToHide)
     $("#"+containerToHide).hide(300);
     $("#"+containerToShow).show(300);
+    lastPage = lastTitle;
+    window.history.pushState('page2', 'DeportesUCAB', '#'+newTitle);
+    $("#detail-title").html(newTitle);
+    $(".detail-exit").find(".show").removeClass("show");
+    $("#back-icon").addClass("show");
 }
 
+function backToLast()
+{
+    if (lastPage)
+    {
+        $("#back-icon").removeClass("show");
+        $("#"+lastPage.toLowerCase()+"-icon").removeClass("show");
+        $("#detail-title").html(lastPage);
+        lastPage = undefined;
+    }
+}

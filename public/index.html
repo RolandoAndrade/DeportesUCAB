@@ -140,16 +140,16 @@
     <div class="home">
         <div class="header-detail-title">
             <div class="detail-exit">
-                <i class="zmdi zmdi-view-dashboard show"></i>
-                <i class="zmdi zmdi-arrow-left"></i>
+                <i id ="inicio-icon" class="zmdi zmdi-view-dashboard show"></i>
+                <i id ="back-icon" onclick="backToLast()" class="zmdi zmdi-arrow-left"></i>
             </div>
-            <div class="detail-title">
+            <div id="detail-title" class="detail-title">
                 Inicio
             </div>
 
         </div>
         <div id = "eventos-content" class="eventos-content">
-            <div onclick="openDetailsOf('competition-detail', 'eventos-content')" class="post-card clickeable">
+            <div onclick="openDetailsOf('competition-detail', 'eventos-content', 'Inicio', 'Descripción del torneo')" class="post-card clickeable">
                 <div class="card-preview-image">
                 </div>
                 <div class="card-content">
