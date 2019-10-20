@@ -8,11 +8,17 @@
     overflow: hidden;
     max-width: 700px;
     box-shadow: 0px 0px 15px -5px #888;
+    transition: 0.5s all;
 }
 
 .post-card.clickeable
 {
     cursor: pointer;
+}
+
+.post-card.clickeable:hover
+{
+    opacity: 0.8;
 }
 
 
