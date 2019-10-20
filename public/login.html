@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="s">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>DeportesUCAB | Login</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+	<link rel="stylesheet" href="stylesheets/zmdi/css/material-design-iconic-font.min.css">
+</head>
+<body>
+	<div class="login-box">
+		<div class="login-header">
+			<div class="login-title">
+				Iniciar sesión
+			</div>
+		</div>
+		<div class="login-content">
+			<div class="login-text">
+				<div class="login-text-icon">
+					<i class="zmdi zmdi-account"></i>
+				</div>
+				<div class="text-label" id="user_label">
+					Correo
+				</div>
+				<input type="text" name="" onfocus="splitLabel('user_label')" onfocusout="unSplitLabel('user_label',this)">
+			</div>
+			<div class="login-text">
+				<div class="login-text-icon">
+					<i class="zmdi zmdi-lock"></i>
+				</div>
+				<div class="text-label" id="password_label">
+					Contraseña
+				</div>
+				<input type="password" name="" onfocus="splitLabel('password_label')" onfocusout="unSplitLabel('password_label',this)">
+			</div>
+		</div>
+		<div class="login-footer">
+			<div class="login-button">
+				Iniciar sesión
+			</div>
+			<div class="login-button clear">
+				Registrarse
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function splitLabel(label) 
+		{	
+			let l = document.getElementById(label);
+			l.classList.add("min");
+		}
+		function unSplitLabel(label, input) 
+		{
+			let l = document.getElementById(label);
+			if(input.value.length===0)
+			{
+				l.classList.remove("min");
+			}
+		}
+	</script>
+</body>
+</html>
