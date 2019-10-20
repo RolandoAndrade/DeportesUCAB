@@ -114,22 +114,18 @@ $(document).ready(function(){
 
 function changeViewTo(view)
 {
-	if(!$("#inicio").hasClass("selected")||view.id!=="inicio")
+	if(($("#inicio").hasClass("selected")&&view.id==="inicio")
+        ||($("#partidos").hasClass("selected")&&view.id==="partidos")
+        ||($("#clasificacion").hasClass("selected")&&view.id==="clasificacion"))
 	{
-		$('#inicio-content').hide(300);
-		$("#inicio").removeClass("selected");
-	}
-	if(!$("#partidos").hasClass("selected")||view.id!=="partidos")
-	{
-		$('#partidos-content').hide(300);
-		$("#partidos").removeClass("selected");
-	}
-	if(!$("#clasificacion").hasClass("selected")||view.id!=="clasificacion")
-	{
-		$('#clasificacion-content').hide(300);
-		$("#clasificacion").removeClass("selected");
-	}
+	    return;
 
+	}
+    $('#header-detail').find(".selected").removeClass("selected");
+    $('#inicio-content').hide(300);
+    $('#partidos-content').hide(300);
+    $('#clasificacion-content').hide(300);
+    $('#estadisticas-content').hide(300);
 
 	$("#"+view.id+"-content").show(300);
 	view.classList.add("selected");
