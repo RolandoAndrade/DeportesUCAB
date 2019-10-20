@@ -50,22 +50,12 @@
     border-bottom: solid #FFFFFF;
 }
 
-.inicio-content
-{
-    display: none;
-}
-
 .partidos-content
 {
     display: none;
 }
 
 .clasificacion-content
-{
-    display: none;
-}
-
-.detail-content
 {
     display: none;
 }

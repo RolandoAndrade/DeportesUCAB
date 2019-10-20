@@ -133,4 +133,10 @@ function changeViewTo(view)
 	view.classList.add("selected");
 }
 
+function openDetailsOf(containerToShow, containerToHide)
+{
+    console.log(containerToShow,containerToHide)
+    $("#"+containerToHide).hide(300);
+    $("#"+containerToShow).show(300);
+}
 
