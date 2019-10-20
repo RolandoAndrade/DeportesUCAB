@@ -42,7 +42,7 @@
     justify-content: center;
     align-items: center;
     padding: 25px;
-    background: #5b4e73;
+    background: #1cc88a;
     color: #FFFFFF;
 }
 
@@ -65,7 +65,7 @@
     justify-content: center;
     align-items: center;
     padding: 25px;
-    background: #1b4d6b;
+    background: #4e73df;
     color: #FFFFFF;
     overflow-wrap: break-word;
 }
@@ -91,14 +91,14 @@
     width: 50%;
     padding: 5px;
     text-align: center;
-    background: #433a55;
+    background: #1cba80;
 }
 
 
 .card-place-icon
 {
     width: 50%;
-    background: #13364b;
+    background: #4b6ad2;
     padding: 5px;
     text-align: center;
 }
@@ -108,26 +108,54 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    background: #13364b;
+    background: #4e73df;
 }
 .note-icon.blue
 {
-    background: #13364b;
+    background: #4e73df;
 }
 
 .note-icon.red
 {
-    background: #720014;
+    background: #e74a3b;
 }
 
-.note-icon.purple
+.note-icon.gray
 {
-    background: #433a55;
+    background: #858796;
 }
 
 .note-icon.yellow
 {
-    background: #4f5526;
+    background: #f6c23e;
+}
+.note-icon.green
+{
+    background: #1cc88a;
+}
+
+.card-title.blue
+{
+    color: #4e73df;
+}
+
+.card-title.red
+{
+    color: #e74a3b;
+}
+
+.card-title.gray
+{
+    color: #858796;
+}
+
+.card-title.yellow
+{
+    color: #f6c23e;
+}
+.card-title.green
+{
+    color: #1cc88a;
 }
 
 .note-more
