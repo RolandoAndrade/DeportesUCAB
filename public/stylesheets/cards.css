@@ -357,3 +357,44 @@
     width: 90%;
     border-radius: 50%;
 }
+
+/*STATS CARDS*/
+
+.stats-team-name
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.stats-player-image
+{
+    padding: 20px;
+}
+.stats-player-image img
+{
+    width: 2.5em;
+    border-radius: 50%;
+}
+
+.stats-team-shield img
+{
+    width: 15px;
+    border-radius: 50%;
+}
+
+.stat-group
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sub-team-name
+{
+    font-size: 0.8em;
+    color: #888888;
+    margin: 5px;
+}
