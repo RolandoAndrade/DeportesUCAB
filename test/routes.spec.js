@@ -20,3 +20,19 @@ describe('GET /api/v1/usuarios', function() {
             });
     });
 });
+
+describe('POST /api/v1/login', function() {
+    it('Debe logear al usuario', function(done) {
+
+        chai.request(server)
+            .post('/api/v1/login')
+            .set('content-type', 'application/x-www-form-urlencoded')
+            .send({user: 'rolando@andrade.com',
+                password: '12345678'})
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});

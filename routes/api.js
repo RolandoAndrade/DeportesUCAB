@@ -32,4 +32,24 @@ router.get('/usuarios', function(req, res, next) {
     })
 });
 
+router.post('/login',function (req, res, next)
+{
+    client.query('SELECT * FROM login(${user},${password})',req.body,(err, result)=>{
+        if(err)
+        {
+            res.status(500).json({
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+            res.status(200).json({
+                    status: 'success',
+                    data: result.rows
+                });
+        }
+    })
+});
+
 module.exports = router;
