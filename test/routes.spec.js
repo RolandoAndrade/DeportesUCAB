@@ -35,4 +35,17 @@ describe('POST /api/v1/login', function() {
                 done();
             });
     });
+    it('Error en autenticación', function(done) {
+
+        chai.request(server)
+            .post('/api/v1/login')
+            .set('content-type', 'application/x-www-form-urlencoded')
+            .send({user: 'rolandoandrade',
+                password: '12345678'})
+            .end(function(err, res) {
+                res.should.have.status(401);
+                console.log(res.body)
+                done();
+            });
+    });
 });
