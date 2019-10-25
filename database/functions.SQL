@@ -1,4 +1,3 @@
-DROP FUNCTION mostrarUsuariosPorDeporte;
 CREATE OR REPLACE FUNCTION mostrarUsuariosPorDeporte(Pdeporte VARCHAR, Pgenero VARCHAR)
 RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, correo VARCHAR, cedula VARCHAR) AS
 $$
@@ -14,8 +13,6 @@ BEGIN
                Pgenero IS NULL);
 END;
 $$ LANGUAGE 'plpgsql';
-
-DROP FUNCTION mostrarProximasCompeticionesPorDeporte;
 
 CREATE OR REPLACE FUNCTION mostrarProximasCompeticionesPorDeporte(Pdeporte VARCHAR, Pgenero VARCHAR)
     RETURNS TABLE(id INTEGER, nombre VARCHAR, fecha_inicio TIMESTAMP, fecha_fin TIMESTAMP, imagen VARCHAR, sede VARCHAR) AS
@@ -33,9 +30,6 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-SELECT * FROM
-    mostrarProximasCompeticionesPorDeporte('fútbol','femenino');
-DROP FUNCTION login;
 CREATE OR REPLACE FUNCTION login(correoP VARCHAR, passwordP VARCHAR)
     RETURNS TABLE(id INTEGER) AS
 $$
