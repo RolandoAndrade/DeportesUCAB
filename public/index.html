@@ -667,7 +667,7 @@
                 </div>
                 <div class="create-form-content">
                     <div class="create-content-container">
-                        <div class="input-container">
+                        <div class="input-container" onfocusin="splitLabel(this)" onfocusout="unSplitLabel(this)">
                             <div class="text-label" id="user_label">
                                 Nombre de la competición
                             </div>
@@ -676,13 +676,13 @@
 
                     </div>
                     <div class="create-content-container">
-                        <div class="input-container">
+                        <div class="input-container" onfocusin="splitLabel(this)" onfocusout="unSplitLabel(this)">
                             <div class="text-label" id="fecha_inicio_label">
                                 Fecha de inicio
                             </div>
                             <input type="text" class="create-input fecha-input" id="crear-fecha-inicio-competicion">
                         </div>
-                        <div class="input-container">
+                        <div class="input-container" onfocusin="splitLabel(this)" onfocusout="unSplitLabel(this)">
                             <div class="text-label" id="fecha_fin_label">
                                 Fecha de fin
                             </div>
@@ -690,7 +690,7 @@
                         </div>
                     </div>
                     <div class="create-content-container">
-                        <div class="input-container">
+                        <div class="input-container" onfocusin="splitLabel(this)" onfocusout="unSplitLabel(this)">
                             <div class="text-label" id="lugar_label">
                                 Lugar de realización
                             </div>
@@ -724,7 +724,6 @@
         </div>
     </div>
 </section>
-
 
 <section class="full-box Notifications-area">
     <div class="full-box Notifications-bg btn-Notifications-area"></div>
@@ -787,6 +786,7 @@
 <script src="javascripts/sweetalert2.min.js"></script>
 <script src="materialize/js/materialize.min.js"></script>
 <script src="./javascripts/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="javascripts/cards.js"></script>
 <script src="javascripts/main.js"></script>
 
 <!-----

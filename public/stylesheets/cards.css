@@ -466,6 +466,7 @@
 {
     height: 10px;
     font-size: 0.5em;
+    top: -20px;
 }
 
 .gender-selector
@@ -519,12 +520,12 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: #858796;
+    background: #2196F3;
     transition: 0.5s all;
     cursor: pointer;
 }
 
 .more-button:hover
 {
-    background: #6b6d7b;
+    background: #1a76be;
 }
