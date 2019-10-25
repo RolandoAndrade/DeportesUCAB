@@ -31,7 +31,15 @@ let create = 0;
          '</div>' +
          '</div>' +
          '</div>' +
+         '<div class="more-button-red" onclick="deleteCard(this)">' +
+         '<i class="zmdi zmdi-delete"></i>' +
+         '</div>' +
          '</div>').hide().fadeIn(300);
      create++;
      $('select').formSelect();
+ }
+
+ function deleteCard(container)
+ {
+     $(container).parent().remove();
  }

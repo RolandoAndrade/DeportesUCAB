@@ -574,3 +574,26 @@
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
     border-left: solid 5px #2196F3;
 }
+
+
+
+.more-button-red
+{
+    margin: 20px auto;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #ff6359;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+
+.more-button-red:hover
+{
+    background: #cc4f47;
+}
+
