@@ -5753,7 +5753,7 @@ body.keyboard-focused .dropdown-content li:focus {
   position: fixed;
   left: 0;
   right: 0;
-  background-color: #fafafa;
+  bottom: auto !important;
   padding: 0;
   max-height: 70%;
   width: 55%;
@@ -8722,7 +8722,7 @@ input[type=range]::-ms-thumb {
   -webkit-flex: 1 auto;
       -ms-flex: 1 auto;
           flex: 1 auto;
-  background-color: #26a69a;
+  background-color: #1c82d0;
   color: #fff;
   padding: 20px 22px;
   font-weight: 500;
@@ -8847,6 +8847,7 @@ input[type=range]::-ms-thumb {
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
+    overflow: hidden;
   }
   .datepicker-date-display {
     -webkit-box-flex: 0;
