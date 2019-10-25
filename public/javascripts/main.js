@@ -194,7 +194,7 @@ function viewSelection()
 	url = url.substring(url.lastIndexOf("#"));
 	if(url.indexOf("#")===-1)
 	{
-		showCreador();
+		showInicio();
 	}
 	else if(url.indexOf("#detalles?=")!==-1)
 	{

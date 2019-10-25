@@ -1,8 +1,11 @@
 /*========= Importando hojas de estilo =========*/
+
+@import url('../materialize/css/materialize.css');
 @import url('./bootstrap.min.css');
 @import url('cards.css');
 @import url('details.css');
 @import url('jquery.mCustomScrollbar.css');
+
 /*============ Fonts */
 @font-face {
     font-family: 'RobotoCondensedLight';
