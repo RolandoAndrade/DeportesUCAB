@@ -34,20 +34,35 @@ router.get('/usuarios', function(req, res, next) {
 
 router.post('/login',function (req, res, next)
 {
-    client.query('SELECT * FROM login(${user},${password})',req.body,(err, result)=>{
+    console.log(req.body.user)
+
+    client.query('SELECT * FROM login($1,$2)',[req.body.user,req.body.password],(err, result)=>{
         if(err)
         {
-            res.status(500).json({
-                    status: 'error',
-                    data: err
-                });
+            console.log(err)
+            res.status(500).json(
+            {
+                status: 'error',
+                data: err
+            });
         }
         else
         {
-            res.status(200).json({
+            if(result.rows.length>0)
+            {
+                res.status(200).json({
                     status: 'success',
                     data: result.rows
                 });
+            }
+            else
+            {
+                res.status(401).json({
+                    status: 'error',
+                    data: ["Usuario o contraseña incorrectos"]
+                });
+            }
+
         }
     })
 });

@@ -64,3 +64,6 @@ INSERT INTO EQUIPO VALUES
 (39,'USB','http://fisica.ciens.ucv.ve/svf/Imagenes/USB.png',9),
 (40,'USB','http://fisica.ciens.ucv.ve/svf/Imagenes/USB.png',10);
 
+
+INSERT INTO USUARIO VALUES
+(1,'Rolando','Andrade','rolando@andrade.com','12345678','masculino','26728918','10-12-1998',null,null,1,null);
