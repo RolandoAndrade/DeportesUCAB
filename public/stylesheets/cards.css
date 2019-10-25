@@ -597,3 +597,35 @@
     background: #cc4f47;
 }
 
+.create-equipo-card
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: solid 2px #eeeeee;
+
+}
+
+
+.create-equipo-card-shield img
+{
+    width: 3em;
+    border-radius: 50%;
+}
+
+.create-equipo-card-shield
+{
+    padding: 20px;
+}
+
+.create-equipo-card-teamname
+{
+    padding: 20px;
+}
+
+.more-button-red.team
+{
+    margin: 20px;
+}
