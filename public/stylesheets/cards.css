@@ -553,4 +553,24 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: center;
+}
+
+.input-field .select-wrapper input.select-dropdown:focus
+{
+    border-bottom: solid 1px #65bdff !important;
+    box-shadow: 0 1px 0 0 #65bdff !important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: #65bdff;
+}
+
+.create-caracteristica-card
+{
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px auto;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    border-left: solid 5px #2196F3;
 }

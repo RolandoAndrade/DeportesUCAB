@@ -137,6 +137,8 @@ $(document).ready(function(){
 
 	M.updateTextFields();
 
+	$('select').formSelect();
+
 });
 
 (function($){
