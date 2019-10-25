@@ -668,34 +668,33 @@
                 </div>
                 <div class="create-form-content">
                     <div class="create-content-container">
-                        <div class="input-container" onfocusin="splitLabel(this)" onfocusout="unSplitLabel(this)">
-                            <div class="text-label" id="user_label">
-                                Nombre de la competición
+                        <div class="input-container">
+                            <div class="input-field">
+                                <input id="crear-titulo-competicion" type="text" class="create-input validate">
+                                <label for="crear-titulo-competicion">Nombre de la competición</label>
                             </div>
-                            <input type="text" class="create-input" id="crear-titulo-competicion">
-                        </div>
-
-                    </div>
-                    <div class="create-content-container">
-                        <div class="input-container" onfocusin="splitLabel(this)" onfocusout="unSplitLabel(this)">
-                            <div class="text-label" id="fecha_inicio_label">
-                                Fecha de inicio
-                            </div>
-                            <input type="text" class="create-input fecha-input" id="crear-fecha-inicio-competicion">
-                        </div>
-                        <div class="input-container" onfocusin="splitLabel(this)" onfocusout="unSplitLabel(this)">
-                            <div class="text-label" id="fecha_fin_label">
-                                Fecha de fin
-                            </div>
-                            <input type="text" class="create-input fecha-input" id="crear-fecha-fin-competicion">
                         </div>
                     </div>
                     <div class="create-content-container">
-                        <div class="input-container" onfocusin="splitLabel(this)" onfocusout="unSplitLabel(this)">
-                            <div class="text-label" id="lugar_label">
-                                Lugar de realización
+                        <div class="input-container">
+                            <div class="input-field">
+                                <input id="crear-fecha-inicio-competicion" type="text" class="create-input fecha-input validate">
+                                <label for="crear-fecha-inicio-competicion">Fecha de inicio</label>
                             </div>
-                            <input type="text" class="create-input" id="lugar-realizacion">
+                        </div>
+                        <div class="input-container">
+                            <div class="input-field">
+                                <input id="crear-fecha-fin-competicion" type="text" class="create-input fecha-input validate">
+                                <label for="crear-fecha-fin-competicion">Fecha de fin</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="create-content-container">
+                        <div class="input-container">
+                            <div class="input-field">
+                                <input id="lugar-realizacion" type="text" class="create-input validate">
+                                <label for="lugar-realizacion">Lugar de realización</label>
+                            </div>
                         </div>
                         <div class="gender-selector">
                             <div class="create-gender blue"><i class="zmdi zmdi-male-alt"></i></div>
@@ -795,7 +794,6 @@
 
     </div>
 </section>
-
 
 <!--====== Scripts -->
 <script src="javascripts/jquery.min.js"></script>

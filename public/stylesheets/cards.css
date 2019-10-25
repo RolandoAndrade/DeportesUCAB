@@ -444,7 +444,6 @@
     color: #424242;
     width: 100%;
     background: transparent;
-    border: solid 1px #95929d;
     border-radius: 5px;
     font-size: 1em;
     padding: 10px;
@@ -454,8 +453,22 @@
 .create-input:focus
 {
     outline: none;
-    border: solid 1px #65bdff;
+    border-bottom: solid 1px #65bdff !important;
+    box-shadow: 0 1px 0 0 #65bdff !important;
 }
+
+.input-field .active
+{
+    color: #1c82d0 !important;
+}
+
+.create-input.valid
+{
+    outline: none;
+    border-bottom: solid 1px #1c82d0 !important;
+    box-shadow: 0 1px 0 0 #1c82d0 !important;
+}
+
 
 .text-label{
     color: #888888;
