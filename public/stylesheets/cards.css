@@ -151,25 +151,30 @@
 .card-title.blue
 {
     color: #4e73df;
+    background: none;
 }
 
 .card-title.red
 {
     color: #e74a3b;
+    background: none;
 }
 
 .card-title.gray
 {
     color: #858796;
+    background: none;
 }
 
 .card-title.yellow
 {
     color: #f6c23e;
+    background: none;
 }
 .card-title.green
 {
     color: #1cc88a;
+    background: none;
 }
 
 .note-more
