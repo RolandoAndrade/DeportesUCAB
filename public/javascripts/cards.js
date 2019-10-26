@@ -43,3 +43,22 @@ let create = 0;
  {
      $(container).parent().remove();
  }
+
+function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
+{
+    $("#create-equipos-container").append('<div class="create-equipo-card">\n' +
+        '                        <div class="create-equipo-card-shield">\n' +
+        '                            <img src="'+logo+'" alt="">\n' +
+        '                        </div>\n' +
+        '                        <div class="create-equipo-card-teamname">\n' + name+
+        '                        </div>\n' +
+        '                        <div class="more-button-red team" onclick="deleteTeam(this)">\n' +
+        '                            <i class="zmdi zmdi-delete"></i>\n' +
+        '                        </div>\n' +
+        '                    </div>').hide().fadeIn(300);
+}
+
+function deleteTeam(container)
+{
+    $(container).parent().remove();
+}
