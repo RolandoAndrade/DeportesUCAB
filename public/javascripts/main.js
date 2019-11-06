@@ -181,7 +181,7 @@ function changeViewTo(view)
 	view.classList.add("selected");
 }
 
-function openDetailsOf(newTitle)
+function openDetailsOf(id,newTitle)
 {
     window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#detalles?='+newTitle);
 	viewSelection();
