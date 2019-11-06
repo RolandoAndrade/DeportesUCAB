@@ -181,7 +181,7 @@ function changeViewTo(view)
 	view.classList.add("selected");
 }
 
-function openDetailsOf(containerToShow, containerToHide, lastTitle, newTitle)
+function openDetailsOf(newTitle)
 {
     window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#detalles?='+newTitle);
 	viewSelection();
@@ -223,12 +223,14 @@ function showCompetitionDetail()
 	$("#detail-title").html(url);
 }
 
-function showInicio()
+async function showInicio()
 {
-    hideAll();
+	hideAll();
 	$("#eventos-content").show(300);
 	$("#detail-title").html("Inicio");
 	replaceIcon("inicio-icon");
+	let a = await new EventDAO().getAll();
+	console.log(a);
 }
 
 function showCreador()

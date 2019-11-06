@@ -24,7 +24,7 @@ class EventDAO
 
     async getAll()
     {
-        const request=new GetRequest('../api/v1/events/events');
+        const request=new GetRequest('../api/v1/events');
         return await request.execute();
     }
 }
