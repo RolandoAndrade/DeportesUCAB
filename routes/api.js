@@ -93,4 +93,31 @@ router.get('/teams/sports/:id(\\d+)',function (req, res, next)
     })
 });
 
+
+router.get('/events',function (req, res, next)
+{
+    client.query('SELECT * FROM getEvents()',0,(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+            if(result.rows.length>0)
+            {
+                res.status(200).json({
+                    status: 'success',
+                    data: result.rows
+                });
+
+            }
+        }
+    })
+});
+
 module.exports = router;

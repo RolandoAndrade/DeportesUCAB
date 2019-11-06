@@ -52,3 +52,16 @@ BEGIN
         WHERE deporte_id = deporte;
 END;
 $$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION getEvents()
+    RETURNS TABLE(id INTEGER, nombre VARCHAR, fecha TIMESTAMP, imagen VARCHAR, lugar VARCHAR) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT C.id_competicion, C.nombre, C.fecha_inicio, C.imagen, L.nombre
+        FROM COMPETICION C, LUGAR L
+        WHERE C.lugar_id = L.id_lugar ORDER BY fecha_inicio DESC;
+END;
+$$ LANGUAGE 'plpgsql';
+

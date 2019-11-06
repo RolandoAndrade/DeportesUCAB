@@ -62,3 +62,16 @@ describe('GET /api/v1/teams/sports/:id', function() {
             });
     });
 });
+
+describe('GET /api/v1/events', function() {
+    it('Debe retornar todos los eventos', function(done) {
+
+        chai.request(server)
+            .get('/api/v1/events')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
