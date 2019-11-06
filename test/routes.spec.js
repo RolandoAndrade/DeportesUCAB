@@ -49,3 +49,16 @@ describe('POST /api/v1/login', function() {
             });
     });
 });
+
+describe('GET /api/v1/teams/sports/:id', function() {
+    it('Debe retornar todos los equipos pertenecientes a un deporte', function(done) {
+
+        chai.request(server)
+            .get('/api/v1/teams/sports/1')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});

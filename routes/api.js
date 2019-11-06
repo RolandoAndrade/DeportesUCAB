@@ -34,8 +34,6 @@ router.get('/usuarios', function(req, res, next) {
 
 router.post('/login',function (req, res, next)
 {
-    console.log(req.body.user)
-
     client.query('SELECT * FROM login($1,$2)',[req.body.user,req.body.password],(err, result)=>{
         if(err)
         {
@@ -65,6 +63,32 @@ router.post('/login',function (req, res, next)
                 });
             }
 
+        }
+    })
+});
+
+router.get('/teams/sports/:id(\\d+)',function (req, res, next)
+{
+    client.query('SELECT * FROM getteamsbydeporte($1)',[req.params.id],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+            if(result.rows.length>0)
+            {
+                res.status(200).json({
+                    status: 'success',
+                    data: result.rows
+                });
+
+            }
         }
     })
 });

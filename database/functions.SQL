@@ -42,4 +42,13 @@ $$
     END;
 $$ LANGUAGE 'plpgsql';
 
-
+CREATE OR REPLACE FUNCTION getTeamsByDeporte(deporte INTEGER)
+    RETURNS TABLE(id INTEGER, nombre VARCHAR, escudo VARCHAR) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT T.id_equipo, T.nombre, T.escudo
+        FROM equipo T
+        WHERE deporte_id = deporte;
+END;
+$$ LANGUAGE 'plpgsql';
