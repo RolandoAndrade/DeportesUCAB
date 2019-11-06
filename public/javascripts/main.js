@@ -210,6 +210,7 @@ function hideAll()
 {
     $("#eventos-content").hide(300);
     $("#competition-detail").hide(300);
+	$("#creador-content").hide(300);
 }
 
 function showCompetitionDetail()
@@ -244,15 +245,19 @@ function viewSelection()
 	url = url.substring(url.lastIndexOf("#"));
 	if(url.indexOf("#")===-1)
 	{
-		showCreador();
+		showInicio();
 	}
 	else if(url.indexOf("#detalles?=")!==-1)
 	{
 		showCompetitionDetail();
 	}
+	else if(url.indexOf("#crear-competicion")!==-1)
+	{
+		showCreador();
+	}
 	else
 	{
-        showCreador();
+        showInicio();
 	}
 }
 
