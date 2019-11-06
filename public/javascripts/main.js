@@ -230,7 +230,7 @@ async function showInicio()
 	$("#detail-title").html("Inicio");
 	replaceIcon("inicio-icon");
 	let a = await new EventDAO().getAll();
-	console.log(a);
+	addEvents(a.data);
 }
 
 function showCreador()

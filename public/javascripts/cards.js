@@ -49,15 +49,15 @@ function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
     let s = "";
     for(let i = 0;i<5;i++)
     {
-        s+='<div class="create-equipo-card">\n' +
-            '<div class="create-equipo-card-shield">\n' +
-            '<img src="'+logo+'" alt="">\n' +
-            '</div>\n' +
-            '<div class="create-equipo-card-teamname">\n' + name+
-            '</div>\n' +
-            '<div class="more-button-green team" onclick="addTeamFromModal(name, logo)">\n' +
-            '<i class="zmdi zmdi-check"></i>\n' +
-            '</div>\n' +
+        s+='<div class="create-equipo-card">' +
+            '<div class="create-equipo-card-shield">' +
+            '<img src="'+logo+'" alt="">' +
+            '</div>' +
+            '<div class="create-equipo-card-teamname">' + name+
+            '</div>' +
+            '<div class="more-button-green team" onclick="addTeamFromModal(name, logo)">' +
+            '<i class="zmdi zmdi-check"></i>' +
+            '</div>' +
             '</div>';
     }
 
@@ -82,19 +82,62 @@ function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
 function addTeamFromModal(name,logo)
 {
     console.log("Modal",name,logo)
-    $("#create-equipos-container").append('<div class="create-equipo-card">\n' +
-        '<div class="create-equipo-card-shield">\n' +
-        '<img src="'+logo+'" alt="">\n' +
-        '</div>\n' +
-        '<div class="create-equipo-card-teamname">\n' + name+
-        '</div>\n' +
-        '<div class="more-button-red team" onclick="deleteTeam(this)">\n' +
-        '<i class="zmdi zmdi-delete"></i>\n' +
-        '</div>\n' +
+    $("#create-equipos-container").append('<div class="create-equipo-card">' +
+        '<div class="create-equipo-card-shield">' +
+        '<img src="'+logo+'" alt="">' +
+        '</div>' +
+        '<div class="create-equipo-card-teamname">' + name+
+        '</div>' +
+        '<div class="more-button-red team" onclick="deleteTeam(this)">' +
+        '<i class="zmdi zmdi-delete"></i>' +
+        '</div>' +
         '</div>').hide().fadeIn(300);
 }
 
 function deleteTeam(container)
 {
     $(container).parent().remove();
+}
+
+function addEvents(events)
+{
+    console.log(events)
+    let s="";
+    const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+    events.forEach((i)=>
+    {
+        let fecha = new Date(i.fecha);
+        let axf = (fecha.getDay()+1)+" de "+months[fecha.getMonth()];
+         s += '            <div onclick="openDetailsOf('+i.id+","+i.nombre+')" class="post-card clickeable">' +
+            '                <div class="card-preview-image" ' +
+             'style="background: url('+"'"+i.imagen+"'"+') center;">' +
+            '                </div>' +
+            '                <div class="card-content">' +
+            '                    <div class="card-title">' +
+                                    i.nombre+
+            '                    </div>' +
+            '                    <div class="card-data">' +
+            '                        <div class="card-date-icon">' +
+            '                            <div class="card-icon"><i class="zmdi zmdi-calendar"></i></div>' +
+            '                        </div>' +
+            '                        <div class="card-place-icon">' +
+            '                            <div class="card-icon">' +
+            '                                <i class="zmdi zmdi-pin"></i>' +
+            '                            </div>' +
+            '                        </div>' +
+            '                        <div class="card-date">' +
+            '                            <div class="card-fulldate">'+axf+'</div>' +
+            '                        </div>' +
+            '                        <div class="card-place">' +
+            '                            <div class="location">' +
+                                            i.lugar+
+            '                            </div>' +
+            '                        </div>' +
+            '                    </div>' +
+            '' +
+            '                </div>' +
+            '            </div>'
+    });
+    $("#eventos-content").empty();
+    $("#eventos-content").append(s);
 }
