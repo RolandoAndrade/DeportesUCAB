@@ -2,7 +2,7 @@
 
 CREATE TABLE LUGAR(
     id_lugar SERIAL PRIMARY KEY,
-    nombre VARCHAR(30) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
     tipo VARCHAR(10) NOT NULL,
     longitud DOUBLE PRECISION,
     latitud DOUBLE PRECISION,
@@ -12,19 +12,19 @@ CREATE TABLE LUGAR(
 
 CREATE TABLE ROL(
     id_rol SERIAL PRIMARY KEY,
-    nombre VARCHAR(30) UNIQUE NOT NULL,
+    nombre VARCHAR(50) UNIQUE NOT NULL,
     descripcion text
 );
 
 CREATE TABLE DEPORTE(
     id_deporte SERIAL PRIMARY KEY,
-    nombre VARCHAR(30),
+    nombre VARCHAR(50),
     genero VARCHAR(10)
 );
 
 CREATE TABLE EQUIPO(
     id_equipo SERIAL PRIMARY KEY,
-    nombre VARCHAR(30),
+    nombre VARCHAR(50),
     escudo VARCHAR(200),
 
     deporte_id INTEGER REFERENCES DEPORTE(id_deporte) NOT NULL
@@ -32,10 +32,10 @@ CREATE TABLE EQUIPO(
 
 CREATE TABLE USUARIO(
     id_usuario SERIAL PRIMARY KEY,
-    nombre VARCHAR(30) NOT NULL,
-    apellido VARCHAR(30) NOT NULL,
-    correo VARCHAR(30) UNIQUE NOT NULL,
-    password VARCHAR(30) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    correo VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(50) NOT NULL,
     genero VARCHAR(10) NOT NULL,
     cedula VARCHAR(10) NOT NULL,
     fecha_nac TIMESTAMP NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE HISTORIAL_ENTRENAMIENTO(
 
 CREATE TABLE COMPETICION(
     id_competicion SERIAL PRIMARY KEY,
-    nombre VARCHAR(30) NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
     fecha_inicio TIMESTAMP NOT NULL,
     fecha_fin TIMESTAMP NOT NULL,
     imagen VARCHAR(200),
@@ -94,7 +94,7 @@ CREATE TABLE COMPETICION(
 
 CREATE TABLE CARACTERISTICA(
     id_caracteristica SERIAL PRIMARY KEY,
-    titulo VARCHAR(30) NOT NULL,
+    titulo VARCHAR(50) NOT NULL,
     descripcion text NOT NULL,
     tipo VARCHAR(10) NOT NULL,
 
@@ -204,7 +204,7 @@ CREATE TABLE JUEGO_RUGBY(
 
 CREATE TABLE JUEGO_BEISBOL(
     id_juego_beisbol SERIAL PRIMARY KEY,
-    posicion VARCHAR(30) NOT NULL,
+    posicion VARCHAR(50) NOT NULL,
     bateos INTEGER,
     jonrores INTEGER,
     carreras INTEGER,

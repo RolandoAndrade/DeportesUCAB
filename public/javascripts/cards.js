@@ -55,11 +55,12 @@ function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
             '</div>\n' +
             '<div class="create-equipo-card-teamname">\n' + name+
             '</div>\n' +
-            '<div class="more-button-green team" onclick="">\n' +
+            '<div class="more-button-green team" onclick="addTeamFromModal(name, logo)">\n' +
             '<i class="zmdi zmdi-check"></i>\n' +
             '</div>\n' +
             '</div>';
     }
+
     swal({
         title: 'Selecciona los equipos',
         confirmButtonText: '<i class="zmdi zmdi-check"></i>  Ok',
@@ -73,6 +74,14 @@ function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
             'success'
         )
     });
+
+
+
+}
+
+function addTeamFromModal(name,logo)
+{
+    console.log("Modal",name,logo)
     $("#create-equipos-container").append('<div class="create-equipo-card">\n' +
         '<div class="create-equipo-card-shield">\n' +
         '<img src="'+logo+'" alt="">\n' +
