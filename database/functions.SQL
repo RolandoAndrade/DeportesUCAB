@@ -65,3 +65,13 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION getEventCaracteristica(eventId INTEGER)
+    RETURNS TABLE(titulo VARCHAR, descripcion TEXT, tipo VARCHAR) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT D.titulo, D.descripcion, D.tipo
+        FROM COMPETICION C, CARACTERISTICA D
+        WHERE C.id_competicion = D.competicion_id AND eventId = C.id_competicion;
+END;
+$$ LANGUAGE 'plpgsql';

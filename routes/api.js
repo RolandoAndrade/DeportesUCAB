@@ -120,4 +120,30 @@ router.get('/events',function (req, res, next)
     })
 });
 
+router.get('/events/:id(\\d+)/caracteristicas',function (req, res, next)
+{
+    client.query('SELECT * FROM getEventCaracteristica($1)',[req.params.id],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+            if(result.rows.length>0)
+            {
+                res.status(200).json({
+                    status: 'success',
+                    data: result.rows
+                });
+
+            }
+        }
+    })
+});
+
 module.exports = router;
