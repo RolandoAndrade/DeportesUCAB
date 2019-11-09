@@ -102,11 +102,9 @@ function deleteTeam(container)
 function addEvents(events)
 {
     let s="";
-    const months = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
     events.forEach((i)=>
     {
-        let fecha = new Date(i.fecha);
-        let axf = (fecha.getDay()+1)+" de "+months[fecha.getMonth()];
+        let fecha = dateSimple(new Date(i.fecha));
          s += "           <div onclick='openDetailsOf("+JSON.stringify(i)+")'"+' class="post-card clickeable">' +
             '                <div class="card-preview-image" ' +
              'style="background: url('+"'"+i.imagen+"'"+') center;">' +
@@ -125,7 +123,7 @@ function addEvents(events)
             '                            </div>' +
             '                        </div>' +
             '                        <div class="card-date">' +
-            '                            <div class="card-fulldate">'+axf+'</div>' +
+            '                            <div class="card-fulldate">'+fecha+'</div>' +
             '                        </div>' +
             '                        <div class="card-place">' +
             '                            <div class="location">' +
