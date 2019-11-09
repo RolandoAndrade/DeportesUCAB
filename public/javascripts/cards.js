@@ -107,7 +107,7 @@ function addEvents(events)
     {
         let fecha = new Date(i.fecha);
         let axf = (fecha.getDay()+1)+" de "+months[fecha.getMonth()];
-         s += '            <div onclick="openDetailsOf('+i.id+",'"+i.nombre+"'"+')" class="post-card clickeable">' +
+         s += "           <div onclick='openDetailsOf("+JSON.stringify(i)+")'"+' class="post-card clickeable">' +
             '                <div class="card-preview-image" ' +
              'style="background: url('+"'"+i.imagen+"'"+') center;">' +
             '                </div>' +

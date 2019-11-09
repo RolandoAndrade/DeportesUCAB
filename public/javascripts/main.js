@@ -181,17 +181,16 @@ function changeViewTo(view)
 	view.classList.add("selected");
 }
 
-function openDetailsOf(id,newTitle)
-{
-    window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#detalles?='+newTitle);
-	viewSelection();
-}
 
 function backLevel(all=false)
 {
 	let url = document.location.href;
 	url = all?url.split("#")[0]:url.substring(0,url.lastIndexOf("#"));
 	window.history.pushState('DeportesUCAB', 'DeportesUCAB', url);
+	if(all)
+	{
+		showInicio()
+	}
 }
 
 function backToLast()
@@ -213,15 +212,7 @@ function hideAll()
 	$("#creador-content").hide(300);
 }
 
-function showCompetitionDetail()
-{
-	hideAll();
-	$("#competition-detail").show(300);
-	replaceIcon("back-icon");
-	let url = document.location.href;
-	url = decodeURIComponent(url.substring(url.lastIndexOf("?=")+2));
-	$("#detail-title").html(url);
-}
+
 
 async function showInicio()
 {
@@ -241,7 +232,7 @@ function showCreador()
     replaceIcon("creador-icon");
 }
 
-function viewSelection()
+function viewSelection(auxiliar)
 {
 	let url = document.location.href;
 	url = url.substring(url.lastIndexOf("#"));
@@ -251,7 +242,7 @@ function viewSelection()
 	}
 	else if(url.indexOf("#detalles?=")!==-1)
 	{
-		showCompetitionDetail();
+		showCompetitionDetail(auxiliar);
 	}
 	else if(url.indexOf("#crear-competicion")!==-1)
 	{
