@@ -210,6 +210,7 @@ function hideAll()
     $("#eventos-content").hide(300);
     $("#competition-detail").hide(300);
 	$("#creador-content").hide(300);
+    $("#creador-partidos-content").hide(300);
 }
 
 
@@ -229,6 +230,14 @@ function showCreador()
     hideAll();
     $("#creador-content").show(300);
     $("#detail-title").html("Crear competición");
+    replaceIcon("creador-icon");
+}
+
+function showCrearPartidos()
+{
+    hideAll();
+    $("#creador-partidos-content").show(300);
+    $("#detail-title").html("Crear partido");
     replaceIcon("creador-icon");
 }
 
