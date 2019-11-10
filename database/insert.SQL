@@ -43,6 +43,23 @@ INSERT INTO CARACTERISTICA VALUES
 (1,'Restricciones', 'Este torneo estará disponible para hombres de 16 a 25 años que cursen en alguna de las universidades indicadas a continuación','pregunta',1),
 (2,'Equipos', 'Los equipos los conforman las Universidades más prestigiosas del país. UCAB, UCV, USB y la Unimet de invitada','info',1),
 (3,'Tiempo', 'Los partidos se jugarán en 90 minutos sin prórroga','tiempo',1),
-(4,'Fechas', 'Los partidos se jugarán cada fin de semana a partir del 1 de Septiembre','fecha',1);
+(4,'Fechas', 'Los partidos se jugarán cada fin de semana a partir del 1 de Septiembre','fecha',1),
+(5,'Restricciones', 'Este torneo estará disponible para mujeres de 16 a 25 años que cursen en alguna de las universidades indicadas a continuación','pregunta',2),
+(6,'Equipos', 'Los equipos los conforman las Universidades más prestigiosas del país. UCAB, UCV, USB y la Unimet de invitada','info',2),
+(7,'Tiempo', 'Los partidos se jugarán en 90 minutos sin prórroga','tiempo',2),
+(8,'Fechas', 'Los partidos se jugarán cada fin de semana a partir del 1 de Septiembre','fecha',2);
+
+INSERT INTO EVENTO VALUES
+(1,'progreso',1,1),
+(2,'progreso',2,2);
+
+INSERT INTO ELIMINATORIA VALUES
+(1, 'SEMIFINAL',1),
+(2, 'SEMIFINAL',1);
+
+INSERT INTO CLASIFICACION VALUES
+(1,'GRUPO A',3,0,1,1),
+(2,'GRUPO A',3,0,1,2);
+
 
 
