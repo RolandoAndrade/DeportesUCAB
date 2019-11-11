@@ -98,5 +98,3 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
-
-select * from getPartidos(1);

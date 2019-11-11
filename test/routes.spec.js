@@ -88,3 +88,16 @@ describe('GET /api/v1/events/:id/caracteristicas', function() {
             });
     });
 });
+
+describe('GET /api/v1/events/:id/partidos', function() {
+    it('Debe retornar las caracteristicas del evento', function(done) {
+
+        chai.request(server)
+            .get('/api/v1/events/1/partidos')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
