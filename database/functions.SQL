@@ -75,3 +75,28 @@ BEGIN
         WHERE C.id_competicion = D.competicion_id AND eventId = C.id_competicion;
 END;
 $$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION getPartidos(competicionID INTEGER)
+    RETURNS TABLE(id INTEGER, fecha TIMESTAMP, resultado_local INTEGER, resultado_visitante INTEGER,
+                  lugar VARCHAR, local VARCHAR, visitante VARCHAR, clasificacion VARCHAR, eliminatoria VARCHAR) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT E.id_partido, E.fecha, E.resultado_local, E.resultado_visitante, I.nombre, J.nombre, K.nombre, C.nombre, D.nombre
+        FROM EVENTO B, CLASIFICACION C RIGHT JOIN PARTIDO E ON E.clasificacion_id = C.id_clasificacion LEFT JOIN
+            ELIMINATORIA D ON E.eliminatoria_id = D.id_eliminatoria,  LUGAR I, EQUIPO J, EQUIPO K
+        WHERE (E.eliminatoria_id = D.id_eliminatoria AND
+               D.evento_id = B.id_evento AND
+               B.competicion_id = competicionID) OR (
+               E.clasificacion_id = C.id_clasificacion AND
+               C.evento_id = B.id_evento AND
+               B.competicion_id = competicionID) AND
+               E.lugar_id = I.id_lugar AND
+               E.equipo_local = J.id_equipo AND
+               E.equipo_visitante = K.id_equipo;
+
+END;
+$$ LANGUAGE 'plpgsql';
+
+select * from getPartidos(1);
