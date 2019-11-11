@@ -134,8 +134,13 @@ CREATE TABLE TABLA_CLASIFICACION(
 
 CREATE TABLE PARTIDO(
     id_partido SERIAL PRIMARY KEY,
+
+    nombre VARCHAR(50) NOT NULL,
+
     fecha TIMESTAMP NOT NULL,
+
     resultado_local INTEGER,
+
     resultado_visitante INTEGER,
 
     lugar_id INTEGER REFERENCES LUGAR(id_lugar) NOT NULL,
