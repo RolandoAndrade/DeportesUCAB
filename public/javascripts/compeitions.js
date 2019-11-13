@@ -48,6 +48,60 @@ function addDetailDescription(data,i)
         '                </div>'
     $(".caracteristicas-content").append(s);
 }
+function addJornada(jornada)
+{
+    console.log(jornada);
+    let q = "";
+    jornada.forEach((i)=>{
+        g+=addMatch(i);
+    })
+    let s = '<div class="post-card results">\n' +
+        '         <div class="result-title">\n' +
+                        jornada[0].partido_nombre+
+        '         </div>\n'+
+                g+
+        '    </div>';
+    $(".partidos-content").append(s);
+}
+
+function addMatch(data)
+{
+    let local = data.local;
+    let visitante = data.visitante;
+    let s = '<div class="score-data">\n' +
+        '                            <div class="score-data-team">\n' +
+        '                                <div class="score-data-team-row">\n' +
+        '                                    <div class="data-team">\n' +
+        '                                        <div class="data-team-shield">\n' +
+        '                                            <img src="images/pic09.jpg" alt="">\n' +
+        '                                        </div>\n' +
+        '                                        <div class="data-team-name">\n' +
+                                                        local+
+        '                                        </div>\n' +
+        '                                    </div>\n' +
+        '                                    <div class="data-score">0</div>\n' +
+        '                                </div>\n' +
+        '                                <div class="score-data-team-row">\n' +
+        '                                    <div class="data-team">\n' +
+        '                                        <div class="data-team-shield">\n' +
+        '                                            <img src="images/pic09.jpg" alt="">\n' +
+        '                                        </div>\n' +
+        '                                        <div class="data-team-name">\n' +
+                                                        visitante+
+        '                                        </div>\n' +
+        '                                    </div>\n' +
+        '                                    <div class="data-score">0</div>\n' +
+        '                                </div>\n' +
+        '                            </div>\n' +
+        '                            <div class="score-data-date">\n' +
+        '                                <div class="data-date">\n' +
+        '                                    31/10\n' +
+        '                                </div>\n' +
+        '                            </div>\n' +
+        '                        </div>'
+    return s;
+}
+
 
 async function retrieveDetails(event)
 {
@@ -67,7 +121,7 @@ function groupMatches(matches)
             r[i.nombre_partido].push(i);
         else
             r[i.nombre_partido]=[i];
-    })
+    });
     return r;
 }
 
@@ -75,6 +129,6 @@ async function retrieveMatches(event)
 {
     $(".partidos-content").empty();
     let partidos = await new GetRequest("/api/v1/events/"+event.id+"/partidos").execute();
-
-    console.log(groupMatches(partidos.data));
+    groupMatches(partidos.data).forEach((i)=>addJornada(i));
+    console.log();
 }
