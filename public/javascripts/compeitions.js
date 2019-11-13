@@ -51,15 +51,15 @@ function addDetailDescription(data,i)
 function addJornada(jornada)
 {
     console.log(jornada);
-    let q = "";
+    let aaa = "";
     jornada.forEach((i)=>{
-        g+=addMatch(i);
+        aaa+=addMatch(i);
     })
     let s = '<div class="post-card results">\n' +
         '         <div class="result-title">\n' +
-                        jornada[0].partido_nombre+
+                        jornada[0].nombre_partido+
         '         </div>\n'+
-                g+
+                aaa+
         '    </div>';
     $(".partidos-content").append(s);
 }
@@ -68,29 +68,33 @@ function addMatch(data)
 {
     let local = data.local;
     let visitante = data.visitante;
+    let rlocal = data.resultado_local;
+    let rvisitante = data.resultado_visitante;
+    let escudo_local = data.escudo_local;
+    let escudo_visitante = data.escudo_visitante;
     let s = '<div class="score-data">\n' +
         '                            <div class="score-data-team">\n' +
         '                                <div class="score-data-team-row">\n' +
         '                                    <div class="data-team">\n' +
         '                                        <div class="data-team-shield">\n' +
-        '                                            <img src="images/pic09.jpg" alt="">\n' +
+        '                                            <img src="'+escudo_local+'" alt="">\n' +
         '                                        </div>\n' +
         '                                        <div class="data-team-name">\n' +
                                                         local+
         '                                        </div>\n' +
         '                                    </div>\n' +
-        '                                    <div class="data-score">0</div>\n' +
+        '                                    <div class="data-score">'+rlocal+'</div>\n' +
         '                                </div>\n' +
         '                                <div class="score-data-team-row">\n' +
         '                                    <div class="data-team">\n' +
         '                                        <div class="data-team-shield">\n' +
-        '                                            <img src="images/pic09.jpg" alt="">\n' +
+        '                                            <img src="'+escudo_visitante+'" alt="">\n' +
         '                                        </div>\n' +
         '                                        <div class="data-team-name">\n' +
                                                         visitante+
         '                                        </div>\n' +
         '                                    </div>\n' +
-        '                                    <div class="data-score">0</div>\n' +
+        '                                    <div class="data-score">'+rvisitante+'</div>\n' +
         '                                </div>\n' +
         '                            </div>\n' +
         '                            <div class="score-data-date">\n' +
@@ -129,6 +133,11 @@ async function retrieveMatches(event)
 {
     $(".partidos-content").empty();
     let partidos = await new GetRequest("/api/v1/events/"+event.id+"/partidos").execute();
-    groupMatches(partidos.data).forEach((i)=>addJornada(i));
-    console.log();
+    partidos = groupMatches(partidos.data);
+    console.log(partidos);
+    for(let i in partidos)
+    {
+        addJornada(partidos[i]);
+    }
+
 }
