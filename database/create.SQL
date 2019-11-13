@@ -147,6 +147,8 @@ CREATE TABLE PARTIDO(
     equipo_local INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
     equipo_visitante INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
 
+    estado VARCHAR(10) NOT NULL,
+
     eliminatoria_id INTEGER REFERENCES ELIMINATORIA(id_eliminatoria),
     clasificacion_id INTEGER REFERENCES CLASIFICACION(id_clasificacion)
 );

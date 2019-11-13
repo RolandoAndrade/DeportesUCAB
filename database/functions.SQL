@@ -80,12 +80,12 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION getPartidos(competicionID INTEGER)
     RETURNS TABLE(id INTEGER, fecha TIMESTAMP, resultado_local INTEGER, resultado_visitante INTEGER,
                   lugar VARCHAR, local VARCHAR, visitante VARCHAR, clasificacion VARCHAR, eliminatoria VARCHAR,
-                   escudo_local VARCHAR, escudo_visitante VARCHAR, nombre_partido VARCHAR) AS
+                   escudo_local VARCHAR, escudo_visitante VARCHAR, nombre_partido VARCHAR, estado VARCHAR) AS
 $$
 BEGIN
     RETURN QUERY
         SELECT E.id_partido, E.fecha, E.resultado_local, E.resultado_visitante, I.nombre,
-               J.nombre, K.nombre, C.nombre, D.nombre, J.escudo, K.escudo, E.nombre
+               J.nombre, K.nombre, C.nombre, D.nombre, J.escudo, K.escudo, E.nombre, E.estado
         FROM EVENTO B, CLASIFICACION C RIGHT JOIN PARTIDO E ON E.clasificacion_id = C.id_clasificacion LEFT JOIN
             ELIMINATORIA D ON E.eliminatoria_id = D.id_eliminatoria,  LUGAR I, EQUIPO J, EQUIPO K
         WHERE (E.eliminatoria_id = D.id_eliminatoria AND

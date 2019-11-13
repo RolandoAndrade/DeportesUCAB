@@ -24,3 +24,4 @@ DROP TABLE BANDEJA_ENTRADA CASCADE;
 DROP FUNCTION mostrarUsuariosPorDeporte;
 DROP FUNCTION mostrarProximasCompeticionesPorDeporte;
 DROP FUNCTION login;
+DROP FUNCTION getPartidos;
