@@ -17,6 +17,7 @@ function showCompetitionDetail(event)
         $("#event-card-content-detail").find(".card-place").html(event.lugar);
         $("#event-card-content-detail").find(".card-preview-image").css({"background": "url("+event.imagen+") center"});
         retrieveDetails(event);
+        retrieveMatches(event);
     }
     else
     {
@@ -53,6 +54,27 @@ async function retrieveDetails(event)
     $(".caracteristicas-content").empty();
     let caracteristicas = await new GetRequest("/api/v1/events/"+event.id+"/caracteristicas").execute();
     let k = 0;
-    console.log(caracteristicas)
     caracteristicas.data.forEach((i)=>addDetailDescription(i,k++));
+}
+
+
+function groupMatches(matches)
+{
+    let r = {};
+    matches.forEach((i)=>
+    {
+        if(r[i.nombre_partido])
+            r[i.nombre_partido].push(i);
+        else
+            r[i.nombre_partido]=[i];
+    })
+    return r;
+}
+
+async function retrieveMatches(event)
+{
+    $(".partidos-content").empty();
+    let partidos = await new GetRequest("/api/v1/events/"+event.id+"/partidos").execute();
+
+    console.log(groupMatches(partidos.data));
 }
