@@ -114,3 +114,16 @@ describe('GET /api/v1/events/:id/clasifiacion', function() {
             });
     });
 });
+
+describe('GET /api/v1/events/:id/eliminatoria', function() {
+    it('Retorna las eliminatorias del torneo', function(done) {
+
+        chai.request(server)
+            .get('/api/v1/events/1/eliminatoria')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
