@@ -161,22 +161,36 @@ $$ LANGUAGE 'plpgsql';
 CREATE OR REPLACE FUNCTION getGolesAFavor(equipoid INTEGER, clasificacionid INTEGER) RETURNS INTEGER AS
 $$
 BEGIN
-    RETURN (SELECT SUM(COALESCE(resultado_local,0))
+    RETURN COALESCE((SELECT SUM(resultado_local)
             FROM partido
-            WHERE (equipo_local = equipoid)
-            AND clasificacion_id = clasificacionid
-            AND estado != 'pendiente')+
-           (SELECT SUM(COALESCE(resultado_visitante,0))
-            FROM partido
-            WHERE (equipo_visitante = equipoid)
-            AND clasificacion_id = clasificacionid
-            AND estado != 'pendiente');
+            WHERE equipo_local = equipoid
+            AND clasificacion_id = clasificacionid),0)+
+           COALESCE((SELECT SUM(resultado_visitante)
+                     FROM partido
+                     WHERE equipo_visitante = equipoid
+                       AND clasificacion_id = clasificacionid),0);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getGolesEnContra(equipoid INTEGER, clasificacionid INTEGER) RETURNS INTEGER AS
+$$
+BEGIN
+    RETURN COALESCE((SELECT SUM(resultado_visitante)
+                     FROM partido
+                     WHERE equipo_local = equipoid
+                       AND clasificacion_id = clasificacionid),0)+
+           COALESCE((SELECT SUM(resultado_local)
+                     FROM partido
+                     WHERE equipo_visitante = equipoid
+                       AND clasificacion_id = clasificacionid),0);
 END;
 $$ LANGUAGE 'plpgsql';
 
 
 select getPartidosJugados(id_equipo,clasificacion_id), getPartidosGanados(id_equipo,clasificacion_id),
        getPartidosEmpatados(id_equipo,clasificacion_id), getPartidosPerdidos(id_equipo, clasificacion_id),
-       getGolesAFavor(id_equipo,clasificacion_id)
+       getGolesAFavor(id_equipo,clasificacion_id), getgolesencontra(id_equipo,clasificacion_id)
 
 from equipo e, tabla_clasificacion t where id_equipo = equipo_id AND clasificacion_id = 1;
+
+SELECT * FROM partido;
