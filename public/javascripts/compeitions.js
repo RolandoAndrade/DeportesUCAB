@@ -19,6 +19,7 @@ function showCompetitionDetail(event)
         retrieveDetails(event);
         retrieveMatches(event);
         retrieveClassifications(event);
+        retrieveQualifiers(event);
     }
     else
     {
@@ -205,5 +206,60 @@ async function retrieveClassifications(event)
     {
         addClasificacion(clasificacion[i]);
     }
+}
 
+function addTeamToQualifier(i)
+{
+    let local = i.equipolocal;
+    let visitante = i.equipovisitante;
+    let rlocal = i.resultadolocal;
+    let rvisitante = i.resultadovisitante;
+    let escudo_local = i.escudolocal;
+    let escudo_visitante = i.escudovisitante;
+    let s = '<div class="final-section">\n' +
+        '                        <div class="final-team-shield">\n' +
+        '                            <img src="'+escudo_local+'" alt="">\n' +
+        '                        </div>\n' +
+        '                        <div class="final-team-name">\n' +
+                                    local+
+        '                        </div>\n' +
+        '                        <div class="final-team-score">\n' +
+                                    rlocal+' - '+rvisitante+
+        '                        </div>\n' +
+        '                        <div class="final-team-name">\n' +
+                                visitante+
+        '                        </div>\n' +
+        '                        <div class="final-team-shield">\n' +
+        '                            <img src="'+escudo_visitante+'" alt="">\n' +
+        '                        </div>\n' +
+        '                    </div>';
+    return s;
+}
+
+function addEliminatoria(eliminatoria)
+{
+    let teams = "";
+    let titulo = eliminatoria[0].nombre;
+    eliminatoria.forEach((i)=>{
+        teams+=addTeamToQualifier(i);
+    })
+    let s = '<div class="post-card results">\n' +
+'                    <div class="result-title">\n' +
+                            titulo+
+                        teams+
+'                 </div>\n' +
+
+        '   </div>'
+    $(".clasificacion-content").append(s);
+}
+
+async function retrieveQualifiers(event)
+{
+    let eliminatoria = await new GetRequest("/api/v1/events/"+event.id+"/eliminatoria").execute();
+    eliminatoria = groupMatches(eliminatoria.data);
+
+    for(let i in eliminatoria)
+    {
+        addEliminatoria(eliminatoria[i]);
+    }
 }
