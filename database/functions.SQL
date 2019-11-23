@@ -188,7 +188,7 @@ $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getClasificacionDeEquipos(competicionID INTEGER)
 RETURNS TABLE(nombre VARCHAR,equipo VARCHAR, escudo VARCHAR, jugados INTEGER, ganados INTEGER,
-empatados INTEGER, perdidos INTEGER, goles_favor INTEGER, goles_contra INTEGER)
+empatados INTEGER, perdidos INTEGER, goles_favor INTEGER, goles_contra INTEGER, puntos DOUBLE PRECISION)
 AS
 $$
 BEGIN
@@ -197,12 +197,16 @@ BEGIN
                getPartidosGanados(id_equipo,clasificacion_id),
                getPartidosEmpatados(id_equipo,clasificacion_id),
                getPartidosPerdidos(id_equipo, clasificacion_id),
-               getGolesAFavor(id_equipo,clasificacion_id), getgolesencontra(id_equipo,clasificacion_id)
+               getGolesAFavor(id_equipo,clasificacion_id),
+               getgolesencontra(id_equipo,clasificacion_id),
+               getPartidosGanados(id_equipo,clasificacion_id)*puntos_victoria+
+               getPartidosEmpatados(id_equipo,clasificacion_id)*puntos_empate+
+               getPartidosPerdidos(id_equipo,clasificacion_id)*puntos_derrota punticos
         FROM EQUIPO E, TABLA_CLASIFICACION T, CLASIFICACION C,
              EVENTO V
         WHERE id_equipo = equipo_id
           AND clasificacion_id = id_clasificacion
           AND evento_id = id_evento AND
-              competicion_id = competicionID;
+              competicion_id = competicionID ORDER BY punticos DESC, goles_favor DESC , goles_contra;
 END;
 $$ LANGUAGE 'plpgsql';

@@ -152,6 +152,7 @@ function addTeamToClassification(i, pos)
     let empatados = i.empatados;
     let gf = i.goles_favor;
     let gc = i.goles_contra;
+    let puntos = i.puntos;
     let s = '<tr>\n' +
     '         <td>'+pos+'</td>\n' +
     '         <td class="classification-team-name"><div class="classification-team-shield"><img src="'+escudo+'" alt=""></div>\n' +
@@ -162,7 +163,7 @@ function addTeamToClassification(i, pos)
     '         <td>'+perdidos+'</td>\n' +
     '         <td>'+gf+'</td>\n' +
     '         <td>'+gc+'</td>\n' +
-        '      <td>'+(ganados*3+empatados)+'</td>\n' +
+        '      <td>'+puntos+'</td>\n' +
     '      </tr>';
     return s;
 }
