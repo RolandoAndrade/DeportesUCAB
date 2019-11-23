@@ -110,3 +110,56 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+
+CREATE OR REPLACE FUNCTION getPartidosJugados(equipoid INTEGER, clasificacionid INTEGER) RETURNS INTEGER AS
+$$
+BEGIN
+    RETURN (SELECT COUNT(*)
+            FROM partido
+            WHERE (equipo_local = equipoid OR equipo_visitante = equipoid)
+              AND clasificacion_id = clasificacionid
+              AND estado != 'pendiente');
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getPartidosGanados(equipoid INTEGER, clasificacionid INTEGER) RETURNS INTEGER AS
+$$
+BEGIN
+    RETURN (SELECT COUNT(*)
+            FROM partido
+            WHERE ((equipo_local = equipoid AND resultado_local>resultado_visitante)
+                    OR (equipo_visitante = equipoid AND resultado_visitante>resultado_local))
+              AND clasificacion_id = clasificacionid
+              AND estado != 'pendiente');
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getPartidosEmpatados(equipoid INTEGER, clasificacionid INTEGER) RETURNS INTEGER AS
+$$
+BEGIN
+    RETURN (SELECT COUNT(*)
+            FROM partido
+            WHERE ((equipo_local = equipoid AND resultado_local=resultado_visitante)
+                OR (equipo_visitante = equipoid AND resultado_visitante=resultado_local))
+              AND clasificacion_id = clasificacionid
+              AND estado != 'pendiente');
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getPartidosPerdidos(equipoid INTEGER, clasificacionid INTEGER) RETURNS INTEGER AS
+$$
+BEGIN
+    RETURN (SELECT COUNT(*)
+            FROM partido
+            WHERE ((equipo_local = equipoid AND resultado_local<resultado_visitante)
+                OR (equipo_visitante = equipoid AND resultado_visitante<resultado_local))
+              AND clasificacion_id = clasificacionid
+              AND estado != 'pendiente');
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+select getPartidosJugados(id_equipo,1), getPartidosGanados(id_equipo,1),
+       getPartidosEmpatados(id_equipo,1), getPartidosPerdidos(id_equipo, 1)
+
+from equipo e, tabla_clasificacion t where id_equipo = equipo_id AND clasificacion_id = 1;
