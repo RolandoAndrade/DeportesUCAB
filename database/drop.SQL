@@ -25,3 +25,4 @@ DROP FUNCTION mostrarUsuariosPorDeporte;
 DROP FUNCTION mostrarProximasCompeticionesPorDeporte;
 DROP FUNCTION login;
 DROP FUNCTION getPartidos;
+DROP FUNCTION getClasificacionDeEquipos;

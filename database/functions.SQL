@@ -186,24 +186,23 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION getClasificacionDeEquipos(clasificacionid INTEGER)
-RETURNS TABLE(equipo VARCHAR, escudo VARCHAR, jugados INTEGER, ganados INTEGER,
+CREATE OR REPLACE FUNCTION getClasificacionDeEquipos(competicionID INTEGER)
+RETURNS TABLE(nombre VARCHAR,equipo VARCHAR, escudo VARCHAR, jugados INTEGER, ganados INTEGER,
 empatados INTEGER, perdidos INTEGER, goles_favor INTEGER, goles_contra INTEGER)
 AS
 $$
 BEGIN
     RETURN QUERY
-        SELECT E.nombre, E.escudo, getPartidosJugados(id_equipo,clasificacion_id),
+        SELECT C.nombre, E.nombre, E.escudo, getPartidosJugados(id_equipo,clasificacion_id),
                getPartidosGanados(id_equipo,clasificacion_id),
                getPartidosEmpatados(id_equipo,clasificacion_id),
                getPartidosPerdidos(id_equipo, clasificacion_id),
                getGolesAFavor(id_equipo,clasificacion_id), getgolesencontra(id_equipo,clasificacion_id)
-        FROM EQUIPO E, TABLA_CLASIFICACION T
-        WHERE id_equipo = equipo_id AND clasificacion_id = clasificacionid;
+        FROM EQUIPO E, TABLA_CLASIFICACION T, CLASIFICACION C,
+             EVENTO V
+        WHERE id_equipo = equipo_id
+          AND clasificacion_id = id_clasificacion
+          AND evento_id = id_evento AND
+              competicion_id = competicionID;
 END;
 $$ LANGUAGE 'plpgsql';
-
-
-
-
-SELECT * FROM getClasificacionDeEquipos(1);
