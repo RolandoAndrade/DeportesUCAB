@@ -88,12 +88,12 @@ BEGIN
                J.nombre, K.nombre, C.nombre, D.nombre, J.escudo, K.escudo, E.nombre, E.estado
         FROM EVENTO B, CLASIFICACION C RIGHT JOIN PARTIDO E ON E.clasificacion_id = C.id_clasificacion LEFT JOIN
             ELIMINATORIA D ON E.eliminatoria_id = D.id_eliminatoria,  LUGAR I, EQUIPO J, EQUIPO K
-        WHERE (E.eliminatoria_id = D.id_eliminatoria AND
+        WHERE ((E.eliminatoria_id = D.id_eliminatoria AND
                D.evento_id = B.id_evento AND
                B.competicion_id = competicionID) OR (
                E.clasificacion_id = C.id_clasificacion AND
                C.evento_id = B.id_evento AND
-               B.competicion_id = competicionID) AND
+               B.competicion_id = competicionID)) AND
                E.lugar_id = I.id_lugar AND
                E.equipo_local = J.id_equipo AND
                E.equipo_visitante = K.id_equipo;
@@ -228,4 +228,4 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-select * from getEliminatorias(1);
+select * from getPartidos(1);
