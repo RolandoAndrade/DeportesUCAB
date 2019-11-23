@@ -101,3 +101,12 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION isEnClasificacion(equipoid INTEGER, clasificacionid INTEGER) RETURNS BOOLEAN AS
+$$
+BEGIN
+    RETURN (SELECT COUNT(*)
+            FROM TABLA_CLASIFICACION
+            WHERE equipo_id = equipoid AND clasificacion_id = clasificacionid) > 0;
+END;
+$$ LANGUAGE 'plpgsql';
+
