@@ -26,3 +26,4 @@ DROP FUNCTION mostrarProximasCompeticionesPorDeporte;
 DROP FUNCTION login;
 DROP FUNCTION getPartidos;
 DROP FUNCTION getClasificacionDeEquipos;
+DROP FUNCTION getEliminatorias;

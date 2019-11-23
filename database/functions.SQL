@@ -210,3 +210,22 @@ BEGIN
               competicion_id = competicionID ORDER BY punticos DESC, goles_favor DESC , goles_contra;
 END;
 $$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION getEliminatorias(competicionID INTEGER)
+    RETURNS TABLE(nombre VARCHAR,equipolocal VARCHAR, escudolocal VARCHAR,equipovisitante VARCHAR,
+                 escudovisitante VARCHAR, resultadolocal INTEGER, resultadovisitante INTEGER)
+AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT
+        E.nombre, Q.nombre, Q.escudo, QQ.nombre, QQ.escudo, P.resultado_local, P.resultado_visitante
+        FROM ELIMINATORIA E, EVENTO V, PARTIDO P, EQUIPO Q, EQUIPO QQ
+        WHERE E.evento_id = V.id_evento AND V.competicion_id = competicionID AND
+              P.eliminatoria_id = E.id_eliminatoria AND Q.id_equipo = P.equipo_local AND
+              QQ.id_equipo = P.equipo_visitante;
+END;
+$$ LANGUAGE 'plpgsql';
+
+select * from getEliminatorias(1);

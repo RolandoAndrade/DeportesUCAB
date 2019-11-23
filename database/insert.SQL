@@ -54,8 +54,8 @@ INSERT INTO EVENTO VALUES
 (2,'progreso',2,2);
 
 INSERT INTO ELIMINATORIA VALUES
-(1, 'SEMIFINAL',1),
-(2, 'SEMIFINAL',1);
+(1, 'FINAL',1),
+(2, 'FINAL',1);
 
 INSERT INTO CLASIFICACION VALUES
 (1,'GRUPO A',3,0,1,1),
@@ -77,6 +77,6 @@ INSERT INTO PARTIDO VALUES
 (3,'JORNADA 2','2019-09-26',3,1,2,1,3,'finalizado',null,1),
 (4,'JORNADA 2','2019-09-26',1,1,2,2,4,'finalizado',null,1),
 (5,'JORNADA 3','2019-10-02',5,0,2,1,4,'finalizado',null,1),
-(6,'JORNADA 3','2019-10-02',2,1,2,2,3,'finalizado',null,1);
-
+(6,'JORNADA 3','2019-10-02',2,1,2,2,3,'finalizado',null,1),
+(7,'FINAL','2019-10-02',2,1,2,1,2,'finalizado',1,null);
 
