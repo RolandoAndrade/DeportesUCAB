@@ -139,9 +139,9 @@ CREATE TABLE PARTIDO(
 
     fecha TIMESTAMP NOT NULL,
 
-    resultado_local INTEGER,
+    resultado_local INTEGER DEFAULT 0,
 
-    resultado_visitante INTEGER,
+    resultado_visitante INTEGER DEFAULT 0,
 
     lugar_id INTEGER REFERENCES LUGAR(id_lugar) NOT NULL,
     equipo_local INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
