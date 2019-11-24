@@ -107,7 +107,7 @@ function addEvents(events)
         let fecha = dateSimple(new Date(i.fecha));
          s += "           <div onclick='openDetailsOf("+JSON.stringify(i)+")'"+' class="post-card clickeable">' +
             '                <div class="card-preview-image" ' +
-             'style="background: url('+"'"+i.imagen+"'"+') center;">' +
+             'style="background: url('+"'"+i.imagen+"'"+') center;background-size: cover">' +
             '                </div>' +
             '                <div class="card-content">' +
             '                    <div class="card-title">' +

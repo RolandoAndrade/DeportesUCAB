@@ -15,7 +15,7 @@ function showCompetitionDetail(event)
         $("#event-card-content-detail").find(".card-title").html(event.nombre);
         $("#event-card-content-detail").find(".card-fulldate").html(dateSimple(new Date(event.fecha)));
         $("#event-card-content-detail").find(".card-place").html(event.lugar);
-        $("#event-card-content-detail").find(".card-preview-image").css({"background": "url("+event.imagen+") center"});
+        $("#event-card-content-detail").find(".card-preview-image").css({"background": "url("+event.imagen+") center","background-size":"cover"});
         retrieveDetails(event);
         retrieveMatches(event);
         retrieveClassifications(event);
