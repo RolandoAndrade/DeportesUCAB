@@ -220,7 +220,7 @@
     align-items: center;
     padding: 15px;
     border-top: #c5c5c5 solid 1px;
-    border-right: #c5c5c5 solid 1px;
+    border-left: #c5c5c5 solid 1px;
     justify-content: space-between;
 }
 
