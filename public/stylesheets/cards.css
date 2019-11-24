@@ -660,3 +660,27 @@
     margin: 20px;
 }
 
+.crear-imagen-competicion
+{
+    position: relative;
+}
+
+.crear-imagen-competicion-etiqueta
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: transparent;
+    transition: 0.5s all;
+}
+.crear-imagen-competicion-etiqueta:hover
+{
+    background: rgba(33,33,33,0.5);
+    color: white;
+    transition: 0.5s all;
+    cursor: pointer;
+}
