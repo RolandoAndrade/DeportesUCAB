@@ -527,6 +527,11 @@
     opacity: 0.8;
 }
 
+.create-gender.seleccionado
+{
+    opacity: 1;
+}
+
 .more-button
 {
     margin: 20px auto;
