@@ -61,16 +61,6 @@ INSERT INTO CLASIFICACION VALUES
 (1,'GRUPO A',3,0,1,1),
 (2,'GRUPO A',3,0,1,2);
 
-INSERT INTO TABLA_CLASIFICACION VALUES
-(1,1,1),
-(2,2,1),
-(3,3,1),
-(4,4,1),
-(5,5,2),
-(6,6,2),
-(7,7,2),
-(8,8,2);
-
 INSERT INTO PARTIDO VALUES
 (1,'JORNADA 1','2019-09-17',2,0,2,1,2,'finalizado',null,1),
 (2,'JORNADA 1','2019-09-17',2,1,2,3,4,'finalizado',null,1),
@@ -79,4 +69,3 @@ INSERT INTO PARTIDO VALUES
 (5,'JORNADA 3','2019-10-02',5,0,2,1,4,'finalizado',null,1),
 (6,'JORNADA 3','2019-10-02',2,1,2,2,3,'finalizado',null,1),
 (7,'FINAL','2019-10-02',2,1,2,1,2,'finalizado',1,null);
-
