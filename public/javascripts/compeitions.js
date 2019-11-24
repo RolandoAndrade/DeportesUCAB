@@ -246,9 +246,9 @@ function addEliminatoria(eliminatoria)
     let s = '<div class="post-card results">\n' +
 '                    <div class="result-title">\n' +
                             titulo+
-                        teams+
-'                 </div>\n' +
 
+'                   </div>\n' +
+                    teams+
         '   </div>'
     $(".clasificacion-content").append(s);
 }
