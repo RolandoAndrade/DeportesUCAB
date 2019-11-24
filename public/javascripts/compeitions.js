@@ -1,3 +1,43 @@
+function addEvents(events)
+{
+    let s="";
+    events.forEach((i)=>
+    {
+        let fecha = dateSimple(new Date(i.fecha));
+        s += "           <div onclick='openDetailsOf("+JSON.stringify(i)+")'"+' class="post-card clickeable">' +
+            '                <div class="card-preview-image" ' +
+            'style="background: url('+"'"+i.imagen+"'"+') center;background-size: cover">' +
+            '                </div>' +
+            '                <div class="card-content">' +
+            '                    <div class="card-title">' +
+            i.nombre+
+            '                    </div>' +
+            '                    <div class="card-data">' +
+            '                        <div class="card-date-icon">' +
+            '                            <div class="card-icon"><i class="zmdi zmdi-calendar"></i></div>' +
+            '                        </div>' +
+            '                        <div class="card-place-icon">' +
+            '                            <div class="card-icon">' +
+            '                                <i class="zmdi zmdi-pin"></i>' +
+            '                            </div>' +
+            '                        </div>' +
+            '                        <div class="card-date">' +
+            '                            <div class="card-fulldate">'+fecha+'</div>' +
+            '                        </div>' +
+            '                        <div class="card-place">' +
+            '                            <div class="location">' +
+            i.lugar+
+            '                            </div>' +
+            '                        </div>' +
+            '                    </div>' +
+            '' +
+            '                </div>' +
+            '            </div>'
+    });
+    $("#eventos-content").empty();
+    $("#eventos-content").append(s);
+}
+
 function openDetailsOf(event)
 {
     window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#detalles?='+event.id);

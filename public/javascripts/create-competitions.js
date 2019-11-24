@@ -1,8 +1,17 @@
+
+let genero = null;
 function changeGender(container)
 {
     $(".gender-selector").find(".seleccionado").removeClass("seleccionado");
     $(container).addClass("seleccionado");
-
+    if($(container).hasClass("red"))
+    {
+        genero = 2;
+    }
+    else
+    {
+        genero = 1;
+    }
 }
 
 let create = 0;
@@ -111,42 +120,12 @@ function deleteTeam(container)
     $(container).parent().remove();
 }
 
-function addEvents(events)
+function createCompetition()
 {
-    let s="";
-    events.forEach((i)=>
-    {
-        let fecha = dateSimple(new Date(i.fecha));
-        s += "           <div onclick='openDetailsOf("+JSON.stringify(i)+")'"+' class="post-card clickeable">' +
-            '                <div class="card-preview-image" ' +
-            'style="background: url('+"'"+i.imagen+"'"+') center;background-size: cover">' +
-            '                </div>' +
-            '                <div class="card-content">' +
-            '                    <div class="card-title">' +
-            i.nombre+
-            '                    </div>' +
-            '                    <div class="card-data">' +
-            '                        <div class="card-date-icon">' +
-            '                            <div class="card-icon"><i class="zmdi zmdi-calendar"></i></div>' +
-            '                        </div>' +
-            '                        <div class="card-place-icon">' +
-            '                            <div class="card-icon">' +
-            '                                <i class="zmdi zmdi-pin"></i>' +
-            '                            </div>' +
-            '                        </div>' +
-            '                        <div class="card-date">' +
-            '                            <div class="card-fulldate">'+fecha+'</div>' +
-            '                        </div>' +
-            '                        <div class="card-place">' +
-            '                            <div class="location">' +
-            i.lugar+
-            '                            </div>' +
-            '                        </div>' +
-            '                    </div>' +
-            '' +
-            '                </div>' +
-            '            </div>'
-    });
-    $("#eventos-content").empty();
-    $("#eventos-content").append(s);
+    let nombre = $("#crear-titulo-competicion").val();
+    let fechainicio = $("#crear-fecha-inicio-competicion").val();
+    let fechafin = $("#crear-fecha-fin-competicion").val();
+    let imagen = $("#crear-competicion-imagen").attr("src");
+    let estado = "progreso";
+    console.log(nombre,fechainicio,fechafin, imagen, estado)
 }
