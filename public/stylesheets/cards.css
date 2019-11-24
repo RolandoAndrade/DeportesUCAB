@@ -689,3 +689,10 @@
     transition: 0.5s all;
     cursor: pointer;
 }
+
+.more-button.send
+{
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+}
