@@ -62,7 +62,7 @@ function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
             '</div>' +
             '<div class="create-equipo-card-teamname">' + name+
             '</div>' +
-            '<div class="more-button-green team" onclick="addTeamFromModal('+name+','+logo+')">' +
+            '<div class="more-button-green team" onclick="addTeamFromModal(\'' + name + '\',\'' + logo + '\',this)">' +
             '<i class="zmdi zmdi-check"></i>' +
             '</div>' +
             '</div>';
@@ -83,20 +83,27 @@ function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
     });
 }
 
-function addTeamFromModal(name,logo)
+function addTeamFromModal(name,logo,container)
 {
-    console.log("entro")
-    console.log("Modal",name,logo);
-    $("#create-equipos-container").append('<div class="create-equipo-card">' +
-        '<div class="create-equipo-card-shield">' +
-        '<img src="'+logo+'" alt="">' +
-        '</div>' +
-        '<div class="create-equipo-card-teamname">' + name+
-        '</div>' +
-        '<div class="more-button-red team" onclick="deleteTeam(this)">' +
-        '<i class="zmdi zmdi-delete"></i>' +
-        '</div>' +
-        '</div>').hide().fadeIn(300);
+    if($(container).hasClass("selected"))
+    {
+        return;
+    }
+    else
+    {
+        $(container).addClass("selected");
+        $("#create-equipos-container").append('<div class="create-equipo-card">' +
+            '<div class="create-equipo-card-shield">' +
+            '<img src="'+logo+'" alt="">' +
+            '</div>' +
+            '<div class="create-equipo-card-teamname">' + name+
+            '</div>' +
+            '<div class="more-button-red team" onclick="deleteTeam(this)">' +
+            '<i class="zmdi zmdi-delete"></i>' +
+            '</div>' +
+            '</div>').hide().fadeIn(300);
+    }
+
 }
 
 function deleteTeam(container)
