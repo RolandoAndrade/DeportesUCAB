@@ -1,5 +1,4 @@
-let equiposList = null;
-
+let equiposList = [];
 function showCreador()
 {
     hideAll();
@@ -80,19 +79,23 @@ function deleteCard(container)
 function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
 {
     let s = "";
-    for(let i = 0;i<5;i++)
+    equiposList.forEach((i,k)=>
     {
+        let escudo = i.escudo;
+        let nombre = i.nombre;
+        let id = i.id;
         s+='<div class="create-equipo-card">' +
             '<div class="create-equipo-card-shield">' +
-            '<img src="'+logo+'" alt="">' +
+            '<img src="'+escudo+'" alt="">' +
             '</div>' +
-            '<div class="create-equipo-card-teamname">' + name+
+            '<div class="create-equipo-card-teamname">' + nombre+
             '</div>' +
-            '<div class="more-button-green team" onclick="addTeamFromModal(\'' + name + '\',\'' + logo + '\',this)">' +
+            '<div class="more-button-green team" onclick="addTeamFromModal(k,this)">' +
             '<i class="zmdi zmdi-check"></i>' +
             '</div>' +
             '</div>';
-    }
+    })
+
 
     swal({
         title: 'Selecciona los equipos',
@@ -109,7 +112,7 @@ function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
     });
 }
 
-function addTeamFromModal(name,logo,container)
+function addTeamFromModal(i,container)
 {
     if($(container).hasClass("selected"))
     {
@@ -117,6 +120,8 @@ function addTeamFromModal(name,logo,container)
     }
     else
     {
+        let escudo = equiposList[i].escudo;
+        let nombre = equiposList[i].nombre;
         $(container).addClass("selected");
         $("#create-equipos-container").append('<div class="create-equipo-card">' +
             '<div class="create-equipo-card-shield">' +
