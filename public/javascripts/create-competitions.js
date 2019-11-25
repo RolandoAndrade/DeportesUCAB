@@ -1,3 +1,19 @@
+let equiposList = null;
+
+function showCreador()
+{
+    hideAll();
+    $("#creador-content").show(300);
+    $("#detail-title").html("Crear competición");
+    replaceIcon("creador-icon");
+}
+
+async function getEquiposList()
+{
+    let data = await new GetRequest("/api/v1/teams/sports/"+genero).execute();
+    equiposList = data.data;
+}
+
 
 let genero = null;
 function changeGender(container)
@@ -12,6 +28,7 @@ function changeGender(container)
     {
         genero = 1;
     }
+    getEquiposList();
 }
 
 let create = 0;
