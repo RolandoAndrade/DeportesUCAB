@@ -97,20 +97,31 @@ function addTeam()
             '</div>';
     })
 
-
-    swal({
-        title: 'Selecciona los equipos',
-        confirmButtonText: '<i class="zmdi zmdi-check"></i>  Ok',
-        confirmButtonColor: '#03A9F4',
-        showCancelButton: false,
-        html: s
-    }).then(function () {
+    if (equiposList.length > 0)
+    {
+        swal({
+            title: 'Selecciona los equipos',
+            confirmButtonText: '<i class="zmdi zmdi-check"></i>  Ok',
+            confirmButtonColor: '#03A9F4',
+            showCancelButton: false,
+            html: s
+        }).then(function () {
+            swal(
+                'Excelente',
+                'Los equipos han sido añadidos',
+                'success'
+            )
+        });
+    }
+    else
+    {
         swal(
-            'Excelente',
-            'Los equipos han sido añadidos',
-            'success'
+            'Error',
+            'Debes elegir un género primero',
+            'error'
         )
-    });
+    }
+
 }
 
 function addTeamFromModal(i,container)
