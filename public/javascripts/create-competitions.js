@@ -11,6 +11,7 @@ async function getEquiposList()
 {
     let data = await new GetRequest("/api/v1/teams/sports/"+genero).execute();
     equiposList = data.data;
+    showTeamsToRegister();
 }
 
 
@@ -76,7 +77,7 @@ function deleteCard(container)
     $(container).parent().remove();
 }
 
-function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
+function addTeam()
 {
     let s = "";
     equiposList.forEach((i,k)=>
@@ -90,7 +91,7 @@ function addTeam(name='Lorem ipsum',logo='images/pic09.jpg')
             '</div>' +
             '<div class="create-equipo-card-teamname">' + nombre+
             '</div>' +
-            '<div class="more-button-green team" onclick="addTeamFromModal(k,this)">' +
+            '<div class="more-button-green team'+(i.check?" selected":"")+'" onclick="addTeamFromModal('+k+',this)">' +
             '<i class="zmdi zmdi-check"></i>' +
             '</div>' +
             '</div>';
@@ -116,30 +117,45 @@ function addTeamFromModal(i,container)
 {
     if($(container).hasClass("selected"))
     {
-        return;
+        $(container).removeClass("selected");
     }
     else
     {
-        let escudo = equiposList[i].escudo;
-        let nombre = equiposList[i].nombre;
         $(container).addClass("selected");
-        $("#create-equipos-container").append('<div class="create-equipo-card">' +
-            '<div class="create-equipo-card-shield">' +
-            '<img src="'+logo+'" alt="">' +
-            '</div>' +
-            '<div class="create-equipo-card-teamname">' + name+
-            '</div>' +
-            '<div class="more-button-red team" onclick="deleteTeam(this)">' +
-            '<i class="zmdi zmdi-delete"></i>' +
-            '</div>' +
-            '</div>').hide().fadeIn(300);
     }
-
+    equiposList[i]["check"]=!equiposList[i]["check"];
+    showTeamsToRegister();
 }
 
-function deleteTeam(container)
+function showTeamsToRegister()
+{
+    $("#create-equipos-container").empty();
+    let s = "";
+    equiposList.forEach((i,k)=>
+    {
+        let escudo = i.escudo;
+        let nombre = i.nombre;
+        if(i.check)
+        {
+            s+='<div class="create-equipo-card">' +
+                '<div class="create-equipo-card-shield">' +
+                '<img src="'+escudo+'" alt="">' +
+                '</div>' +
+                '<div class="create-equipo-card-teamname">' + nombre+
+                '</div>' +
+                '<div class="more-button-red team" onclick="deleteTeam('+k+',this)">' +
+                '<i class="zmdi zmdi-delete"></i>' +
+                '</div>' +
+                '</div>';
+        }
+    });
+    $("#create-equipos-container").append(s);
+}
+
+function deleteTeam(i,container)
 {
     $(container).parent().remove();
+    equiposList[i]["check"] = false;
 }
 
 function createCompetition()
