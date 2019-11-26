@@ -3,7 +3,7 @@ let myWidget = cloudinary.createUploadWidget({
     uploadPreset: 'rolando_andrade'}, (error, result) =>{
     if(result.event==="success")
     {
-        image=result.info.url;
+        let image=result.info.url;
         $(".crear-imagen-competicion").css("background-image", "url('"+image+"')");
     }
 
