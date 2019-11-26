@@ -1,4 +1,6 @@
 let equiposList = [];
+let caracteristicasList = [];
+
 function showCreador()
 {
     hideAll();
@@ -34,41 +36,96 @@ function changeGender(container)
 let create = 0;
 function addCaracteristica()
 {
+    caracteristicasList.push({titulo: "", descripcion: "", tipo: "info"})
+    actualizarCaracteristicas();
+    /*
     $("#caracteristicas-container").append('<div class="create-caracteristica-card">' +
         '<div class="create-content-container">' +
-        '<div class="create-data-container">' +
-        '<div class="input-container">' +
-        '<div class="input-field">' +
-        '<input id="caracteristica-type'+create+'" type="text" class="create-input validate">' +
-        '<label for="caracteristica-type'+create+'">Título</label>' +
-        '</div>' +
-        '</div>' +
-        '<div class="input-field">' +
-        '<select>' +
-        '<option value="info">Información</option>' +
-        '<option value="fecha">Fecha</option>' +
-        '<option value="tiempo">Tiempo</option>' +
-        '<option value="peligro">Advertencia</option>' +
-        '</select>' +
-        '<label>Descripción</label>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '<div class="create-content-container">' +
-        '<div class="create-data-container">' +
-        '<div class="input-container">' +
-        '<div class="input-field">' +
-        '<textarea id="textarea1" class="create-input materialize-textarea validate"></textarea>' +
-        '<label for="textarea1">Datos específicos de la competición</label>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '<div class="more-button-red" onclick="deleteCard(this)">' +
-        '<i class="zmdi zmdi-delete"></i>' +
-        '</div>' +
+            '<div class="create-data-container">' +
+                '<div class="input-container">' +
+                '<div class="input-field">' +
+                '<input id="caracteristica-type'+create+'" type="text" class="create-input validate">' +
+                '<label for="caracteristica-type'+create+'">Título</label>' +
+                '</div>' +
+                '</div>' +
+                '<div class="input-field">' +
+                '<select>' +
+                '<option value="info">Información</option>' +
+                '<option value="fecha">Fecha</option>' +
+                '<option value="tiempo">Tiempo</option>' +
+                '<option value="peligro">Advertencia</option>' +
+                '</select>' +
+                '<label>Descripción</label>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="create-content-container">' +
+                '<div class="create-data-container">' +
+                '<div class="input-container">' +
+                '<div class="input-field">' +
+                '<textarea id="textarea1" class="create-input materialize-textarea validate"></textarea>' +
+                '<label for="textarea1">Datos específicos de la competición</label>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<div class="more-button-red" onclick="deleteCard(this)">' +
+                '<i class="zmdi zmdi-delete"></i>' +
+            '</div>' +
         '</div>').hide().fadeIn(300);
     create++;
+    $('select').formSelect();*/
+}
+
+function cambiandoCaracteristica(i)
+{
+    caracteristicasList[i]['titulo']=$("#caracteristica-type"+i).val();
+    console.log(caracteristicasList);
+}
+
+function actualizarCaracteristicas()
+{
+    let s = "";
+    caracteristicasList.forEach((i,k)=>
+    {
+        s+='<div class="create-caracteristica-card">' +
+            '<div class="create-content-container">' +
+            '<div class="create-data-container">' +
+            '<div class="input-container">' +
+            '<div class="input-field">' +
+            '<input id="caracteristica-type'+k+'" type="text" class="create-input validate" onkeydown="cambiandoCaracteristica(k)">' +
+            '<label for="caracteristica-type'+k+'">Título</label>' +
+            '</div>' +
+            '</div>' +
+            '<div class="input-field">' +
+            '<select onchange="cambiandoCaracteristica(k)">' +
+            '<option value="info">Información</option>' +
+            '<option value="fecha">Fecha</option>' +
+            '<option value="tiempo">Tiempo</option>' +
+            '<option value="peligro">Advertencia</option>' +
+            '</select>' +
+            '<label>Descripción</label>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="create-content-container">' +
+            '<div class="create-data-container">' +
+            '<div class="input-container">' +
+            '<div class="input-field">' +
+            '<textarea id="textarea1" class="create-input materialize-textarea validate" onkeydown="cambiandoCaracteristica(k)"></textarea>' +
+            '<label for="textarea1">Datos específicos de la competición</label>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="more-button-red" onclick="deleteCard(this)">' +
+            '<i class="zmdi zmdi-delete"></i>' +
+            '</div>' +
+            '</div>'
+    })
+
+    $("#caracteristicas-container").append(s);
+
     $('select').formSelect();
 }
 
@@ -169,6 +226,12 @@ function deleteTeam(i,container)
     equiposList[i]["check"] = false;
 }
 
+function getCaracterisitcasFromFront()
+{
+    let caracteristicas = [];
+    console.log($("#create-data-container").find("create-content-container"))
+}
+
 function createCompetition()
 {
     let nombre = $("#crear-titulo-competicion").val();
@@ -176,5 +239,6 @@ function createCompetition()
     let fechafin = $("#crear-fecha-fin-competicion").val();
     let imagen = $("#crear-imagen-competicion").css("background-image").match(/\(([^)]+)\)/)[1];
     let estado = "progreso";
+    getCaracterisitcasFromFront();
     console.log(nombre,fechainicio,fechafin, imagen, estado)
 }
