@@ -26,12 +26,12 @@ INSERT INTO DEPORTE VALUES
 
 INSERT INTO EQUIPO VALUES
 (DEFAULT,'Universidad Católica Andrés Bello','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045479/accounts/Escudo_UCAB.jpg',1),
-(DEFAULT,'Universidad Católica Andrés Bello (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045479/accounts/Escudo_UCAB.jpg',2),
 (DEFAULT,'Universidad Metropolitana','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045573/accounts/customLogo.png',1),
-(DEFAULT,'Universidad Metropolitana (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045573/accounts/customLogo.png',2),
 (DEFAULT,'Universidad Central de Venezuela','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045798/accounts/UCV.png',1),
-(DEFAULT,'Universidad Central de Venezuela (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045798/accounts/UCV.png',2),
 (DEFAULT,'Universidad Simón Bolívar','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045746/accounts/usb.jpg',1),
+(DEFAULT,'Universidad Católica Andrés Bello (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045479/accounts/Escudo_UCAB.jpg',2),
+(DEFAULT,'Universidad Metropolitana (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045573/accounts/customLogo.png',2),
+(DEFAULT,'Universidad Central de Venezuela (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045798/accounts/UCV.png',2),
 (DEFAULT,'Universidad Simón Bolívar (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045746/accounts/usb.jpg',2);
 
 INSERT INTO COMPETICION VALUES
@@ -68,4 +68,4 @@ INSERT INTO PARTIDO VALUES
 (DEFAULT,'JORNADA 2','2019-09-26',1,1,2,2,4,'finalizado',null,1),
 (DEFAULT,'JORNADA 3','2019-10-02',5,0,2,1,4,'finalizado',null,1),
 (DEFAULT,'JORNADA 3','2019-10-02',2,1,2,2,3,'finalizado',null,1),
-(DEFAULT,'FINAL','2019-10-02',2,1,2,1,2,'finalizado',1,null);
+(DEFAULT,'FINAL','2019-10-30',2,1,2,1,2,'finalizado',1,null);
