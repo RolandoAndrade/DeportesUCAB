@@ -241,7 +241,7 @@ BEGIN
     SELECT L.id_lugar INTO lugarid FROM LUGAR L WHERE L.nombre = lugarP;
     raise notice '%', lugarid;
     IF lugarid IS NULL THEN
-        INSERT INTO LUGAR VALUES (DEFAULT, nombreP, 'sede',null,null,null) RETURNING id_lugar INTO lugarid;
+        INSERT INTO LUGAR VALUES (DEFAULT, lugarP, 'sede',null,null,null) RETURNING id_lugar INTO lugarid;
     end if;
     INSERT INTO COMPETICION VALUES(DEFAULT, nombreP, fechaInicioP, fechaFinP, imagenP, 'progreso',lugarid)
     RETURNING id_competicion INTO competicionid;
@@ -259,3 +259,5 @@ BEGIN
     RETURN TRUE;
 END;
 $$ LANGUAGE 'plpgsql';
+
+select * from caracteristica

@@ -243,19 +243,12 @@ router.post('/events',function (req, res, next)
         }
         else
         {
-            req.body.caracteristicas.forEach((i)=>
+            req.body.caracteristicas.forEach(async (i)=>
             {
-                client.query('SELECT insertarCaracteristica($1,$2,$3,$4)',
-                    [result.rows[0],i.titulo, i.descripcion, i.tipo],
-                    (err, result)=>
-                    {
-                        console.log(err)
-                        res.status(500).json(
-                            {
-                                status: 'error',
-                                data: err
-                            });
-                    })
+                console.log(i)
+                await client.query('SELECT insertarCaracteristica($1,$2,$3,$4)',
+                    [result.rows[0].insertarcompeticion,i.titulo, i.descripcion, i.tipo],
+                    null)
             });
 
             res.status(200).json({
