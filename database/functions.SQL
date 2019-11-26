@@ -228,4 +228,34 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-select * from getPartidos(1);
+CREATE OR REPLACE FUNCTION insertarCompeticion(imagenP VARCHAR, nombreP VARCHAR, fechaInicioP DATE,
+fechaFinP DATE, lugarP VARCHAR, generoP INTEGER)
+    RETURNS INTEGER
+AS
+$$
+DECLARE
+    lugarid INTEGER;
+    competicionid INTEGER;
+    eventoid INTEGER;
+BEGIN
+    SELECT L.id_lugar INTO lugarid FROM LUGAR L WHERE L.nombre = lugarP;
+    raise notice '%', lugarid;
+    IF lugarid IS NULL THEN
+        INSERT INTO LUGAR VALUES (DEFAULT, nombreP, 'sede',null,null,null) RETURNING id_lugar INTO lugarid;
+    end if;
+    INSERT INTO COMPETICION VALUES(DEFAULT, nombreP, fechaInicioP, fechaFinP, imagenP, 'progreso',lugarid)
+    RETURNING id_competicion INTO competicionid;
+    INSERT INTO EVENTO VALUES (DEFAULT,'progreso',generoP,competicionid) RETURNING id_evento INTO eventoid;
+    RETURN competicionid;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION insertarCaracteristica(competicionid INTEGER, tituloP VARCHAR, descripcionP TEXT, tipoP VARCHAR)
+RETURNS BOOLEAN
+AS
+$$
+BEGIN
+    INSERT INTO CARACTERISTICA VALUES (DEFAULT, tituloP, descripcionP, tipoP,competicionid);
+    RETURN TRUE;
+END;
+$$ LANGUAGE 'plpgsql';

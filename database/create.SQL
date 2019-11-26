@@ -2,7 +2,7 @@
 
 CREATE TABLE LUGAR(
     id_lugar SERIAL PRIMARY KEY,
-    nombre VARCHAR(50) NOT NULL,
+    nombre VARCHAR(50) NOT NULL UNIQUE,
     tipo VARCHAR(10) NOT NULL,
     longitud DOUBLE PRECISION,
     latitud DOUBLE PRECISION,
