@@ -127,3 +127,30 @@ describe('GET /api/v1/events/:id/eliminatoria', function() {
             });
     });
 });
+
+describe('POST /api/v1/events', function() {
+    it('Debe crear un evento y una competición', function(done) {
+
+        chai.request(server)
+            .post('/api/v1/events')
+            .set('content-type', 'application/json')
+            .send(
+                {imagen: 'https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/article/55365e3c066de9087b6a5b4b/futbol7.jpg',
+                nombre: 'Evento de API TEST',
+                fechainicio: "2019-12-01",
+                fechafin: "2019-12-31",
+                lugar: "UCAB",
+                    genero: 1,
+                    caracteristicas: [
+                        {titulo:"PRUEBA",descripcion:"Esto viene de una prueba unitaria",tipo:"info"},
+                        {titulo:"UNITARIA",descripcion:"LAs pruebas ayudan a ver si furula",tipo:"pregunta"},
+                        {titulo:"TIEMPO",descripcion:"Es cuestión de probar con tiempo",tipo:"tiempo"},
+                        {titulo:"FECHA",descripcion:"Lorem ksjkab ipsum",tipo:"fecha"}]
+                })
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});

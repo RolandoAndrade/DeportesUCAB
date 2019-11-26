@@ -226,6 +226,46 @@ router.get('/events/:id(\\d+)/eliminatoria',function (req, res, next)
     })
 });
 
+router.post('/events',function (req, res, next)
+{
+    console.log(req.body)
+    client.query('SELECT insertarcompeticion($1,$2,$3,$4,$5,$6)',[
+        req.body.imagen,req.body.nombre, req.body.fechainicio, req.body.fechafin,
+        req.body.lugar,req.body.genero],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+            req.body.caracteristicas.forEach((i)=>
+            {
+                client.query('SELECT insertarCaracteristica($1,$2,$3,$4)',
+                    [result.rows[0],i.titulo, i.descripcion, i.tipo],
+                    (err, result)=>
+                    {
+                        console.log(err)
+                        res.status(500).json(
+                            {
+                                status: 'error',
+                                data: err
+                            });
+                    })
+            });
+
+            res.status(200).json({
+                status: 'success',
+                data: "Insertado correctamente"
+            });
+        }
+    })
+});
+
 
 
 module.exports = router;
