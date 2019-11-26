@@ -77,14 +77,20 @@ function addCaracteristica()
     $('select').formSelect();*/
 }
 
-function cambiandoCaracteristica(i)
+function cambiandoCaracteristica(i, container)
 {
     caracteristicasList[i]['titulo']=$("#caracteristica-type"+i).val();
-    console.log(caracteristicasList);
+    if(container)
+    {
+        caracteristicasList[i]['tipo']=$(container).val();
+    }
+    caracteristicasList[i]['descripcion']=$("#textarea"+i).val();
+    console.log(caracteristicasList)
 }
 
 function actualizarCaracteristicas()
 {
+    $("#caracteristicas-container").empty();
     let s = "";
     caracteristicasList.forEach((i,k)=>
     {
@@ -93,12 +99,12 @@ function actualizarCaracteristicas()
             '<div class="create-data-container">' +
             '<div class="input-container">' +
             '<div class="input-field">' +
-            '<input id="caracteristica-type'+k+'" type="text" class="create-input validate" onkeydown="cambiandoCaracteristica(k)">' +
-            '<label for="caracteristica-type'+k+'">Título</label>' +
+            '<input id="caracteristica-type'+k+'" type="text" class="create-input validate" oninput="cambiandoCaracteristica('+k+')" value="'+i.titulo+'">' +
+            '<label class="'+(i.titulo.length>0?"active":"")+'" for="caracteristica-type'+k+'">Título</label>' +
             '</div>' +
             '</div>' +
             '<div class="input-field">' +
-            '<select onchange="cambiandoCaracteristica(k)">' +
+            '<select onchange="cambiandoCaracteristica('+k+',this)">' +
             '<option value="info">Información</option>' +
             '<option value="fecha">Fecha</option>' +
             '<option value="tiempo">Tiempo</option>' +
@@ -112,13 +118,13 @@ function actualizarCaracteristicas()
             '<div class="create-data-container">' +
             '<div class="input-container">' +
             '<div class="input-field">' +
-            '<textarea id="textarea1" class="create-input materialize-textarea validate" onkeydown="cambiandoCaracteristica(k)"></textarea>' +
-            '<label for="textarea1">Datos específicos de la competición</label>' +
+            '<textarea id="textarea'+k+'" class="create-input materialize-textarea validate" oninput="cambiandoCaracteristica('+k+')"></textarea>' +
+            '<label for="textarea'+k+'" >Datos específicos de la competición</label>' +
             '</div>' +
             '</div>' +
             '</div>' +
             '</div>' +
-            '<div class="more-button-red" onclick="deleteCard(this)">' +
+            '<div class="more-button-red" onclick="deleteCard(this,'+k+')">' +
             '<i class="zmdi zmdi-delete"></i>' +
             '</div>' +
             '</div>'
@@ -129,9 +135,10 @@ function actualizarCaracteristicas()
     $('select').formSelect();
 }
 
-function deleteCard(container)
+function deleteCard(container,i)
 {
-    $(container).parent().remove();
+    caracteristicasList = caracteristicasList.splice(i,1);
+    actualizarCaracteristicas();
 }
 
 function addTeam()
