@@ -253,7 +253,7 @@ router.post('/events',function (req, res, next)
 
             res.status(200).json({
                 status: 'success',
-                data: "Insertado correctamente"
+                data: result.rows[0].insertarcompeticion
             });
         }
     })
