@@ -49,7 +49,7 @@ class Cookie
     {
         if(this.getCookie()===null)
         {
-            window.location = "/login";
+            window.location = "/perro.html";
         }
     }
 
