@@ -69,3 +69,6 @@ INSERT INTO PARTIDO VALUES
 (DEFAULT,'JORNADA 3','2019-10-02',5,0,2,1,4,'finalizado',null,1),
 (DEFAULT,'JORNADA 3','2019-10-02',2,1,2,2,3,'finalizado',null,1),
 (DEFAULT,'FINAL','2019-10-30',2,1,2,1,2,'finalizado',1,null);
+
+INSERT INTO USUARIO VALUES
+(DEFAULT,'Rolando', 'Andrade', 'rolandoandrade@gmail.com','12345678','masculino','26728918','1998-12-10',null, null,1);
