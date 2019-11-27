@@ -85,7 +85,6 @@ function cambiandoCaracteristica(i, container)
         caracteristicasList[i]['tipo']=$(container).val();
     }
     caracteristicasList[i]['descripcion']=$("#textarea"+i).val();
-    console.log(caracteristicasList)
 }
 
 function actualizarCaracteristicas()
@@ -118,8 +117,8 @@ function actualizarCaracteristicas()
             '<div class="create-data-container">' +
             '<div class="input-container">' +
             '<div class="input-field">' +
-            '<textarea id="textarea'+k+'" class="create-input materialize-textarea validate" oninput="cambiandoCaracteristica('+k+')"></textarea>' +
-            '<label for="textarea'+k+'" >Datos específicos de la competición</label>' +
+            '<textarea id="textarea'+k+'" class="create-input materialize-textarea validate" oninput="cambiandoCaracteristica('+k+')">'+i.descripcion+'</textarea>' +
+            '<label class="'+(i.descripcion.length>0?"active":"")+'" for="textarea'+k+'" >Datos específicos de la competición</label>' +
             '</div>' +
             '</div>' +
             '</div>' +
@@ -233,19 +232,23 @@ function deleteTeam(i,container)
     equiposList[i]["check"] = false;
 }
 
-function getCaracterisitcasFromFront()
-{
-    let caracteristicas = [];
-    console.log($("#create-data-container").find("create-content-container"))
-}
-
-function createCompetition()
+async function createCompetition()
 {
     let nombre = $("#crear-titulo-competicion").val();
     let fechainicio = $("#crear-fecha-inicio-competicion").val();
     let fechafin = $("#crear-fecha-fin-competicion").val();
-    let imagen = $("#crear-imagen-competicion").css("background-image").match(/\(([^)]+)\)/)[1];
-    let estado = "progreso";
-    getCaracterisitcasFromFront();
-    console.log(nombre,fechainicio,fechafin, imagen, estado)
+    let imagen = ($("#crear-imagen-competicion").css("background-image").match(/\(([^)]+)\)/)[1]).replace('"','');
+    let sede =  $("#lugar-realizacion").val();
+    let data = {
+        nombre: nombre,
+        fechainicio: fechainicio,
+        fechafin: fechafin,
+        imagen: imagen,
+        genero: genero,
+        caracteristicas: caracteristicasList,
+        lugar: sede
+    }
+    let req = await new PostRequest(data, "/api/v1/events").execute();
+
+    console.log(req)
 }
