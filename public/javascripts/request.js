@@ -1,9 +1,23 @@
 class Cookie
 {
-    constructor(name)
+    constructor(name, days)
     {
         this.name=name;
+        this.days = days;
     }
+
+    setCookie(value)
+    {
+        let expires = "";
+        if (days)
+        {
+            let date = new Date();
+            date.setTime(date.getTime() + (this.days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = this.name + "=" + (value || "") + expires + "; path=/";
+    }
+
     getCookie()
     {
         let cookieValue = null;

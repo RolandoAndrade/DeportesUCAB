@@ -27,7 +27,7 @@ describe('POST /api/v1/login', function() {
         chai.request(server)
             .post('/api/v1/login')
             .set('content-type', 'application/x-www-form-urlencoded')
-            .send({user: 'rolando@andrade.com',
+            .send({user: 'rolandoandrade@gmail.com',
                 password: '12345678'})
             .end(function(err, res) {
                 res.should.have.status(200);
