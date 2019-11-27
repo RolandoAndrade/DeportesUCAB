@@ -36,6 +36,24 @@ class Cookie
         }
         return cookieValue;
     }
+
+    hasAuth()
+    {
+        this.name = "user_id";
+        if(this.getCookie()!==null)
+        {
+            window.location="../";
+        }
+    }
+
+    hasntAuth()
+    {
+        this.name = "user_id";
+        if(this.getCookie()===null)
+        {
+            window.location="/login.html";
+        }
+    }
 }
 
 class GetRequest

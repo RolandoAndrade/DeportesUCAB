@@ -1,12 +1,3 @@
-(function($){
-    $(window).on("load",function(){
-        if(new Cookie("usuario").getCookie()!==null)
-        {
-            window.location = "../";
-        }
-    });
-})(jQuery);
-
 function splitLabel(label)
 {
     let l = document.getElementById(label);
@@ -31,9 +22,7 @@ async function signin(user, password)
     let req = await new PostRequest({user: user, password: password},"../api/v1/login").execute();
     if (req.status === "success")
     {
-        let userid = req.data[0].id;
-        new Cookie("usuario",10).setCookie(userid);
-        window.location = "../";
+        new Cookie().hasAuth();
     }
     else
     {
