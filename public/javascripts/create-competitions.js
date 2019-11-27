@@ -237,7 +237,7 @@ async function createCompetition()
     let nombre = $("#crear-titulo-competicion").val();
     let fechainicio = $("#crear-fecha-inicio-competicion").val();
     let fechafin = $("#crear-fecha-fin-competicion").val();
-    let imagen = ($("#crear-imagen-competicion").css("background-image").match(/\(([^)]+)\)/)[1]).replace('"','');
+    let imagen = ($("#crear-imagen-competicion").css("background-image").match(/\(([^)]+)\)/)[1]).replace(/['"]+/g,'');
     let sede =  $("#lugar-realizacion").val();
     let data = {
         nombre: nombre,
