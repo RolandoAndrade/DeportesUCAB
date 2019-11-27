@@ -1,3 +1,12 @@
+(function($){
+    $(window).on("load",function(){
+        if(new Cookie("usuario").getCookie()!==null)
+        {
+            window.location = "../";
+        }
+    });
+})(jQuery);
+
 function splitLabel(label)
 {
     let l = document.getElementById(label);
@@ -24,6 +33,7 @@ async function signin(user, password)
     {
         let userid = req.data[0].id;
         new Cookie("usuario",10).setCookie(userid);
+        window.location = "../";
     }
     else
     {

@@ -9,7 +9,7 @@ class Cookie
     setCookie(value)
     {
         let expires = "";
-        if (days)
+        if (this.days)
         {
             let date = new Date();
             date.setTime(date.getTime() + (this.days * 24 * 60 * 60 * 1000));
