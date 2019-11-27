@@ -36,27 +36,7 @@ class Cookie
         }
         return cookieValue;
     }
-
-     probarCookieLogin()
-     {
-         if(this.getCookie()!==null)
-         {
-             window.location = "../";
-         }
-     }
-
-    probarCookieMain()
-    {
-        if(this.getCookie()===null)
-        {
-            window.location = "/perro.html";
-        }
-    }
-
-
 }
-
-
 
 class GetRequest
 {

@@ -157,10 +157,6 @@ $(document).ready(function(){
         	scrollButtons: {enable: true},
 			scrollInertia: 200,
         });
-		if(new Cookie("usuario").getCookie()===null)
-		{
-			window.location = "/login";
-		}
     });
 })(jQuery);
 
