@@ -12,12 +12,25 @@ function unSplitLabel(label, input)
     }
 }
 
+function sendLogin()
+{
+    signin($("#usermail").val(),$("#userpass").val());
+}
+
 async function signin(user, password)
 {
-    let req = await new PostRequest({user: user, password: password},"/api/v1/login").execute();
+    let req = await new PostRequest({user: user, password: password},"../api/v1/login").execute();
     if (req.status === "success")
     {
         let userid = req.data[0].id;
-
+        new Cookie("usuario",10).setCookie(userid);
+    }
+    else
+    {
+        swal(
+            'Error',
+            'Nombre de usuario o contraseña incorrecta',
+            'error'
+        )
     }
 }
