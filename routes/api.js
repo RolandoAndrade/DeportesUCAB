@@ -243,17 +243,24 @@ router.post('/events',function (req, res, next)
         }
         else
         {
+            let eventoid = result.rows[0].insertarcompeticion;
             req.body.caracteristicas.forEach(async (i)=>
             {
-                console.log(i)
                 await client.query('SELECT insertarCaracteristica($1,$2,$3,$4)',
-                    [result.rows[0].insertarcompeticion,i.titulo, i.descripcion, i.tipo],
+                    [eventoid,i.titulo, i.descripcion, i.tipo],
+                    null)
+            });
+            req.body.equipos.forEach(async (i)=>
+            {
+                await client.query('SELECT insertarparticipantes($1,$2)',
+                    [i.id, eventoid],
                     null)
             });
 
+
             res.status(200).json({
                 status: 'success',
-                data: result.rows[0].insertarcompeticion
+                data: eventoid
             });
         }
     })
