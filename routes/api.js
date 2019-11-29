@@ -260,5 +260,29 @@ router.post('/events',function (req, res, next)
 });
 
 
+router.post('/phases',function (req, res, next)
+{
+    console.log(req.body)
+    client.query('SELECT insertarFase($1,$2,$3)',[
+        req.body.evento,req.body.tipo, req.body.nombre],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+            res.status(200).json({
+                status: 'success',
+                data: result.rows[0].insertarFase
+            });
+        }
+    })
+});
+
 
 module.exports = router;

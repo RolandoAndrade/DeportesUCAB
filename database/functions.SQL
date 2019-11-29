@@ -260,4 +260,20 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-select * from caracteristica
+
+CREATE OR REPLACE FUNCTION insertarFase(eventoid INTEGER, tipoP VARCHAR, nombreP VARCHAR)
+    RETURNS INTEGER
+AS
+$$
+DECLARE
+    partidoid INTEGER;
+BEGIN
+    IF tipoP = 'clasificacion' THEN
+        INSERT INTO CLASIFICACION VALUES (DEFAULT,nombreP,3,0,1,eventoid) RETURNING id_clasificacion INTO partidoid;
+    ELSE
+        INSERT INTO ELIMINATORIA VALUES (DEFAULT,nombreP,eventoid) RETURNING id_eliminatoria INTO partidoid;
+    end if;
+    RETURN partidoid;
+END;
+$$ LANGUAGE 'plpgsql';
+
