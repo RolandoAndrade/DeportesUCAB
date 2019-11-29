@@ -278,7 +278,7 @@ router.post('/phases',function (req, res, next)
         {
             res.status(200).json({
                 status: 'success',
-                data: result.rows[0].insertarFase
+                data: result.rows[0].insertarfase
             });
         }
     })

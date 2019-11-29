@@ -159,13 +159,13 @@ describe('POST /api/v1/phases', function() {
     it('Debe crear una fase de un evento', function(done) {
 
         chai.request(server)
-            .post('/api/v1/events')
+            .post('/api/v1/phases')
             .set('content-type', 'application/json')
             .send(
                 {
-                    nombre: 'GRUPO A',
+                    nombre: 'GRUPO B',
                     tipo: 'clasificacion',
-                    evento:
+                    evento: 1
                 })
             .end(function(err, res) {
                 res.should.have.status(200);
