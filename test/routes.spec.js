@@ -145,7 +145,11 @@ describe('POST /api/v1/events', function() {
                         {titulo:"PRUEBA",descripcion:"Esto viene de una prueba unitaria",tipo:"info"},
                         {titulo:"UNITARIA",descripcion:"LAs pruebas ayudan a ver si furula",tipo:"pregunta"},
                         {titulo:"TIEMPO",descripcion:"Es cuestión de probar con tiempo",tipo:"tiempo"},
-                        {titulo:"FECHA",descripcion:"Lorem ksjkab ipsum",tipo:"fecha"}]
+                        {titulo:"FECHA",descripcion:"Lorem ksjkab ipsum",tipo:"fecha"}
+                    ],
+                    equipos: [
+                        {id:1},{id:2},{id:3},{id:4}
+                    ]
                 })
             .end(function(err, res) {
                 res.should.have.status(200);
