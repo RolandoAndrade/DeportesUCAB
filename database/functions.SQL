@@ -327,5 +327,25 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION getPartidosFase(faseid INTEGER, tipoP VARCHAR) RETURNS TABLE(id INTEGER, fecha TIMESTAMP, local VARCHAR, visitante VARCHAR,
+                                        escudo_local VARCHAR, escudo_visitante VARCHAR, nombre_partido VARCHAR) AS
+$$
+BEGIN
+    IF tipoP = 'clasificacion' THEN
+        RETURN QUERY
+            SELECT P.id_partido, P.fecha, L.nombre, V.nombre, L.escudo, V.escudo, P.nombre
+            FROM PARTIDO P, EQUIPO L, EQUIPO V
+            WHERE P.equipo_local = L.id_equipo AND P.equipo_visitante = V.id_equipo AND
+                    P.clasificacion_id = faseid ORDER BY P.fecha;
+    ELSE
+        RETURN QUERY
+            SELECT P.id_partido, P.fecha, L.nombre, V.nombre, L.escudo, V.escudo, P.nombre
+            FROM PARTIDO P, EQUIPO L, EQUIPO V
+            WHERE P.equipo_local = L.id_equipo AND P.equipo_visitante = V.id_equipo AND
+                    P.eliminatoria_id = faseid ORDER BY P.fecha;
+    end if;
+END;
+$$ LANGUAGE 'plpgsql';
+
 
 

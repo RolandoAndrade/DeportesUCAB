@@ -291,5 +291,57 @@ router.post('/phases',function (req, res, next)
     })
 });
 
+router.post('/phases/:id(\\d+)/matches',function (req, res, next)
+{
+    console.log(req.body)
+
+    client.query('SELECT insertarpartido($1,$2,$3,$4,$5,$6,$7)',[
+        req.body.fase,req.body.tipo,req.body.nombre,req.body.local,
+        req.body.visitante,req.body.lugar, req.body.fecha ],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+            res.status(200).json({
+                status: 'success',
+                data: result.rows[0].insertarpartido
+            });
+        }
+    })
+});
+
+router.get('/phases/:id(\\d+)/matches',function (req, res, next)
+{
+    client.query('SELECT * FROM getpart($1)',[req.params.id],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+            if(result.rows.length>0)
+            {
+                res.status(200).json({
+                    status: 'success',
+                    data: result.rows
+                });
+
+            }
+        }
+    })
+});
+
 
 module.exports = router;
