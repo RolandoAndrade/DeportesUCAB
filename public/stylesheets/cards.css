@@ -771,3 +771,13 @@
     justify-content: space-between;
     width: 30%;
 }
+
+.create-equipo-card.edit
+{
+    cursor: pointer;
+    transition: 0.5s all;
+}
+.create-equipo-card.edit:hover
+{
+    background: #dddddd;
+}
