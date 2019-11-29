@@ -228,6 +228,22 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION getOrCreateLugar(lugarP VARCHAR) RETURNS INTEGER
+AS
+$$
+DECLARE
+    lugarid INTEGER;
+BEGIN
+    SELECT L.id_lugar INTO lugarid FROM LUGAR L WHERE L.nombre = lugarP;
+
+    IF lugarid IS NULL THEN
+        INSERT INTO LUGAR VALUES (DEFAULT, lugarP, 'sede',null,null,null) RETURNING id_lugar INTO lugarid;
+    end if;
+
+    RETURN lugarid;
+END;
+$$ LANGUAGE 'plpgsql';
+
 CREATE OR REPLACE FUNCTION insertarCompeticion(imagenP VARCHAR, nombreP VARCHAR, fechaInicioP DATE,
 fechaFinP DATE, lugarP VARCHAR, generoP INTEGER)
     RETURNS INTEGER
@@ -238,11 +254,7 @@ DECLARE
     competicionid INTEGER;
     eventoid INTEGER;
 BEGIN
-    SELECT L.id_lugar INTO lugarid FROM LUGAR L WHERE L.nombre = lugarP;
-    raise notice '%', lugarid;
-    IF lugarid IS NULL THEN
-        INSERT INTO LUGAR VALUES (DEFAULT, lugarP, 'sede',null,null,null) RETURNING id_lugar INTO lugarid;
-    end if;
+    lugarid := getOrCreateLugar(lugarP);
     INSERT INTO COMPETICION VALUES(DEFAULT, nombreP, fechaInicioP, fechaFinP, imagenP, 'progreso',lugarid)
     RETURNING id_competicion INTO competicionid;
     INSERT INTO EVENTO VALUES (DEFAULT,'progreso',generoP,competicionid) RETURNING id_evento INTO eventoid;
@@ -272,6 +284,24 @@ BEGIN
         INSERT INTO CLASIFICACION VALUES (DEFAULT,nombreP,3,0,1,eventoid) RETURNING id_clasificacion INTO partidoid;
     ELSE
         INSERT INTO ELIMINATORIA VALUES (DEFAULT,nombreP,eventoid) RETURNING id_eliminatoria INTO partidoid;
+    end if;
+    RETURN partidoid;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION insertarPartido(faseid INTEGER, tipoP VARCHAR, nombreP VARCHAR, localP INTEGER, visitanteP INTEGER, lugarP VARCHAR, fechaP DATE)
+    RETURNS INTEGER
+AS
+$$
+DECLARE
+    partidoid INTEGER;
+    lugarid INTEGER;
+BEGIN
+    lugarid := getOrCreateLugar(lugarP);
+    IF tipoP = 'clasificacion' THEN
+        INSERT INTO PARTIDO VALUES (DEFAULT,nombreP, fechaP, 0,0,lugarid,localP,visitanteP,'pendiente',null,faseid) RETURNING id_partido INTO partidoid;
+    ELSE
+        INSERT INTO PARTIDO VALUES (DEFAULT,nombreP, fechaP, 0,0,lugarid,localP,visitanteP,'pendiente',faseid,null) RETURNING id_partido INTO partidoid;
     end if;
     RETURN partidoid;
 END;
