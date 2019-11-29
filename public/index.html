@@ -138,34 +138,7 @@
 
         </div>
         <div id = "eventos-content" class="eventos-content">
-            <div onclick="openDetailsOf('Descripción del torneo')" class="post-card clickeable">
-                <div class="card-preview-image">
-                </div>
-                <div class="card-content">
-                    <div class="card-title">
-                        Lorem ipsum sit ammet
-                    </div>
-                    <div class="card-data">
-                        <div class="card-date-icon">
-                            <div class="card-icon"><i class="zmdi zmdi-calendar"></i></div>
-                        </div>
-                        <div class="card-place-icon">
-                            <div class="card-icon">
-                                <i class="zmdi zmdi-pin"></i>
-                            </div>
-                        </div>
-                        <div class="card-date">
-                            <div class="card-fulldate">31 de Octubre</div>
-                        </div>
-                        <div class="card-place">
-                            <div class="location">
-                                UCAB
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
         </div>
         <div id = "competition-detail" class="competition-detail">
             <div id ="header-detail" class="header-detail">
@@ -522,69 +495,8 @@
                     </div>
                 </div>
             </div>
-            <div id="estadisticas-content"  class="detail-content clasificacion-content">
-                <div class="post-card results">
-                    <div class="result-title">
-                        Lorem ipsum sit ammet
-                    </div>
-                    <table class="classification-table">
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th>GOLES</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td class="stats-player-image"><img src="images/user.png" alt=""></td>
-                            <td class="stats-team-name">
-                                <div>Lorem ipsum</div>
-                                <div class="stat-group">
-                                    <div class="stats-team-shield"><img src="images/pic09.jpg" alt=""></div>
-                                    <div class="sub-team-name">Lorem Ipsum</div>
-                                </div>
-                            </td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td class="stats-player-image"><img src="images/user.png" alt=""></td>
-                            <td class="stats-team-name">
-                                <div>Lorem ipsum</div>
-                                <div class="stat-group">
-                                    <div class="stats-team-shield"><img src="images/pic09.jpg" alt=""></div>
-                                    <div class="sub-team-name">Lorem Ipsum</div>
-                                </div>
-                            </td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td class="stats-player-image"><img src="images/user.png" alt=""></td>
-                            <td class="stats-team-name">
-                                <div>Lorem ipsum</div>
-                                <div class="stat-group">
-                                    <div class="stats-team-shield"><img src="images/pic09.jpg" alt=""></div>
-                                    <div class="sub-team-name">Lorem Ipsum</div>
-                                </div>
-                            </td>
-                            <td>5</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td class="stats-player-image"><img src="images/user.png" alt=""></td>
-                            <td class="stats-team-name">
-                                <div>Lorem ipsum</div>
-                                <div class="stat-group">
-                                    <div class="stats-team-shield"><img src="images/pic09.jpg" alt=""></div>
-                                    <div class="sub-team-name">Lorem Ipsum</div>
-                                </div>
-                            </td>
-                            <td>5</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            <div id="estadisticas-content"  class="detail-content clasificacion-content"></div>
+
         </div>
 
 
@@ -667,74 +579,76 @@
                 <i class="zmdi zmdi-check"></i>
             </div>
         </div>
+        <div id = "creador-fases-content" class="creador-fases-content">
+            <div class="post-card create-form">
+                <div class="create-form-title">
+                    Crea una fase
+                </div>
+                <div class="create-form-content">
+                    <div class="create-content-container">
+                        <div class="input-container">
+                            <div class="input-field">
+                                <input id="crear-fase-competicion" type="text" class="create-input validate">
+                                <label for="crear-fase-competicion">Nombre de la fase</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="create-content-container">
+                        <div class="fase-selector">
+                            <div class="create-fase clasificacion" onclick="changeFase(this)">Clasificación</div>
+                            <div class="create-fase eliminatoria" onclick="changeFase(this)">Eliminatoria</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-button" onclick="addFase()">
+                    <i class="zmdi zmdi-plus"></i>
+                </div>
+            </div>
+            <div class="post-card">
+                <div class="fase-left blue">
+
+                </div>
+                <div class="fase-more">
+                    <div class="card-title blue">
+                        Lorem ipsum sit ammet
+                    </div>
+
+                    <div class="agregar-container">
+                        <div class="more-button" onclick="addFase()">
+                            <i class="zmdi zmdi-plus"></i>
+                        </div>
+                        <div class="more-button-red" onclick="addFase()">
+                            <i class="zmdi zmdi-delete"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="post-card">
+                <div class="fase-left purple">
+
+                </div>
+                <div class="fase-more">
+                    <div class="card-title purple">
+                        Lorem ipsum sit ammet
+                    </div>
+
+                    <div class="agregar-container">
+                        <div class="more-button" onclick="addFase()">
+                            <i class="zmdi zmdi-plus"></i>
+                        </div>
+                        <div class="more-button-red" onclick="addFase()">
+                            <i class="zmdi zmdi-delete"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more-button send" onclick="createCompetition()">
+                <i class="zmdi zmdi-check"></i>
+            </div>
+        </div>
         <div id = "creador-partidos-content" class="creador-partidos-content">
-            <!--<div class="post-card create-form">
-                <div class="create-form-title">
-                    Datos generales
-                </div>
-                <div class="create-form-content">
-                    <div class="create-content-container">
-                        <div class="input-container">
-                            <div class="input-field">
-                                <input id="crear-titulo-competicion" type="text" class="create-input validate">
-                                <label for="crear-titulo-competicion">Nombre de la competición</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="create-content-container">
-                        <div class="input-container">
-                            <div class="input-field">
-                                <input id="crear-fecha-inicio-competicion" type="text" class="create-input fecha-input validate">
-                                <label for="crear-fecha-inicio-competicion">Fecha de inicio</label>
-                            </div>
-                        </div>
-                        <div class="input-container">
-                            <div class="input-field">
-                                <input id="crear-fecha-fin-competicion" type="text" class="create-input fecha-input validate">
-                                <label for="crear-fecha-fin-competicion">Fecha de fin</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="create-content-container">
-                        <div class="input-container">
-                            <div class="input-field">
-                                <input id="lugar-realizacion" type="text" class="create-input validate">
-                                <label for="lugar-realizacion">Lugar de realización</label>
-                            </div>
-                        </div>
-                        <div class="gender-selector">
-                            <div class="create-gender blue"><i class="zmdi zmdi-male-alt"></i></div>
-                            <div class="create-gender red"><i class="zmdi zmdi-female"></i></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="post-card create-form">
-                <div class="create-form-title">
-                    Datos específicos
-                </div>
-                <div class="create-form-content" id="caracteristicas-container">
 
-                </div>
-                <div class="create-form-content">
-                    <div class="more-button" onclick="addCaracteristica()">
-                        <i class="zmdi zmdi-plus"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="post-card create-form">
-                <div class="create-form-title">
-                    Equipos
-                </div>
-                <div class="create-form-content" id="create-equipos-container">
-
-                </div>
-                <div class="create-form-content" onclick="addTeam()">
-                    <div class="more-button">
-                        <i class="zmdi zmdi-plus"></i>
-                    </div>
-                </div>
-            </div>--->
         </div>
     </div>
 </section>

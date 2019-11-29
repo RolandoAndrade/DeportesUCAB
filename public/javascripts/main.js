@@ -226,6 +226,14 @@ async function showInicio()
 	addEvents(a.data);
 }
 
+function showFaseador()
+{
+    hideAll();
+    $("#creador-fases-content").show(300);
+    $("#detail-title").html("Establecer fases");
+    replaceIcon("creador-icon");
+}
+
 function showCrearPartidos()
 {
     hideAll();
@@ -250,6 +258,10 @@ function viewSelection(auxiliar)
 	{
 		showCreador();
 	}
+    else if(url.indexOf("#crear-fases")!==-1)
+    {
+        showFaseador();
+    }
 	else
 	{
         showInicio();
