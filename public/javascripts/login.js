@@ -19,9 +19,11 @@ function sendLogin()
 
 async function signin(user, password)
 {
+    $(".cover-loader").css({top: 0});
     let req = await new PostRequest({user: user, password: password},"../api/v1/login").execute();
     if (req.status === "success")
     {
+
         new Cookie().hasAuth();
     }
     else
@@ -30,6 +32,10 @@ async function signin(user, password)
             'Error',
             'Nombre de usuario o contraseña incorrecta',
             'error'
-        )
+        ).then(()=>
+        {
+            $(".cover-loader").css({top: "-100%"});
+        })
+
     }
 }
