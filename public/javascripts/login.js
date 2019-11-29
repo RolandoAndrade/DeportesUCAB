@@ -19,7 +19,7 @@ function sendLogin()
 
 async function signin(user, password)
 {
-    $(".cover-loader").css({top: 0});
+    $(".cover-loader").addClass("show");
     let req = await new PostRequest({user: user, password: password},"../api/v1/login").execute();
     if (req.status === "success")
     {
@@ -34,7 +34,10 @@ async function signin(user, password)
             'error'
         ).then(()=>
         {
-            $(".cover-loader").css({top: "-100%"});
+            $(".cover-loader").removeClass("show");
+        }).catch(()=>
+        {
+            $(".cover-loader").removeClass("show");
         })
 
     }

@@ -158,6 +158,7 @@ $(document).ready(function(){
 			scrollInertia: 200,
         });
     });
+    $(".cover-loader").removeClass("show");
 })(jQuery);
 
 

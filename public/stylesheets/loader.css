@@ -20,6 +20,9 @@
     -webkit-animation-delay: -0.16s;
     animation-delay: -0.16s;
 }
+.cover-loader.show {
+    top: 0;
+}
 
 .cover-loader
 {
