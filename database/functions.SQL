@@ -307,3 +307,15 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION getParticipantes(eventoID INTEGER) RETURNS TABLE(id INTEGER, nombre VARCHAR, escudo VARCHAR) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT T.id_equipo, T.nombre, T.escudo
+        FROM equipo T, PARTICIPACION P
+        WHERE P.evento_id = eventoID AND (P.equipo_id=id_equipo OR T.nombre = 'Por definir');
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+
