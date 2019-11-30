@@ -229,14 +229,6 @@ async function showInicio()
 	addEvents(a.data);
 }
 
-function showCrearPartidos()
-{
-    hideAll();
-    $("#creador-partidos-content").show(300);
-    $("#detail-title").html("Crear partidos");
-    replaceIcon("back-icon");
-}
-
 function viewSelection(auxiliar)
 {
 	let url = document.location.href;
