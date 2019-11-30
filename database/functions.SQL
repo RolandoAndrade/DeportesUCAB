@@ -347,5 +347,18 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION getFasesEvento(eventoid INTEGER)
+RETURNS TABLE(id INTEGER, nombre VARCHAR, tipo TEXT) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT C.id_clasificacion "id", C.nombre "nombre", 'clasificacion' "tipo"
+        FROM CLASIFICACION C
+        WHERE C.evento_id = eventoid
+        UNION ALL
+        SELECT C.id_eliminatoria "id", C.nombre "nombre", 'eliminatoria' "tipo"
+        FROM ELIMINATORIA C
+        WHERE C.evento_id = eventoid;
 
-
+END;
+$$ LANGUAGE 'plpgsql';
