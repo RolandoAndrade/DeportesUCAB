@@ -236,3 +236,14 @@ describe('GET /api/v1/teams/events/:id', function() {
     });
 });
 
+describe('GET /users/:id', function() {
+    it('Retorna la información del jugador', function(done) {
+        chai.request(server)
+            .get('/api/v1/users/1')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
