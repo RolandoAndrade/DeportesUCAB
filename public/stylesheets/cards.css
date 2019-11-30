@@ -787,3 +787,14 @@
 {
     opacity: 1;
 }
+
+.partido-deleter
+{
+    width: 20%;
+}
+
+.more-button-red.mini
+{
+    width: 30px;
+    height: 30px;
+}
