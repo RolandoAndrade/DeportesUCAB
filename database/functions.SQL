@@ -49,7 +49,7 @@ BEGIN
     RETURN QUERY
         SELECT T.id_equipo, T.nombre, T.escudo
         FROM equipo T
-        WHERE deporte_id = deporte;
+        WHERE deporte_id = deporte AND T.nombre != 'Por definir';
 END;
 $$ LANGUAGE 'plpgsql';
 
