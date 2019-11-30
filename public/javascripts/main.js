@@ -1,3 +1,10 @@
+async function beforeEverithing()
+{
+	let userdata = (await new GetRequest("/api/v1/users/"+(new Cookie("user_id").getCookie())).execute()).data[0];
+	$("#imagen-usuario").attr("src",userdata.imagen);
+	$("#nombre-usuario").text(userdata.nombre+" "+userdata.apellido);
+}
+beforeEverithing();
 function exitWindow()
 {
 	swal({
