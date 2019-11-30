@@ -32,7 +32,9 @@ INSERT INTO EQUIPO VALUES
 (DEFAULT,'Universidad Católica Andrés Bello (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045479/accounts/Escudo_UCAB.jpg',2),
 (DEFAULT,'Universidad Metropolitana (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045573/accounts/customLogo.png',2),
 (DEFAULT,'Universidad Central de Venezuela (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045798/accounts/UCV.png',2),
-(DEFAULT,'Universidad Simón Bolívar (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045746/accounts/usb.jpg',2);
+(DEFAULT,'Universidad Simón Bolívar (F)','https://res.cloudinary.com/rolandoandrade/image/upload/v1573045746/accounts/usb.jpg',2),
+(DEFAULT,'Por definir','images/desconocido.png',1),
+(DEFAULT,'Por definir','images/desconocido.png',2);
 
 INSERT INTO COMPETICION VALUES
 (DEFAULT,'Liga Nacional de Fútbol Masculino','2019-09-01','2020-05-21','https://images.unsplash.com/photo-1552667466-07770ae110d0?ixlib=rb-1.2.1&w=1000&q=80','progreso',1),

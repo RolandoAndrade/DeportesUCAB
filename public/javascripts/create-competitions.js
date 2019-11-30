@@ -239,6 +239,11 @@ async function createCompetition()
     let fechafin = $("#crear-fecha-fin-competicion").val();
     let imagen = ($("#crear-imagen-competicion").css("background-image").match(/\(([^)]+)\)/)[1]).replace(/['"]+/g,'');
     let sede =  $("#lugar-realizacion").val();
+    let equipos = [];
+    equiposList.forEach((i)=>{
+        if(i.check)
+            equipos.push({id: i.id})
+    });
     let data = {
         nombre: nombre,
         fechainicio: fechainicio,
@@ -246,9 +251,11 @@ async function createCompetition()
         imagen: imagen,
         genero: genero,
         caracteristicas: caracteristicasList,
-        lugar: sede
-    }
+        lugar: sede,
+        equipos: equipos
+    };
     let req = await new PostRequest(data, "/api/v1/events").execute();
-
-    console.log(req)
+    let url = document.location.href+'#crear-fases?'+req.data;
+    window.history.pushState('DeportesUCAB', 'DeportesUCAB', url);
+    viewSelection()
 }
