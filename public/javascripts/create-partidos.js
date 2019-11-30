@@ -74,7 +74,7 @@ function selectTeamToMatch(i, caso)
                 i.local = false;
             });
 
-
+            $("#crear-partido-local-nombre").text(teamsOfCompetition[i].nombre);
         }
         else
         {
@@ -83,6 +83,7 @@ function selectTeamToMatch(i, caso)
                 if(i.visitante) i.check=false;
                 i.visitante = false;
             });
+            $("#crear-partido-local-visitante").text(teamsOfCompetition[i].nombre);
         }
 
         teamsOfCompetition[i].check=true;
