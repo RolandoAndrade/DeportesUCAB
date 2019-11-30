@@ -359,6 +359,21 @@ BEGIN
         SELECT C.id_eliminatoria "id", C.nombre "nombre", 'eliminatoria' "tipo"
         FROM ELIMINATORIA C
         WHERE C.evento_id = eventoid;
+END;
+$$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION deleteFase(faseid INTEGER, tipoP VARCHAR) RETURNS BOOLEAN
+AS
+$$
+BEGIN
+    IF tipoP = 'clasificacion' THEN
+        DELETE FROM PARTIDO WHERE clasificacion_id = faseid;
+        DELETE FROM TABLA_CLASIFICACION WHERE clasificacion_id = faseid;
+        DELETE FROM CLASIFICACION WHERE id_clasificacion = faseid;
+    ELSE
+        DELETE FROM PARTIDO WHERE eliminatoria_id = faseid;
+        DELETE FROM ELIMINATORIA WHERE id_eliminatoria = faseid;
+    end if;
+    RETURN TRUE;
 END;
 $$ LANGUAGE 'plpgsql';
