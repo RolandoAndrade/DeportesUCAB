@@ -178,3 +178,17 @@ describe('POST /api/v1/phases', function() {
             });
     });
 });
+
+describe('GET /api/v1/phases/:id/matches?tipo=', function() {
+    it('Retorna los partidos de una fase', function(done) {
+
+        chai.request(server)
+            .get('/api/v1/phases/1/matches?tipo=clasificacion')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
+

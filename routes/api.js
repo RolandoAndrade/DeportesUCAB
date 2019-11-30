@@ -319,7 +319,7 @@ router.post('/phases/:id(\\d+)/matches',function (req, res, next)
 
 router.get('/phases/:id(\\d+)/matches',function (req, res, next)
 {
-    client.query('SELECT * FROM getpart($1)',[req.params.id],(err, result)=>{
+    client.query('SELECT * FROM getpartidosfase($1,$2)',[req.params.id, req.query.tipo],(err, result)=>{
         if(err)
         {
             console.log(err)
@@ -331,14 +331,11 @@ router.get('/phases/:id(\\d+)/matches',function (req, res, next)
         }
         else
         {
-            if(result.rows.length>0)
-            {
+
                 res.status(200).json({
                     status: 'success',
                     data: result.rows
                 });
-
-            }
         }
     })
 });
