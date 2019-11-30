@@ -387,3 +387,12 @@ BEGIN
             SELECT U.id_usuario, U.nombre, U.apellido, U.correo, U.genero, U.cedula, U.fecha_nac, U.imagen, U.rol_id FROM USUARIO U WHERE id_usuario = userid;
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION deletepartido(partidoid INTEGER) RETURNS BOOLEAN
+AS
+$$
+BEGIN
+    DELETE FROM PARTIDO WHERE id_partido = partidoid;
+    RETURN TRUE;
+END;
+$$ LANGUAGE 'plpgsql';
