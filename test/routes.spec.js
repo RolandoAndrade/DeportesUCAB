@@ -213,7 +213,7 @@ describe('POST /api/v1/phases/delete', function() {
             .set('content-type', 'application/json')
             .send(
                 {
-                    fase: 3,
+                    fase: 1,
                     tipo: 'clasificacion'
                 })
             .end(function(err, res) {

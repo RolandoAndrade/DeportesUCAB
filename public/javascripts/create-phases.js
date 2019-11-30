@@ -30,7 +30,7 @@ function showFases()
     $('.fases-creadas').empty();
     let s = "";
     console.log(fasesList)
-    fasesList.forEach((i)=>
+    fasesList.forEach((i,k)=>
     {
         let nombre = i.nombre;
         let tipo = i.tipo == 'clasificacion';
@@ -42,10 +42,10 @@ function showFases()
                                     nombre+
             '                    </div>\n' +
             '                    <div class="agregar-container">\n' +
-            '                        <div class="more-button" onclick="addFase()">\n' +
+            '                        <div class="more-button" onclick="addPartidoToFase()">\n' +
             '                            <i class="zmdi zmdi-plus"></i>\n' +
             '                        </div>\n' +
-            '                        <div class="more-button-red" onclick="addFase()">\n' +
+            '                        <div class="more-button-red" onclick="deleteFase(this,'+k+')">\n' +
             '                            <i class="zmdi zmdi-delete"></i>\n' +
             '                        </div>\n' +
             '                    </div>\n' +
@@ -53,6 +53,32 @@ function showFases()
             '            </div>'
     })
     $(".fases-creadas").append(s);
+}
+
+function addPartidoToFase()
+{
+
+}
+
+function deleteFase(container,i)
+{
+    let data = {
+        fase: fasesList[i].id,
+        tipo: fasesList[i].tipo
+    }
+    swal({
+        title: '¿Está seguro?',
+        text: "La fase y todos los partidos en ella serán eliminados",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar la fase',
+        cancelButtonText: 'No, cancelar',
+        cancelButtonColor: "#e74a3b"
+    }).then(()=>{
+        $(container).parent().parent().parent().remove();
+        new PostRequest(data,"/api/v1/phases/delete").execute()
+    }).catch((e)=>{});
+
 }
 
 let tipofase = null;
