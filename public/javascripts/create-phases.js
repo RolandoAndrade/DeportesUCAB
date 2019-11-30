@@ -1,13 +1,20 @@
 let fasesList = [];
 
+function getEventoFaseFormUrl()
+{
+    let url = document.location.href;
+    return parseInt(url.substring(url.lastIndexOf("?evento=")+8));
+}
+
 function showFaseador()
 {
     hideAll();
+    $("#loader-fases").hide();
     $("#creador-fases-content").show(300);
     $("#detail-title").html("Establecer fases");
     replaceIcon("creador-icon");
     let url = document.location.href;
-    let eventoid = parseInt(url.substring(url.lastIndexOf("?evento=")+8));
+    let eventoid = getEventoFaseFormUrl();
     getFases(eventoid)
 }
 
@@ -59,11 +66,44 @@ function changeFase(container)
     }
     else
     {
-        genero = "eliminatoria";
+        tipofase = "eliminatoria";
     }
 }
 
-function crearFase()
+async function addFase()
 {
+    let nombre = $("#crear-fase-competicion").val();
+    if(nombre.length>0&&tipofase!==null)
+    {
+        $("#loader-fases").fadeIn(300);
+        let evento = getEventoFaseFormUrl();
+        let tipo = tipofase;
+
+        let data = {
+            evento: evento,
+            tipo: tipo,
+            nombre: nombre
+        };
+        let req = await new PostRequest(data,"/api/v1/phases").execute();
+        swal(
+            'Perfecto',
+            'La fase fue añadida con éxito',
+            'success'
+        );
+        $("#loader-fases").fadeOut(300);
+        $("#crear-fase-competicion").val("");
+        tipofase = null;
+        $(".fase-selector").find(".seleccionado").removeClass("seleccionado");
+        fasesList.push({id:req.data, nombre: nombre, tipo: tipo});
+        showFases();
+    }
+    else
+    {
+        swal(
+            'Error',
+            'No has completado los datos',
+            'error'
+        )
+    }
 
 }
