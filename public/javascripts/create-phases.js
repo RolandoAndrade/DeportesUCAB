@@ -42,7 +42,7 @@ function showFases()
                                     nombre+
             '                    </div>\n' +
             '                    <div class="agregar-container">\n' +
-            '                        <div class="more-button" onclick="addPartidoToFase()">\n' +
+            '                        <div class="more-button" onclick="addPartidoToFase('+k+')">\n' +
             '                            <i class="zmdi zmdi-plus"></i>\n' +
             '                        </div>\n' +
             '                        <div class="more-button-red" onclick="deleteFase(this,'+k+')">\n' +
@@ -55,7 +55,7 @@ function showFases()
     $(".fases-creadas").append(s);
 }
 
-function addPartidoToFase()
+function addPartidoToFase(i)
 {
 
 }
