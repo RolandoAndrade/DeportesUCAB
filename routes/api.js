@@ -363,5 +363,28 @@ router.get('/events/:id(\\d+)/phases',function (req, res, next)
     })
 });
 
+router.post('/phases/delete',function (req, res, next)
+{
+    client.query('SELECT deletefase($1,$2)',[req.body.fase,req.body.tipo],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+
+            res.status(200).json({
+                status: 'success',
+                data: "eliminado"
+            });
+        }
+    })
+});
+
 
 module.exports = router;

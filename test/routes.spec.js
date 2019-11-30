@@ -205,3 +205,23 @@ describe('GET /api/v1/events/:id/phases', function() {
     });
 });
 
+describe('POST /api/v1/phases/delete', function() {
+    it('Debe crear una fase de un evento', function(done) {
+
+        chai.request(server)
+            .post('/api/v1/phases/delete')
+            .set('content-type', 'application/json')
+            .send(
+                {
+                    fase: 3,
+                    tipo: 'clasificacion'
+                })
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
+
+
