@@ -43,6 +43,10 @@ body, html{
 	font-family: 'RobotoCondensed';
 	overflow: hidden;
 }
+
+a{
+	cursor: pointer;
+}
 .full-box{
 	margin: 0;
 	padding: 0;
