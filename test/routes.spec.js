@@ -247,3 +247,21 @@ describe('GET /users/:id', function() {
             });
     });
 });
+
+describe('POST /api/v1/matches/delete', function() {
+    it('Debe eliminar un partido', function(done) {
+
+        chai.request(server)
+            .post('/api/v1/matches/delete')
+            .set('content-type', 'application/json')
+            .send(
+                {
+                    partido: 1
+                })
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});

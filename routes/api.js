@@ -432,5 +432,29 @@ router.get('/users/:id(\\d+)',function (req, res, next)
     })
 });
 
+router.post('/matches/delete',function (req, res, next)
+{
+    client.query('SELECT deletepartido($1)',[req.body.partido],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+
+            res.status(200).json({
+                status: 'success',
+                data: "eliminado"
+            });
+        }
+    })
+});
+
+
 
 module.exports = router;
