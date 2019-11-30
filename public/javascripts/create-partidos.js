@@ -202,3 +202,40 @@ async function retrieveCreatedMatches()
     partidosConseguidos = partidos;
     showPartidos();
 }
+
+function createPartido()
+{
+    let fase = getFaseFromUrl();
+    let nombre = $("#crear-partido-partido").val();
+    let fecha =  $("#crear-fecha-partido-partido").val();
+    let sede =  $("#crear-lugar-partido").val();
+    let local, visitante;
+    partidosConseguidos.forEach((i)=>
+    {
+        if(i.local)
+            local = i;
+        else if(i.visitante)
+            visitante = i;
+    });
+    if(nombre.length>0&&fecha.length>0&&sede.length>0&&local&&visitante)
+    {
+        let data = {
+            fase: fase.id,
+            tipo: fase.tipo,
+            nombre: nombre,
+            local: local,
+            visitante: visitante,
+            fecha: fecha,
+            lugar: sede,
+        }
+        console.log(data)
+    }
+    else
+    {
+        swal(
+            'Error',
+            'No has completado los datos',
+            'error'
+        )
+    }
+}
