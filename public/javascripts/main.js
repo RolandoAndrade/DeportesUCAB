@@ -229,14 +229,6 @@ async function showInicio()
 	addEvents(a.data);
 }
 
-function showFaseador()
-{
-    hideAll();
-    $("#creador-fases-content").show(300);
-    $("#detail-title").html("Establecer fases");
-    replaceIcon("creador-icon");
-}
-
 function showCrearPartidos()
 {
     hideAll();
