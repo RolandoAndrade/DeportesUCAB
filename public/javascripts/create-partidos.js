@@ -1,5 +1,5 @@
 let teamsOfCompetition = [];
-
+let partidosConseguidos = [];
 function getFaseFromUrl()
 {
     let url = document.location.href;
@@ -94,7 +94,7 @@ function selectTeamToMatch(i, caso)
     }
 }
 
-function showMatch(data)
+function showMatch(data,k)
 {
     let local = data.local;
     let visitante = data.visitante;
@@ -134,7 +134,7 @@ function showMatch(data)
         '                                </div>\n' +
         '                            </div>\n' +
         '                            <div class="partido-deleter">\n' +
-        '                                <div class="more-button-red mini" onclick="">\n' +
+        '                                <div class="more-button-red mini" onclick="dropMatch(this,'+k+',\''+data.nombre_partido+'\')">\n' +
         '                                    <i class="zmdi zmdi-delete"></i>\n' +
         '                                </div>\n' +
         '                            </div>\n' +
@@ -142,21 +142,41 @@ function showMatch(data)
     return s;
 }
 
+function dropMatch(container, i, index)
+{
+    (partidosConseguidos[index]).splice(i,1)
+    showPartidos();
+}
+
 function showJornadas(jornada)
 {
-    let partidos = "";
+    let s = '';
+    if (jornada.length > 0)
+    {
+        let partidos = "";
 
-    jornada.forEach((i)=>{
-        i.save = true;
-        partidos+=showMatch(i);
-    })
-    let s = '<div class="post-card results">\n' +
-        '         <div class="result-title">\n' +
-                      jornada[0].nombre_partido+
-        '          </div>'+
-                    partidos+
-        '     </div>';
+        jornada.forEach((i,k)=>{
+            i.save = true;
+            partidos+=showMatch(i,k);
+        });
+        s = '<div class="post-card results">\n' +
+            '         <div class="result-title">\n' +
+            jornada[0].nombre_partido+
+            '          </div>'+
+            partidos+
+            '     </div>';
+    }
+
     $("#partidos-creados").append(s);
+}
+
+function showPartidos()
+{
+    $("#partidos-creados").empty();
+    for(let i in partidosConseguidos)
+    {
+        showJornadas(partidosConseguidos[i])
+    }
 }
 
 async function retrieveCreatedMatches()
@@ -165,12 +185,6 @@ async function retrieveCreatedMatches()
     let fase = getFaseFromUrl();
     let partidos = await new GetRequest("/api/v1/phases/"+fase.id+"/matches?tipo="+fase.tipo).execute();
     partidos = groupMatches(partidos.data);
-
-    for(let i in partidos)
-    {
-        showJornadas(partidos[i])
-    }
-    console.log(partidos)
-
-
+    partidosConseguidos = partidos;
+    showPartidos();
 }
