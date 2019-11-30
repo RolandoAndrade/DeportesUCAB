@@ -777,6 +777,7 @@
 {
     cursor: pointer;
     transition: 0.5s all;
+    border: none;
 }
 .create-equipo-card.edit:hover
 {
