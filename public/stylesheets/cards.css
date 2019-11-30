@@ -1,5 +1,6 @@
 .post-card
 {
+    position: relative;
     display: flex;
     flex-direction: row;
     width: 80%;
