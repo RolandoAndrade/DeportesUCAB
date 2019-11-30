@@ -731,7 +731,7 @@
 }
 
 .create-fase:hover {
-    opacity: 1;
+    opacity: 0.8;
 }
 
 .create-fase.clasificacion
@@ -780,4 +780,9 @@
 .create-equipo-card.edit:hover
 {
     background: #dddddd;
+}
+
+.create-fase.seleccionado
+{
+    opacity: 1;
 }
