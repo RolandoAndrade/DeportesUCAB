@@ -144,8 +144,22 @@ function showMatch(data,k)
 
 function dropMatch(container, i, index)
 {
-    (partidosConseguidos[index]).splice(i,1)
-    showPartidos();
+    swal({
+        title: '¿Está seguro?',
+        text: "El partido será eliminado",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar la fase',
+        cancelButtonText: 'No, cancelar',
+        cancelButtonColor: "#e74a3b"
+    }).then(()=>{
+        if(partidosConseguidos[index][i].save)
+        {
+            new PostRequest({partido: partidosConseguidos[index][i].id},"/api/v1/matches/delete").execute();
+        }
+        (partidosConseguidos[index]).splice(i,1);
+        showPartidos();
+    }).catch((e)=>{});
 }
 
 function showJornadas(jornada)
