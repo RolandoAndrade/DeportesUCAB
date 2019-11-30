@@ -88,7 +88,7 @@ $(document).ready(function(){
 		$('.makeACollectionOrder').show(300);
 	});
 
-	$('.fecha-input').datepicker({firstDay:1, format: 'dd-mm-yyyy', i18n:{cancel: "Cancelar", months: [
+	$('.fecha-input').datepicker({firstDay:1, format: 'yyyy-mm-dd', i18n:{cancel: "Cancelar", months: [
 				'Enero',
 				'Febrero',
 				'Marzo',
@@ -139,6 +139,8 @@ $(document).ready(function(){
 
 	$('select').formSelect();
 
+	$(".cover-loader").removeClass("show");
+
 });
 
 (function($){
@@ -158,7 +160,7 @@ $(document).ready(function(){
 			scrollInertia: 200,
         });
     });
-    $(".cover-loader").removeClass("show");
+
 })(jQuery);
 
 
