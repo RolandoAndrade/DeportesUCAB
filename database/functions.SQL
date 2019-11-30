@@ -379,3 +379,11 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION getuserdata(userid INTEGER) RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR,
+correo VARCHAR, genero VARCHAR, cedula VARCHAR, fecha_nac TIMESTAMP, imagen VARCHAR, rol INTEGER) AS
+$$
+BEGIN
+        RETURN QUERY
+            SELECT U.id_usuario, U.nombre, U.apellido, U.correo, U.genero, U.cedula, U.fecha_nac, U.imagen, U.rol_id FROM USUARIO U WHERE id_usuario = userid;
+END;
+$$ LANGUAGE 'plpgsql';
