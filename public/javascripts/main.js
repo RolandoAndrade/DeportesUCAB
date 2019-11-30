@@ -141,7 +141,7 @@ $(document).ready(function(){
 			], weekdaysAbbrev: ['D','L','M','X','J','V','S'],
 
 		}});
-
+	$('.timepicker').timepicker({i18n:{cancel: "Cancelar",done:"OK"}});
 	M.updateTextFields();
 
 	$('select').formSelect();

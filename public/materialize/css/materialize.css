@@ -8894,7 +8894,7 @@ input[type=range]::-ms-thumb {
   -webkit-flex: 1 auto;
       -ms-flex: 1 auto;
           flex: 1 auto;
-  background-color: #26a69a;
+  background-color: rgba(80, 157, 255, 0.78);
   padding: 10px;
   font-weight: 300;
 }
@@ -9015,7 +9015,7 @@ input[type=range]::-ms-thumb {
 }
 
 .timepicker-canvas line {
-  stroke: #26a69a;
+  stroke: #4f9bff;
   stroke-width: 4;
   stroke-linecap: round;
 }
@@ -9026,12 +9026,12 @@ input[type=range]::-ms-thumb {
 
 .timepicker-canvas-bearing {
   stroke: none;
-  fill: #26a69a;
+  fill: #4f9bff;
 }
 
 .timepicker-canvas-bg {
   stroke: none;
-  fill: #26a69a;
+  fill: #4f9bff;
 }
 
 /* Footer */
