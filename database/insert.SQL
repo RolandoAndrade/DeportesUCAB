@@ -83,4 +83,4 @@ INSERT INTO PARTICIPACION VALUES
 (DEFAULT,8,2);
 
 INSERT INTO USUARIO VALUES
-(DEFAULT,'Rolando', 'Andrade', 'rolandoandrade@gmail.com','12345678','masculino','26728918','1998-12-10',null, null,1);
+(DEFAULT,'Rolando', 'Andrade', 'rolandoandrade@gmail.com','12345678','masculino','26728918','1998-12-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575148700/accounts/photo_2019-11-21_17-24-37.jpg', null,1);
