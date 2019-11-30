@@ -321,9 +321,10 @@ CREATE OR REPLACE FUNCTION getParticipantes(eventoID INTEGER) RETURNS TABLE(id I
 $$
 BEGIN
     RETURN QUERY
-        SELECT T.id_equipo, T.nombre, T.escudo
-        FROM equipo T, PARTICIPACION P
-        WHERE P.evento_id = eventoID AND (P.equipo_id=id_equipo OR T.nombre = 'Por definir');
+        SELECT DISTINCT T.id_equipo, T.nombre, T.escudo
+        FROM equipo T, PARTICIPACION P, EVENTO E
+        WHERE P.evento_id = eventoID AND E.id_evento = eventoID
+          AND (P.equipo_id=id_equipo OR (T.nombre = 'Por definir' AND T.deporte_id = E.deporte_id));
 END;
 $$ LANGUAGE 'plpgsql';
 
@@ -377,3 +378,4 @@ BEGIN
     RETURN TRUE;
 END;
 $$ LANGUAGE 'plpgsql';
+

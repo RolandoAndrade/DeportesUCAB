@@ -206,7 +206,7 @@ describe('GET /api/v1/events/:id/phases', function() {
 });
 
 describe('POST /api/v1/phases/delete', function() {
-    it('Debe crear una fase de un evento', function(done) {
+    it('Debe eliminar una fase de un evento', function(done) {
 
         chai.request(server)
             .post('/api/v1/phases/delete')
@@ -224,4 +224,15 @@ describe('POST /api/v1/phases/delete', function() {
     });
 });
 
+describe('GET /api/v1/teams/events/:id', function() {
+    it('Retorna los participantes del torneo', function(done) {
+        chai.request(server)
+            .get('/api/v1/teams/events/2')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
 
