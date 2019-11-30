@@ -13,7 +13,6 @@ function showFaseador()
     $("#creador-fases-content").show(300);
     $("#detail-title").html("Establecer fases");
     replaceIcon("creador-icon");
-    let url = document.location.href;
     let eventoid = getEventoFaseFormUrl();
     getFases(eventoid)
 }
@@ -29,7 +28,6 @@ function showFases()
 {
     $('.fases-creadas').empty();
     let s = "";
-    console.log(fasesList)
     fasesList.forEach((i,k)=>
     {
         let nombre = i.nombre;
@@ -57,7 +55,9 @@ function showFases()
 
 function addPartidoToFase(i)
 {
-
+    let url = document.location.href+'#crear-partidos?faseid='+fasesList[i].id+"&tipo="+fasesList[i].tipo;
+    window.history.pushState('DeportesUCAB', 'DeportesUCAB', url);
+    viewSelection()
 }
 
 function deleteFase(container,i)

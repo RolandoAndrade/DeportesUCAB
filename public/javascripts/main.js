@@ -253,7 +253,7 @@ function viewSelection(auxiliar)
 	{
 		showCreador();
 	}
-	else if(url.indexOf("#crear-partido")!==-1)
+	else if(url.indexOf("#crear-partidos")!==-1)
 	{
 		showCrearPartidos();
 	}
