@@ -114,6 +114,7 @@ function addMatch(data)
     let escudo_local = data.escudo_local;
     let escudo_visitante = data.escudo_visitante;
     let fecha = datePair(new Date(data.fecha));
+    let estado = data.estado;
     let s = '<div class="score-data">\n' +
         '                            <div class="score-data-team">\n' +
         '                                <div class="score-data-team-row">\n' +
@@ -141,7 +142,7 @@ function addMatch(data)
         '                            </div>\n' +
         '                            <div class="score-data-date">\n' +
         '                                <div class="data-date">\n' +
-                                            fecha+
+                                            fecha+"\n"+'<div class="partido-estado">'+estado+'</div>'+
         '                                </div>\n' +
         '                            </div>\n' +
         '                        </div>'
