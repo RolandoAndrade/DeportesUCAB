@@ -95,7 +95,7 @@ INSERT INTO USUARIO VALUES
 (DEFAULT,'Ketlen', 'Wiggers', 'wiggers@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232359/accounts/4901099845_d2f3856ded_b.jpg', null,3),
 (DEFAULT,'Nayeli', 'Rangel', 'rangel@gmail.com','12345678','femenino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232419/accounts/AAB5JKo.jpg', null,3),
 (DEFAULT,'Nicole', 'Regnier', 'regnier@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232488/accounts/58e43101de5a2.r_1508777432316.0-86-807-571.jpg', null,3);
-
+--2,3,4 5,6,7 8,9,10 11,12,13
 INSERT INTO HABILIDAD VALUES
 (DEFAULT, 1,1),
 (DEFAULT, 2,1),
@@ -142,10 +142,39 @@ INSERT INTO ATLETA VALUES
 (DEFAULT, 'activo','2019-05-05',null,21,8);
 
 INSERT INTO PARTIDO VALUES
-(DEFAULT,'JORNADA 1','2019-09-17',2,0,2,1,2,'finalizado',null,1),
-(DEFAULT,'JORNADA 1','2019-09-17',2,1,2,3,4,'finalizado',null,1),
-(DEFAULT,'JORNADA 2','2019-09-26',3,1,2,1,3,'finalizado',null,1),
-(DEFAULT,'JORNADA 2','2019-09-26',1,1,2,2,4,'finalizado',null,1),
-(DEFAULT,'JORNADA 3','2019-10-02',5,0,2,1,4,'finalizado',null,1),
-(DEFAULT,'JORNADA 3','2019-10-02',2,1,2,2,3,'finalizado',null,1),
-(DEFAULT,'FINAL','2019-10-30',2,1,2,1,2,'finalizado',1,null);
+(DEFAULT,'JORNADA 1','2019-09-17',0,0,2,1,2,'finalizado',null,1),
+(DEFAULT,'JORNADA 1','2019-09-17',0,0,2,3,4,'finalizado',null,1),
+(DEFAULT,'JORNADA 2','2019-09-26',0,0,2,1,3,'finalizado',null,1),
+(DEFAULT,'JORNADA 2','2019-09-26',0,0,2,2,4,'finalizado',null,1),
+(DEFAULT,'JORNADA 3','2019-10-02',0,0,2,1,4,'finalizado',null,1),
+(DEFAULT,'JORNADA 3','2019-10-02',0,0,2,2,3,'finalizado',null,1),
+(DEFAULT,'FINAL','2019-10-30',0,0,2,1,2,'finalizado',1,null);
+
+SELECT gol(2,3,1);
+SELECT gol(2,NULL,1);
+
+SELECT gol(8,10,2);
+SELECT gol(9,8,2);
+SELECT gol(11,NULL,2);
+
+SELECT gol(2,3,3);
+SELECT gol(3,2,3);
+SELECT gol(4,NULL,3);
+SELECT gol(9,10,3);
+
+SELECT gol(6,5,4);
+SELECT gol(13,12,4);
+
+SELECT gol(2,3,5);
+SELECT gol(2,3,5);
+SELECT gol(2,4,5);
+SELECT gol(3,4,5);
+SELECT gol(4,2,5);
+
+SELECT gol(6,7,6);
+SELECT gol(7,5,6);
+SELECT gol(9,NULL,6);
+
+SELECT gol(2,4,7);
+SELECT gol(4,NULL,7);
+SELECT gol(7,NULL,7);

@@ -425,8 +425,8 @@ DECLARE
     asistenteid INTEGER;
     equipoid INTEGER;
 BEGIN
-    SELECT usuario_id,  equipo_id INTO goleadorid,equipoid FROM ATLETA WHERE id_atleta = jugadorgol;
-    SELECT usuario_id INTO asistenteid FROM ATLETA WHERE id_atleta = jugadorasistente;
+    SELECT id_atleta,  equipo_id INTO goleadorid,equipoid FROM ATLETA WHERE usuario_id = jugadorgol;
+    SELECT id_atleta INTO asistenteid FROM ATLETA WHERE usuario_id = jugadorasistente;
     UPDATE JUEGO_FUTBOL
     SET goles = goles + 1
     WHERE goleadorid = atleta_id AND partidoid = partido_id;
