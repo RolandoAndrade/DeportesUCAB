@@ -58,17 +58,47 @@ function showCompetitionDetail()
         hideAll();
         $("#competition-detail").show(300);
         replaceIcon("back-icon");
-        /*retrieveEventAllData(event)
+        retrieveEventAllData(event)
         retrieveDetails(event);
         retrieveMatches(event);
         retrieveClassifications(event);
-        retrieveQualifiers(event);*/
-        changeViewTo({id: "jugadores"})
+        retrieveQualifiers(event);
+        retrievePlayers(event);
+        changeViewTo({id: 'inicio'})
     }
     else
     {
         backLevel(true);
     }
+}
+
+function createPlayersView(players)
+{
+    $("#jugadores-content").empty();
+    let cards = "";
+    players.forEach((i)=>
+    {
+        let nombre = i.nombre;
+        let id = i.id;
+        let imagen = i.imagen;
+        let apellido = i.apellido;
+        cards+='<div class="player-card">\n' +
+            '          <div class="player-image">\n' +
+            '                  <img src="'+imagen+'" alt="" class="">\n' +
+            '          </div>\n' +
+            '          <div class="player-name">\n' +
+                             nombre+" "+apellido+
+            '          </div>\n' +
+            ' </div>'
+    });
+    let s = '<div class="player-card-container">' + cards+ '</div>';
+    $("#jugadores-content").append(s);
+}
+
+async function retrievePlayers(event)
+{
+    let players = (await new GetRequest("/api/v1/players/events/"+event).execute()).data;
+    createPlayersView(players)
 }
 
 async function retrieveEventAllData(event)

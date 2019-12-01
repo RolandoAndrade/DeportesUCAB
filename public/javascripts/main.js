@@ -191,7 +191,7 @@ function changeViewTo(view)
     $('#partidos-content').hide(300);
     $('#clasificacion-content').hide(300);
     $('#estadisticas-content').hide(300);
-	$('#players-content').hide(300);
+	$('#jugadores-content').hide(300);
 	$("#"+view.id+"-content").show(300);
 	view.classList.add("selected");
 }
