@@ -99,7 +99,7 @@ function actualizarCaracteristicas()
 
 function deleteCard(container,i)
 {
-    caracteristicasList = caracteristicasList.splice(i,1);
+    caracteristicasList.splice(i,1);
     actualizarCaracteristicas();
 }
 
