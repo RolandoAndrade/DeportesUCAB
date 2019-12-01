@@ -83,4 +83,47 @@ INSERT INTO PARTICIPACION VALUES
 (DEFAULT,8,2);
 
 INSERT INTO USUARIO VALUES
-(DEFAULT,'Rolando', 'Andrade', 'rolandoandrade@gmail.com','12345678','masculino','26728918','1998-12-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575148700/accounts/photo_2019-11-21_17-24-37.jpg', null,1);
+(DEFAULT,'Rolando', 'Andrade', 'rolandoandrade@gmail.com','12345678','masculino','26728918','1998-12-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575148700/accounts/photo_2019-11-21_17-24-37.jpg', null,1),
+(DEFAULT,'Cristiano', 'Ronaldo', 'ronaldo@gmail.com','12345678','masculino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575230798/accounts/Cristiano_Ronaldo_Portugal.jpg', null,3),
+(DEFAULT,'Lionel', 'Messi', 'messi@gmail.com','12345678','masculino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575230854/accounts/26622.jpg', null,3),
+(DEFAULT,'Mohamed', 'Salah', 'salah@gmail.com','12345678','masculino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231060/accounts/173692.jpg', null,3),
+(DEFAULT,'Gareth', 'Bale', 'bale@gmail.com','12345678','masculino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231260/accounts/1567427531_418411_1567427734_noticia_normal_recorte1.jpg', null,3),
+(DEFAULT,'Álvaro', 'Morata', 'morata@gmail.com','12345678','masculino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231304/accounts/75.jpg', null,3),
+(DEFAULT,'Thibaut', 'Courtois', 'courtois@gmail.com','12345678','masculino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231339/accounts/Futbol-La_Liga-Primera_Division-Futbol_437969555_135684174_1024x576.jpg', null,3),
+(DEFAULT,'Toni', 'Kroos', 'kroos@gmail.com','12345678','masculino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231412/accounts/15748092979155.jpg', null,3),
+(DEFAULT,'Mario', 'Gotze', 'gotze@gmail.com','12345678','masculino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231499/accounts/157899.jpg', null,3),
+(DEFAULT,'Marco', 'Reus', 'reus@gmail.com','12345678','masculino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231531/accounts/49775532_303.jpg', null,3),
+(DEFAULT,'Salomon', 'Rondón', 'rondon@gmail.com','12345678','masculino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231581/accounts/PAFHRGWAAZETHDV74QJ26OYHGM.jpg', null,3),
+(DEFAULT,'Josef', 'Martínez', 'martinez@gmail.com','12345678','masculino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231693/accounts/0001482475.jpg', null,3),
+(DEFAULT,'Oliver', 'Kahn', 'kahn@gmail.com','12345678','masculino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231765/accounts/wf46ifpdrjendubartol.jpg', null,3),
+(DEFAULT,'Alex', 'Morgan', 'morgan@gmail.com','12345678','femenino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231901/accounts/15599360986869.jpg', null,3),
+(DEFAULT,'Laure', 'Boulleau', 'laure@gmail.com','12345678','femenino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231950/accounts/laure-boulleau-721x410-1.jpg', null,3),
+(DEFAULT,'Ellyse', 'Perry', 'perry@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232069/accounts/59f7d1acbf7cda755b2df60188fc6117.png', null,3),
+(DEFAULT,'Hope', 'Solo', 'solo@gmail.com','12345678','femenino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232139/accounts/1535651157_259924_1535651225_noticia_normal.jpg', null,3),
+(DEFAULT,'Kaylyn', 'Kyle', 'kk@gmail.com','12345678','femenino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232206/accounts/ef2254a7648c56da606ee9ffbc058d75.jpg', null,3),
+(DEFAULT,'Ketlen', 'Wiggers', 'wiggers@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232359/accounts/4901099845_d2f3856ded_b.jpg', null,3),
+(DEFAULT,'Nayeli', 'Rangel', 'rangel@gmail.com','12345678','femenino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232419/accounts/AAB5JKo.jpg', null,3),
+(DEFAULT,'Nicole', 'Regnier', 'wiggers@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232488/accounts/58e43101de5a2.r_1508777432316.0-86-807-571.jpg', null,3);
+
+INSERT INTO HABILIDAD VALUES
+(DEFAULT, 1,1),
+(DEFAULT, 2,1),
+(DEFAULT, 3,1),
+(DEFAULT, 4,1),
+(DEFAULT, 5,1),
+(DEFAULT, 6,1),
+(DEFAULT, 7,1),
+(DEFAULT, 8,1),
+(DEFAULT, 9,1),
+(DEFAULT, 10,1),
+(DEFAULT, 11,1),
+(DEFAULT, 12,1),
+(DEFAULT, 13,1),
+(DEFAULT, 14,2),
+(DEFAULT, 15,2),
+(DEFAULT, 16,2),
+(DEFAULT, 17,2),
+(DEFAULT, 18,2),
+(DEFAULT, 19,2),
+(DEFAULT, 20,2),
+(DEFAULT, 21,2);
