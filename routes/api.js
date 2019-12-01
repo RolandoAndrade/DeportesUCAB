@@ -453,6 +453,29 @@ router.post('/matches/delete',function (req, res, next)
     })
 });
 
+router.get('/events/:id(\\d+)',function (req, res, next)
+{
+    client.query('SELECT * FROM getevent($1)',[req.params.id],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+
+            res.status(200).json({
+                status: 'success',
+                data: result.rows
+            });
+        }
+    })
+});
+
 
 
 module.exports = router;

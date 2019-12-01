@@ -265,3 +265,15 @@ describe('POST /api/v1/matches/delete', function() {
             });
     });
 });
+
+describe('GET /api/v1/events/:id', function() {
+    it('Retorna los datos del torneo', function(done) {
+        chai.request(server)
+            .get('/api/v1/events/1')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});

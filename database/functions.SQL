@@ -65,6 +65,17 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION getEvent(eventoid INTEGER)
+    RETURNS TABLE(id INTEGER, nombre VARCHAR, fecha TIMESTAMP, imagen VARCHAR, lugar VARCHAR) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT C.id_competicion, C.nombre, C.fecha_inicio, C.imagen, L.nombre
+        FROM COMPETICION C, LUGAR L
+        WHERE C.lugar_id = L.id_lugar AND C.id_competicion = eventoid;
+END;
+$$ LANGUAGE 'plpgsql';
+
 CREATE OR REPLACE FUNCTION getEventCaracteristica(eventId INTEGER)
     RETURNS TABLE(titulo VARCHAR, descripcion TEXT, tipo VARCHAR) AS
 $$
