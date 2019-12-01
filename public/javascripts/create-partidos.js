@@ -66,6 +66,8 @@ function restartView()
         '                        <i class="zmdi zmdi-plus"></i>\n' +
         '                    </div>\n' +
         '                </div>');
+    restartTimePickers();
+    retrieveTeamsOfCompetition();
 }
 
 
@@ -77,7 +79,7 @@ function showCrearPartidos()
     replaceIcon("back-icon");
     restartView();
     retrieveCreatedMatches();
-    retrieveTeamsOfCompetition();
+
 }
 
 async function retrieveTeamsOfCompetition()

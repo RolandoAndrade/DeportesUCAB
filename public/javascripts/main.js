@@ -95,6 +95,17 @@ $(document).ready(function(){
 		$('.makeACollectionOrder').show(300);
 	});
 
+	restartTimePickers();
+	M.updateTextFields();
+
+	$('select').formSelect();
+
+	$(".cover-loader").removeClass("show");
+
+});
+
+function restartTimePickers()
+{
 	$('.fecha-input').datepicker({firstDay:1, format: 'yyyy-mm-dd', i18n:{cancel: "Cancelar", months: [
 				'Enero',
 				'Febrero',
@@ -142,13 +153,7 @@ $(document).ready(function(){
 
 		}});
 	$('.timepicker').timepicker({i18n:{cancel: "Cancelar",done:"OK"}});
-	M.updateTextFields();
-
-	$('select').formSelect();
-
-	$(".cover-loader").removeClass("show");
-
-});
+}
 
 (function($){
     $(window).on("load",function(){
