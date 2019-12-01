@@ -4,9 +4,10 @@ function getFaseFromUrl()
 {
     $("#loader-creador-partidos").hide();
     let url = document.location.href;
+    let evento = parseInt(url.substring(url.lastIndexOf("?evento=")+8,url.lastIndexOf("#")));
     let id = parseInt(url.substring(url.lastIndexOf("?faseid=")+8,url.lastIndexOf("&")));
     let tipo = url.substring(url.lastIndexOf("tipo=")+5);
-    return {id: id, tipo: tipo};
+    return {id: id, tipo: tipo, evento: evento};
 }
 
 function restartView()
@@ -85,8 +86,9 @@ function showCrearPartidos()
 async function retrieveTeamsOfCompetition()
 {
     let fase = getFaseFromUrl();
-    let req = await new GetRequest("/api/v1/teams/events/"+fase.id).execute();
+    let req = await new GetRequest("/api/v1/teams/events/"+fase.evento).execute();
     teamsOfCompetition= req.data;
+    console.log(fase,req)
 }
 
 
