@@ -103,7 +103,7 @@ INSERT INTO USUARIO VALUES
 (DEFAULT,'Kaylyn', 'Kyle', 'kk@gmail.com','12345678','femenino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232206/accounts/ef2254a7648c56da606ee9ffbc058d75.jpg', null,3),
 (DEFAULT,'Ketlen', 'Wiggers', 'wiggers@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232359/accounts/4901099845_d2f3856ded_b.jpg', null,3),
 (DEFAULT,'Nayeli', 'Rangel', 'rangel@gmail.com','12345678','femenino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232419/accounts/AAB5JKo.jpg', null,3),
-(DEFAULT,'Nicole', 'Regnier', 'wiggers@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232488/accounts/58e43101de5a2.r_1508777432316.0-86-807-571.jpg', null,3);
+(DEFAULT,'Nicole', 'Regnier', 'regnier@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232488/accounts/58e43101de5a2.r_1508777432316.0-86-807-571.jpg', null,3);
 
 INSERT INTO HABILIDAD VALUES
 (DEFAULT, 1,1),
@@ -127,3 +127,25 @@ INSERT INTO HABILIDAD VALUES
 (DEFAULT, 19,2),
 (DEFAULT, 20,2),
 (DEFAULT, 21,2);
+
+INSERT INTO ATLETA VALUES
+(DEFAULT, 'activo','2019-05-05',null,2,1),
+(DEFAULT, 'activo','2019-05-05',null,3,1),
+(DEFAULT, 'activo','2019-05-05',null,4,1),
+(DEFAULT, 'activo','2019-05-05',null,5,2),
+(DEFAULT, 'activo','2019-05-05',null,6,2),
+(DEFAULT, 'activo','2019-05-05',null,7,2),
+(DEFAULT, 'activo','2019-05-05',null,8,3),
+(DEFAULT, 'activo','2019-05-05',null,9,3),
+(DEFAULT, 'activo','2019-05-05',null,10,3),
+(DEFAULT, 'activo','2019-05-05',null,11,4),
+(DEFAULT, 'activo','2019-05-05',null,12,4),
+(DEFAULT, 'activo','2019-05-05',null,13,4),
+(DEFAULT, 'activo','2019-05-05',null,14,5),
+(DEFAULT, 'activo','2019-05-05',null,15,5),
+(DEFAULT, 'activo','2019-05-05',null,16,6),
+(DEFAULT, 'activo','2019-05-05',null,17,6),
+(DEFAULT, 'activo','2019-05-05',null,18,7),
+(DEFAULT, 'activo','2019-05-05',null,19,7),
+(DEFAULT, 'activo','2019-05-05',null,20,8),
+(DEFAULT, 'activo','2019-05-05',null,21,8);
