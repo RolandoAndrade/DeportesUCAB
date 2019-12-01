@@ -1,11 +1,5 @@
 let fasesList = [];
 
-function getEventoFaseFormUrl()
-{
-    let url = document.location.href;
-    return parseInt(url.substring(url.lastIndexOf("?evento=")+8));
-}
-
 function showFaseador()
 {
     hideAll();
@@ -13,7 +7,7 @@ function showFaseador()
     $("#creador-fases-content").show(300);
     $("#detail-title").html("Establecer fases");
     replaceIcon("creador-icon");
-    let eventoid = getEventoFaseFormUrl();
+    let eventoid = getEventFromURL();
     getFases(eventoid)
 }
 
@@ -102,7 +96,7 @@ async function addFase()
     if(nombre.length>0&&tipofase!==null)
     {
         $("#loader-fases").fadeIn(300);
-        let evento = getEventoFaseFormUrl();
+        let evento = getEventFromURL();
         let tipo = tipofase;
 
         let data = {

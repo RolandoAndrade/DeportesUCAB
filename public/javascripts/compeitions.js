@@ -1,3 +1,9 @@
+function getEventFromURL()
+{
+    let url = document.location.href;
+    return parseInt(url.substring(url.lastIndexOf("?evento=")+8));
+}
+
 function addEvents(events)
 {
     let s="";
@@ -40,12 +46,13 @@ function addEvents(events)
 
 function openDetailsOf(event)
 {
-    window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#detalles?='+event.id);
-    viewSelection(event);
+    window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#detalles?evento='+event.id);
+    viewSelection();
 }
 
-function showCompetitionDetail(event)
+function showCompetitionDetail()
 {
+    let event = getEventFromURL();
     if(event)
     {
         hideAll();
@@ -153,7 +160,7 @@ function addMatch(data)
 async function retrieveDetails(event)
 {
     $(".caracteristicas-content").empty();
-    let caracteristicas = await new GetRequest("/api/v1/events/"+event.id+"/caracteristicas").execute();
+    let caracteristicas = await new GetRequest("/api/v1/events/"+event+"/caracteristicas").execute();
     let k = 0;
     caracteristicas.data.forEach((i)=>addDetailDescription(i,k++));
 }
@@ -175,7 +182,7 @@ function groupMatches(matches)
 async function retrieveMatches(event)
 {
     $(".partidos-content").empty();
-    let partidos = await new GetRequest("/api/v1/events/"+event.id+"/partidos").execute();
+    let partidos = await new GetRequest("/api/v1/events/"+event+"/partidos").execute();
     partidos = groupMatches(partidos.data);
     for(let i in partidos)
     {
@@ -241,7 +248,7 @@ function addClasificacion(tablero)
 async function retrieveClassifications(event)
 {
     $(".clasificacion-content").empty();
-    let clasificacion = await new GetRequest("/api/v1/events/"+event.id+"/clasificacion").execute();
+    let clasificacion = await new GetRequest("/api/v1/events/"+event+"/clasificacion").execute();
     clasificacion = groupMatches(clasificacion.data);
     for(let i in clasificacion)
     {
@@ -296,7 +303,7 @@ function addEliminatoria(eliminatoria)
 
 async function retrieveQualifiers(event)
 {
-    let eliminatoria = await new GetRequest("/api/v1/events/"+event.id+"/eliminatoria").execute();
+    let eliminatoria = await new GetRequest("/api/v1/events/"+event+"/eliminatoria").execute();
     eliminatoria = groupMatches(eliminatoria.data);
 
     for(let i in eliminatoria)

@@ -249,9 +249,10 @@ function viewSelection(auxiliar)
 	{
 		showInicio();
 	}
-	else if(url.indexOf("#detalles?=")!==-1)
+	else if(url.indexOf("#detalles?evento=")!==-1)
 	{
-		showCompetitionDetail(auxiliar);
+
+		showCompetitionDetail();
 	}
 	else if(url.indexOf("#crear-competicion")!==-1)
 	{
