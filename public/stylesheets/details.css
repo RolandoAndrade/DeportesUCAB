@@ -73,6 +73,11 @@
     display: none;
 }
 
+.jugadores-content
+{
+    display: none;
+}
+
 #back-icon
 {
     cursor: pointer;

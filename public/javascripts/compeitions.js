@@ -83,8 +83,7 @@ function createPlayersView(players)
         let imagen = i.imagen;
         let apellido = i.apellido;
         cards+='<div class="player-card">\n' +
-            '          <div class="player-image">\n' +
-            '                  <img src="'+imagen+'" alt="" class="">\n' +
+            '          <div class="player-image" style="background-image: url('+imagen+'")>\n' +
             '          </div>\n' +
             '          <div class="player-name">\n' +
                              nombre+" "+apellido+
