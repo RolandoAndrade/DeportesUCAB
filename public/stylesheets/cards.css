@@ -804,3 +804,14 @@
 {
     font-size: 0.8em;
 }
+
+.score-data.preview
+{
+    cursor: pointer;
+    transition: 0.5s all;
+
+}
+.score-data.preview:hover
+{
+    background: #dddddd;
+}
