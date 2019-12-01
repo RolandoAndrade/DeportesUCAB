@@ -16,12 +16,12 @@ function showCrearPartidos()
     $("#detail-title").html("Crear partidos");
     replaceIcon("back-icon");
     retrieveCreatedMatches();
-    retrieveTeamsOfCompetition(getFaseFromUrl());
+    retrieveTeamsOfCompetition();
 }
 
-async function retrieveTeamsOfCompetition(fase)
+async function retrieveTeamsOfCompetition()
 {
-    //let req = await new GetRequest("/api/v1/phases/"+fase.id+"/matches?tipo="+fase.tipo).execute();
+    let fase = getFaseFromUrl();
     let req = await new GetRequest("/api/v1/teams/events/"+fase.id).execute();
     teamsOfCompetition= req.data;
 }
@@ -228,7 +228,9 @@ async function createPartido()
             fecha: fecha,
             lugar: sede,
         }
-        //let req = await new PostRequest(data,"/api/v1/phases/matches").execute();
+        let req = await new PostRequest(data,"/api/v1/phases/matches").execute();
+        retrieveCreatedMatches();
+        console.log(req)
     }
     else
     {
