@@ -218,7 +218,12 @@ async function createCompetition()
         equipos: equipos
     };
     let req = await new PostRequest(data, "/api/v1/events").execute();
-    let url = document.location.href+'#crear-fases?evento='+req.data;
+    cambiaCrearFases(req.data);
+}
+
+function cambiaCrearFases(eventoid)
+{
+    let url = document.location.href+'#crear-fases?evento='+eventoid;
     window.history.pushState('DeportesUCAB', 'DeportesUCAB', url);
     viewSelection()
 }
