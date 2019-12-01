@@ -12,6 +12,31 @@
     transition: 0.5s all;
 }
 
+.player-card
+{
+    width: 30%;
+    max-width: 300px;
+    min-width: 150px;
+    height: 300px;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-image
+{
+    width: 100%;
+    text-align: center;
+    margin: 20px;
+}
+
+.player-card img
+{
+    width: 70%;
+    border-radius: 50%;
+}
 .post-card.clickeable
 {
     cursor: pointer;

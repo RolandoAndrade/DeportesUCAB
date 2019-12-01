@@ -58,11 +58,12 @@ function showCompetitionDetail()
         hideAll();
         $("#competition-detail").show(300);
         replaceIcon("back-icon");
-        retrieveEventAllData(event)
+        /*retrieveEventAllData(event)
         retrieveDetails(event);
         retrieveMatches(event);
         retrieveClassifications(event);
-        retrieveQualifiers(event);
+        retrieveQualifiers(event);*/
+        changeViewTo({id: "jugadores"})
     }
     else
     {
