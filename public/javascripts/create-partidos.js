@@ -203,20 +203,20 @@ async function retrieveCreatedMatches()
     showPartidos();
 }
 
-function createPartido()
+async function createPartido()
 {
     let fase = getFaseFromUrl();
     let nombre = $("#crear-partido-partido").val();
     let fecha =  $("#crear-fecha-partido-partido").val();
     let sede =  $("#crear-lugar-partido").val();
-    let local, visitante;
-    partidosConseguidos.forEach((i)=>
+    let local;
+    let visitante;
+    teamsOfCompetition.forEach((j)=>
     {
-        if(i.local)
-            local = i;
-        else if(i.visitante)
-            visitante = i;
+        if(j.local) local = j.id;
+        if(j.visitante) visitante =j.id;
     });
+
     if(nombre.length>0&&fecha.length>0&&sede.length>0&&local&&visitante)
     {
         let data = {
@@ -228,7 +228,7 @@ function createPartido()
             fecha: fecha,
             lugar: sede,
         }
-        console.log(data)
+        //let req = await new PostRequest(data,"/api/v1/phases/matches").execute();
     }
     else
     {

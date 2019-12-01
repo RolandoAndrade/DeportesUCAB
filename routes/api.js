@@ -291,10 +291,8 @@ router.post('/phases',function (req, res, next)
     })
 });
 
-router.post('/phases/:id(\\d+)/matches',function (req, res, next)
+router.post('/phases/matches',function (req, res, next)
 {
-    console.log(req.body)
-
     client.query('SELECT insertarpartido($1,$2,$3,$4,$5,$6,$7)',[
         req.body.fase,req.body.tipo,req.body.nombre,req.body.local,
         req.body.visitante,req.body.lugar, req.body.fecha ],(err, result)=>{
