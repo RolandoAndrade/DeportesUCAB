@@ -407,3 +407,14 @@ BEGIN
     RETURN TRUE;
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getPlayers(eventid INTEGER) RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, imagen VARCHAR) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT U.id_usuario, U.nombre, U.apellido, U.imagen
+        FROM USUARIO U, ATLETA A
+        WHERE id_usuario = A.usuario_id AND A.equipo_id IN (SELECT P.equipo_id FROM PARTICIPACION P WHERE evento_id = eventid);
+END;
+$$ LANGUAGE 'plpgsql';
+
