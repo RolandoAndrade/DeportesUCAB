@@ -96,7 +96,7 @@ BEGIN
                B.competicion_id = competicionID)) AND
                E.lugar_id = I.id_lugar AND
                E.equipo_local = J.id_equipo AND
-               E.equipo_visitante = K.id_equipo;
+               E.equipo_visitante = K.id_equipo ORDER BY E.fecha;
 
 END;
 $$ LANGUAGE 'plpgsql';
