@@ -277,3 +277,15 @@ describe('GET /api/v1/events/:id', function() {
             });
     });
 });
+
+describe('GET /api/v1/players/events/:id', function() {
+    it('Retorna los jugadores en evento', function(done) {
+        chai.request(server)
+            .get('/api/v1/players/events/1')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
