@@ -2,10 +2,70 @@ let teamsOfCompetition = [];
 let partidosConseguidos = [];
 function getFaseFromUrl()
 {
+    $("#loader-creador-partidos").hide();
     let url = document.location.href;
     let id = parseInt(url.substring(url.lastIndexOf("?faseid=")+8,url.lastIndexOf("&")));
     let tipo = url.substring(url.lastIndexOf("tipo=")+5);
     return {id: id, tipo: tipo};
+}
+
+function restartView()
+{
+    $("#formulario-creador-partidos").empty();
+    $("#formulario-creador-partidos").append('                <div class="create-form-title">\n' +
+        '                    Crear partido\n' +
+        '                </div>\n' +
+        '                <div class="create-form-content">\n' +
+        '                    <div class="loader" id="loader-creador-partidos"></div>\n' +
+        '                    <div class="create-content-container">\n' +
+        '                        <div class="input-container">\n' +
+        '                            <div class="input-field">\n' +
+        '                                <input id="crear-partido-partido" type="text" class="create-input validate">\n' +
+        '                                <label for="crear-partido-partido">Nombre de la jornada</label>\n' +
+        '                            </div>\n' +
+        '                        </div>\n' +
+        '                    </div>\n' +
+        '                    <div class="create-content-container">\n' +
+        '                        <div class="input-container">\n' +
+        '                            <div class="input-field">\n' +
+        '                                <input id="crear-fecha-partido-partido" type="text" class="create-input fecha-input validate">\n' +
+        '                                <label for="crear-fecha-partido-partido">Fecha del partido</label>\n' +
+        '                            </div>\n' +
+        '                        </div>\n' +
+        '                        <div class="input-container">\n' +
+        '                            <div class="input-field">\n' +
+        '                                <input id="crear-hora-partido-partido" type="text" class="create-input timepicker validate">\n' +
+        '                                <label for="crear-hora-partido-partido">Hora del partido</label>\n' +
+        '                            </div>\n' +
+        '                        </div>\n' +
+        '                        <div class="input-container">\n' +
+        '                            <div class="input-field">\n' +
+        '                                <input id="crear-lugar-partido" type="text" class="create-input validate">\n' +
+        '                                <label for="crear-lugar-partido">Sede</label>\n' +
+        '                            </div>\n' +
+        '                        </div>\n' +
+        '\n' +
+        '                    </div>\n' +
+        '                    <div class="create-content-container">\n' +
+        '                        <div class="create-equipo-card edit" onclick="addTeamsToMatch(1)">\n' +
+        '                            <div class="create-equipo-card-shield">\n' +
+        '                                <img src="images/pic09.jpg" alt="" id="crear-partido-local-imagen">\n' +
+        '                            </div>\n' +
+        '                            <div class="create-equipo-card-teamname" id="crear-partido-local-nombre">LOCAL</div>\n' +
+        '                        </div>\n' +
+        '                        <div class="create-equipo-card edit"  onclick="addTeamsToMatch(2)">\n' +
+        '                            <div class="create-equipo-card-shield">\n' +
+        '                                <img src="images/pic09.jpg" alt="" id="crear-partido-visitante-imagen">\n' +
+        '                            </div>\n' +
+        '                            <div class="create-equipo-card-teamname" id="crear-partido-local-visitante">VISITANTE</div>\n' +
+        '                        </div>\n' +
+        '                    </div>\n' +
+        '                </div>\n' +
+        '                <div class="create-form-content">\n' +
+        '                    <div class="more-button" onclick="createPartido()">\n' +
+        '                        <i class="zmdi zmdi-plus"></i>\n' +
+        '                    </div>\n' +
+        '                </div>');
 }
 
 
@@ -15,6 +75,7 @@ function showCrearPartidos()
     $("#creador-partidos-content").show(300);
     $("#detail-title").html("Crear partidos");
     replaceIcon("back-icon");
+    restartView();
     retrieveCreatedMatches();
     retrieveTeamsOfCompetition();
 }
@@ -149,7 +210,7 @@ function dropMatch(container, i, index)
         text: "El partido será eliminado",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Sí, eliminar la fase',
+        confirmButtonText: 'Sí, eliminar el partido',
         cancelButtonText: 'No, cancelar',
         cancelButtonColor: "#e74a3b"
     }).then(()=>{
@@ -205,6 +266,7 @@ async function retrieveCreatedMatches()
 
 async function createPartido()
 {
+    $("#loader-creador-partidos").fadeIn(300);
     let fase = getFaseFromUrl();
     let nombre = $("#crear-partido-partido").val();
     let fecha =  $("#crear-fecha-partido-partido").val();
@@ -230,7 +292,8 @@ async function createPartido()
         }
         let req = await new PostRequest(data,"/api/v1/phases/matches").execute();
         retrieveCreatedMatches();
-        console.log(req)
+        restartView();
+        $("#loader-creador-partidos").fadeOut(300);
     }
     else
     {

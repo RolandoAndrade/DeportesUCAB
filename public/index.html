@@ -483,105 +483,11 @@
             </div>
         </div>
         <div id = "creador-partidos-content" class="creador-partidos-content">
-            <div class="post-card create-form">
-                <div class="create-form-title">
-                    Crear partido
-                </div>
-                <div class="create-form-content">
-                    <div class="create-content-container">
-                        <div class="input-container">
-                            <div class="input-field">
-                                <input id="crear-partido-partido" type="text" class="create-input validate">
-                                <label for="crear-partido-partido">Nombre de la jornada</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="create-content-container">
-                        <div class="input-container">
-                            <div class="input-field">
-                                <input id="crear-fecha-partido-partido" type="text" class="create-input fecha-input validate">
-                                <label for="crear-fecha-partido-partido">Fecha del partido</label>
-                            </div>
-                        </div>
-                        <div class="input-container">
-                            <div class="input-field">
-                                <input id="crear-hora-partido-partido" type="text" class="create-input timepicker validate">
-                                <label for="crear-hora-partido-partido">Hora del partido</label>
-                            </div>
-                        </div>
-                        <div class="input-container">
-                            <div class="input-field">
-                                <input id="crear-lugar-partido" type="text" class="create-input validate">
-                                <label for="crear-lugar-partido">Sede</label>
-                            </div>
-                        </div>
+            <div class="post-card create-form" id="formulario-creador-partidos">
 
-                    </div>
-                    <div class="create-content-container">
-                        <div class="create-equipo-card edit" onclick="addTeamsToMatch(1)">
-                            <div class="create-equipo-card-shield">
-                                <img src="images/pic09.jpg" alt="" id="crear-partido-local-imagen">
-                            </div>
-                            <div class="create-equipo-card-teamname" id="crear-partido-local-nombre">LOCAL</div>
-                        </div>
-                        <div class="create-equipo-card edit"  onclick="addTeamsToMatch(2)">
-                            <div class="create-equipo-card-shield">
-                                <img src="images/pic09.jpg" alt="" id="crear-partido-visitante-imagen">
-                            </div>
-                            <div class="create-equipo-card-teamname" id="crear-partido-local-visitante">VISITANTE</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="create-form-content">
-                    <div class="more-button" onclick="createPartido()">
-                        <i class="zmdi zmdi-plus"></i>
-                    </div>
-                </div>
             </div>
             <div id="partidos-creados">
-                <div class="post-card results" id="newpartido">
-                    <div class="result-title">
-                        Lorem ipsum sit ammet
-                    </div>
-                    <div class="scores-container">
-                        <div class="score-data">
-                            <div class="score-data-team">
-                                <div class="score-data-team-row">
-                                    <div class="data-team">
-                                        <div class="data-team-shield">
-                                            <img src="images/pic09.jpg" alt="">
-                                        </div>
-                                        <div class="data-team-name">
-                                            Lorem ipsum
-                                        </div>
-                                    </div>
-                                    <div class="data-score"></div>
-                                </div>
-                                <div class="score-data-team-row">
-                                    <div class="data-team">
-                                        <div class="data-team-shield">
-                                            <img src="images/pic09.jpg" alt="">
-                                        </div>
-                                        <div class="data-team-name">
-                                            Lorem ipsum
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="score-data-date">
-                                <div class="data-date">
-                                    31/10
-                                </div>
-                            </div>
-                            <div class="partido-deleter">
-                                <div class="more-button-red mini" onclick="">
-                                    <i class="zmdi zmdi-delete"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
             </div>
             <div class="more-button send" onclick="createCompetition()">
                 <i class="zmdi zmdi-check"></i>
