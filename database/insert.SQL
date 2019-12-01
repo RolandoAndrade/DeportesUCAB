@@ -63,15 +63,6 @@ INSERT INTO CLASIFICACION VALUES
 (DEFAULT,'GRUPO A',3,0,1,1),
 (DEFAULT,'GRUPO A',3,0,1,2);
 
-INSERT INTO PARTIDO VALUES
-(DEFAULT,'JORNADA 1','2019-09-17',2,0,2,1,2,'finalizado',null,1),
-(DEFAULT,'JORNADA 1','2019-09-17',2,1,2,3,4,'finalizado',null,1),
-(DEFAULT,'JORNADA 2','2019-09-26',3,1,2,1,3,'finalizado',null,1),
-(DEFAULT,'JORNADA 2','2019-09-26',1,1,2,2,4,'finalizado',null,1),
-(DEFAULT,'JORNADA 3','2019-10-02',5,0,2,1,4,'finalizado',null,1),
-(DEFAULT,'JORNADA 3','2019-10-02',2,1,2,2,3,'finalizado',null,1),
-(DEFAULT,'FINAL','2019-10-30',2,1,2,1,2,'finalizado',1,null);
-
 INSERT INTO PARTICIPACION VALUES
 (DEFAULT,1,1),
 (DEFAULT,2,1),
@@ -149,3 +140,12 @@ INSERT INTO ATLETA VALUES
 (DEFAULT, 'activo','2019-05-05',null,19,7),
 (DEFAULT, 'activo','2019-05-05',null,20,8),
 (DEFAULT, 'activo','2019-05-05',null,21,8);
+
+INSERT INTO PARTIDO VALUES
+(DEFAULT,'JORNADA 1','2019-09-17',2,0,2,1,2,'finalizado',null,1),
+(DEFAULT,'JORNADA 1','2019-09-17',2,1,2,3,4,'finalizado',null,1),
+(DEFAULT,'JORNADA 2','2019-09-26',3,1,2,1,3,'finalizado',null,1),
+(DEFAULT,'JORNADA 2','2019-09-26',1,1,2,2,4,'finalizado',null,1),
+(DEFAULT,'JORNADA 3','2019-10-02',5,0,2,1,4,'finalizado',null,1),
+(DEFAULT,'JORNADA 3','2019-10-02',2,1,2,2,3,'finalizado',null,1),
+(DEFAULT,'FINAL','2019-10-30',2,1,2,1,2,'finalizado',1,null);
