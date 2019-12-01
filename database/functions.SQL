@@ -418,3 +418,27 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
+CREATE OR REPLACE FUNCTION gol(jugadorgol INTEGER,jugadorasistente INTEGER, partidoid INTEGER) RETURNS BOOLEAN AS
+$$
+DECLARE
+    goleadorid INTEGER;
+    asistenteid INTEGER;
+    equipoid INTEGER;
+BEGIN
+    SELECT usuario_id,  equipo_id INTO goleadorid,equipoid FROM ATLETA WHERE id_atleta = jugadorgol;
+    SELECT usuario_id INTO asistenteid FROM ATLETA WHERE id_atleta = jugadorasistente;
+    UPDATE JUEGO_FUTBOL
+    SET goles = goles + 1
+    WHERE goleadorid = atleta_id AND partidoid = partido_id;
+    UPDATE JUEGO_FUTBOL
+    SET asistencias = asistencias + 1
+    WHERE asistenteid = atleta_id AND partidoid = partido_id;
+    UPDATE PARTIDO
+    SET resultado_local = resultado_local + 1
+    WHERE equipo_local = equipoid AND id_partido = partidoid;
+    UPDATE PARTIDO
+    SET resultado_visitante = resultado_visitante + 1
+    WHERE equipo_visitante = equipoid AND id_partido = partidoid;
+    RETURN TRUE;
+END;
+$$ LANGUAGE 'plpgsql';
