@@ -58,11 +58,7 @@ function showCompetitionDetail()
         hideAll();
         $("#competition-detail").show(300);
         replaceIcon("back-icon");
-        $("#detail-title").html(event.nombre);
-        $("#event-card-content-detail").find(".card-title").html(event.nombre);
-        $("#event-card-content-detail").find(".card-fulldate").html(dateSimple(new Date(event.fecha)));
-        $("#event-card-content-detail").find(".card-place").html(event.lugar);
-        $("#event-card-content-detail").find(".card-preview-image").css({"background": "url("+event.imagen+") center","background-size":"cover"});
+        retrieveEventAllData(event)
         retrieveDetails(event);
         retrieveMatches(event);
         retrieveClassifications(event);
@@ -73,6 +69,17 @@ function showCompetitionDetail()
         backLevel(true);
     }
 }
+
+async function retrieveEventAllData(event)
+{
+    event = (await new GetRequest("/api/v1/events/"+event).execute()).data;
+    $("#detail-title").html(event.nombre);
+    $("#event-card-content-detail").find(".card-title").html(event.nombre);
+    $("#event-card-content-detail").find(".card-fulldate").html(dateSimple(new Date(event.fecha)));
+    $("#event-card-content-detail").find(".card-place").html(event.lugar);
+    $("#event-card-content-detail").find(".card-preview-image").css({"background": "url("+event.imagen+") center","background-size":"cover"});
+}
+
 const COLORS = ["blue","red","green","yellow"];
 const TYPES = {"pregunta":"zmdi zmdi-help","info":"zmdi zmdi-info","tiempo":"zmdi zmdi-time", "fecha":"zmdi zmdi-calendar"}
 

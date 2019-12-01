@@ -470,7 +470,7 @@ router.get('/events/:id(\\d+)',function (req, res, next)
 
             res.status(200).json({
                 status: 'success',
-                data: result.rows
+                data: result.rows[0]
             });
         }
     })
