@@ -519,3 +519,10 @@ BEGIN
         ORDER BY golazos DESC LIMIT 5;
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION crearSituacion(partidoid INTEGER, minutoP INTEGER, tipoP INTEGER, jugadorid INTEGER, auxiliarid INTEGER) RETURNS VOID AS
+$$
+BEGIN
+    INSERT INTO SITUACION VALUES (DEFAULT,minutoP,tipoP,partidoid,jugadorid,auxiliarid);
+END;
+$$ LANGUAGE 'plpgsql';

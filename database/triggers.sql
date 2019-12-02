@@ -38,3 +38,22 @@ CREATE TRIGGER participacionDeEquipos
     FOR EACH ROW
 EXECUTE PROCEDURE agregarjugadoresalpartido();
 
+CREATE OR REPLACE FUNCTION addSituacion() RETURNS trigger AS
+$$
+BEGIN
+    IF NEW.tipo = 'gol' THEN
+        SELECT gol(NEW.usuario_id,NEW.auxiliar_id,NEW.partido_id);
+    end if;
+    RETURN NEW;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE TRIGGER agragarSit
+    AFTER INSERT
+    ON SITUACION
+    FOR EACH ROW
+EXECUTE PROCEDURE addSituacion();
+
+
+
+

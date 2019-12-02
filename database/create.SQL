@@ -246,3 +246,12 @@ CREATE TABLE PARTICIPACION(
     equipo_id INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
     evento_id INTEGER REFERENCES EVENTO(id_evento) NOT NULL
 );
+
+CREATE TABLE SITUACION(
+    id_situacion SERIAL PRIMARY KEY,
+    minuto INTEGER NOT NULL,
+    tipo VARCHAR(50) NOT NULL,
+    partido_id INTEGER REFERENCES PARTIDO(id_partido),
+    usuario_id INTEGER REFERENCES USUARIO(id_usuario),
+    auxiliar_id INTEGER REFERENCES USUARIO(id_usuario)
+);
