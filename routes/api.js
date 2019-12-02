@@ -552,10 +552,25 @@ router.get('/matches/:id(\\d+)',function (req, res, next)
         }
         else
         {
+            let situaciones = result.rows;
+            client.query('SELECT * FROM getresultadopartido($1)',[req.params.id],(err, result)=>{
+                if(err)
+                {
+                    console.log(err)
+                    res.status(500).json(
+                        {
+                            status: 'error',
+                            data: err
+                        });
+                }
+                else
+                {
 
-            res.status(200).json({
-                status: 'success',
-                data: result.rows
+                    res.status(200).json({
+                        status: 'success',
+                        data: {resultado: result.rows[0], situaciones: situaciones}
+                    });
+                }
             });
         }
     })

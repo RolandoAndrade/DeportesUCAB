@@ -301,3 +301,15 @@ describe('GET /api/v1/events/stats/:id', function() {
             });
     });
 });
+
+describe('GET /api/v1/matches/:id', function() {
+    it('Retorna las situaciones del partido', function(done) {
+        chai.request(server)
+            .get('/api/v1/matches/1')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
