@@ -520,7 +520,7 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION crearSituacion(partidoid INTEGER, minutoP INTEGER, tipoP INTEGER, jugadorid INTEGER, auxiliarid INTEGER) RETURNS VOID AS
+CREATE OR REPLACE FUNCTION crearSituacion(partidoid INTEGER, minutoP INTEGER, tipoP VARCHAR, jugadorid INTEGER, auxiliarid INTEGER) RETURNS VOID AS
 $$
 BEGIN
     INSERT INTO SITUACION VALUES (DEFAULT,minutoP,tipoP,partidoid,jugadorid,auxiliarid);

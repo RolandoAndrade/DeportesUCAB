@@ -150,31 +150,43 @@ INSERT INTO PARTIDO VALUES
 (DEFAULT,'JORNADA 3','2019-10-02',0,0,2,2,3,'finalizado',null,1),
 (DEFAULT,'FINAL','2019-10-30',0,0,2,1,2,'finalizado',1,null);
 
-SELECT gol(2,3,1);
-SELECT gol(2,NULL,1);
+select crearsituacion(1,0,'inicio',null,null);
+select crearsituacion(1,90,'fin',null,null);
+select crearsituacion(2,0,'inicio',null,null);
+select crearsituacion(2,90,'fin',null,null);
+select crearsituacion(3,0,'inicio',null,null);
+select crearsituacion(3,90,'fin',null,null);
+select crearsituacion(4,0,'inicio',null,null);
+select crearsituacion(4,90,'fin',null,null);
+select crearsituacion(5,0,'inicio',null,null);
+select crearsituacion(5,90,'fin',null,null);
+select crearsituacion(6,0,'inicio',null,null);
+select crearsituacion(6,90,'fin',null,null);
+select crearsituacion(7,20,'gol',2,3);
+select crearsituacion(7,62,'gol',2,NULL);
 
-SELECT gol(8,10,2);
-SELECT gol(9,8,2);
-SELECT gol(11,NULL,2);
+select crearsituacion(2,10,'gol',8,10);
+select crearsituacion(2,25,'gol',9,8);
+select crearsituacion(2,15,'gol',11,NULL);
 
-SELECT gol(2,3,3);
-SELECT gol(3,2,3);
-SELECT gol(4,NULL,3);
-SELECT gol(9,10,3);
+select crearsituacion(3,70,'gol',2,3);
+select crearsituacion(3,72,'gol',3,2);
+select crearsituacion(3,84,'gol',4,NULL);
+select crearsituacion(3,70,'gol',9,10);
 
-SELECT gol(6,5,4);
-SELECT gol(13,12,4);
+select crearsituacion(4,27,'gol',4,5);
+select crearsituacion(4,46,'gol',13,12);
 
-SELECT gol(2,3,5);
-SELECT gol(2,3,5);
-SELECT gol(2,4,5);
-SELECT gol(3,4,5);
-SELECT gol(4,2,5);
+select crearsituacion(5,5,'gol',2,3);
+select crearsituacion(5,10,'gol',2,3);
+select crearsituacion(5,15,'gol',2,4);
+select crearsituacion(5,45,'gol',3,4);
+select crearsituacion(5,70,'gol',4,2);
 
-SELECT gol(6,7,6);
-SELECT gol(7,5,6);
-SELECT gol(9,NULL,6);
+select crearsituacion(6,20,'gol',6,7);
+select crearsituacion(6,40,'gol',7,5);
+select crearsituacion(6,30,'gol',9,NULL);
 
-SELECT gol(2,4,7);
-SELECT gol(4,NULL,7);
-SELECT gol(7,NULL,7);
+select crearsituacion(7,10,'gol',2,4);
+select crearsituacion(7,90,'gol',4,NULL);
+select crearsituacion(7,80,'gol',7,NULL);
