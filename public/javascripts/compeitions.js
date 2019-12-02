@@ -44,6 +44,12 @@ function addEvents(events)
     $("#eventos-content").append(s);
 }
 
+function openPlayerDetails(player)
+{
+    window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#informacion-jugador?jugador='+player);
+    viewSelection();
+}
+
 function openDetailsOf(event)
 {
     window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#detalles?evento='+event.id);
@@ -140,7 +146,7 @@ function createPlayersView(players)
         let id = i.id;
         let imagen = i.imagen;
         let apellido = i.apellido;
-        cards+='<div class="player-card">\n' +
+        cards+='<div class="player-card" onclick="openPlayerDetails('+id+')">\n' +
             '          <div class="player-image" style="background-image: url('+imagen+'")>\n' +
             '          </div>\n' +
             '          <div class="player-name">\n' +

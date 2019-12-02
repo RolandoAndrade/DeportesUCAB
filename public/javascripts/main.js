@@ -280,6 +280,10 @@ function viewSelection(auxiliar)
 	{
 		showModificarPartidos();
 	}
+	else if(url.indexOf("#informacion-jugador")!==-1)
+	{
+		showJugadorInfo();
+	}
 	else
 	{
         showInicio();
