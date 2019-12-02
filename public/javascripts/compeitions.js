@@ -98,12 +98,12 @@ function createResumeTable(data, title, ld)
             '                            <td>'+goles+'</td>\n' +
             '                        </tr>'
     })
-    let s = '<div class="post-card results">\n' +
-        '                    <div class="result-title">\n' +
+    let s = '<div class="post-card results">' +
+        '                    <div class="result-title">' +
                                 title+
-        '                    </div>\n' +
-        '                    <table class="classification-table">\n' +
-                                +'<tr>\n' +
+        '                    </div>' +
+        '                    <table class="classification-table">' +
+        '                   <tr>' +
         '                            <th></th>\n' +
         '                            <th>NOMBRE</th>\n' +
         '                            <th>EQUIPO</th>\n' +

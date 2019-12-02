@@ -392,6 +392,7 @@
     border-radius: 50%;
     background-size: cover;
     margin: 20px auto;
+    background-position-x: center;
 }
 
 .classification-team-shield
