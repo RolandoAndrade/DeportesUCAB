@@ -464,12 +464,44 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 
+CREATE OR REPLACE FUNCTION getgolesJugadorEnEvento(usuarioid INTEGER, eventid INTEGER) RETURNS INTEGER AS
+$$
+DECLARE
+    atletaid INTEGER;
+BEGIN
+    SELECT id_atleta INTO atletaid FROM ATLETA WHERE usuario_id = usuarioid;
+    RETURN COALESCE((SELECT SUM(goles)
+                     FROM juego_futbol j, CLASIFICACION C RIGHT JOIN PARTIDO P ON clasificacion_id = id_clasificacion LEFT JOIN ELIMINATORIA E ON eliminatoria_id = id_eliminatoria
+                     WHERE atletaid = atleta_id AND
+                             partido_id = P.id_partido AND
+                         ((C.evento_id = eventid)OR
+                          (E.evento_id = eventid))),0);
+END;
+$$ LANGUAGE 'plpgsql';
+
+
+CREATE OR REPLACE FUNCTION getAsistenciasJugadorEnEvento(usuarioid INTEGER, eventid INTEGER) RETURNS INTEGER AS
+$$
+DECLARE
+    atletaid INTEGER;
+BEGIN
+    SELECT id_atleta INTO atletaid FROM ATLETA WHERE usuario_id = usuarioid;
+    RETURN COALESCE((SELECT SUM(asistencias)
+    FROM juego_futbol j, CLASIFICACION C RIGHT JOIN PARTIDO P ON clasificacion_id = id_clasificacion LEFT JOIN ELIMINATORIA E ON eliminatoria_id = id_eliminatoria
+    WHERE atletaid = atleta_id AND
+          partido_id = P.id_partido AND
+          ((C.evento_id = eventid)OR
+           (E.evento_id = eventid))),0);
+END;
+$$ LANGUAGE 'plpgsql';
+
+
 CREATE OR REPLACE FUNCTION getGoleadores(eventid INTEGER) RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, imagen VARCHAR,
-goles INTEGER, nombre_equipo VARCHAR, escudo_equipo VARCHAR) AS
+                                                                        goles INTEGER, nombre_equipo VARCHAR, escudo_equipo VARCHAR) AS
 $$
 BEGIN
     RETURN QUERY
-        SELECT P.*, getGolesJugador(P.id) golazos, E.nombre, E.escudo
+        SELECT P.*, getgolesJugadorEnEvento(P.id,eventid) golazos, E.nombre, E.escudo
         FROM getPlayers(eventid) P, EQUIPO E, ATLETA A
         WHERE A.equipo_id = E.id_equipo AND A.usuario_id = P.id
         ORDER BY golazos DESC LIMIT 5;
@@ -481,7 +513,7 @@ nombre VARCHAR, apellido VARCHAR, imagen VARCHAR, goles INTEGER, nombre_equipo V
 $$
 BEGIN
     RETURN QUERY
-        SELECT P.*, getAsistenciasJugador(P.id) golazos, E.nombre, E.escudo
+        SELECT P.*, getAsistenciasJugadorEnEvento(P.id,eventid) golazos, E.nombre, E.escudo
         FROM getPlayers(eventid) P, EQUIPO E, ATLETA A
         WHERE A.equipo_id = E.id_equipo AND A.usuario_id = P.id
         ORDER BY golazos DESC LIMIT 5;
