@@ -43,6 +43,14 @@ $$
 BEGIN
     IF NEW.tipo = 'gol' THEN
         PERFORM gol(NEW.usuario_id,NEW.auxiliar_id,NEW.partido_id);
+    ELSIF NEW.tipo = 'fin' THEN
+        UPDATE PARTIDO
+        SET estado = 'finalizado'
+        WHERE id_partido = NEW.partido_id;
+    ELSIF NEW.tipo = 'inicio' THEN
+        UPDATE PARTIDO
+        SET estado = 'en progreso'
+        WHERE id_partido = NEW.partido_id AND estado != 'finalizado';
     end if;
     RETURN NEW;
 END;
