@@ -540,12 +540,12 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getResultadoPartido(partidoid INTEGER)
-    RETURNS TABLE(id INTEGER, nombre_local VARCHAR, nombre_visitante VARCHAR, escudo_local VARCHAR, escudo_visitante VARCHAR,
+    RETURNS TABLE(id INTEGER, id_local INTEGER, id_visitante INTEGER, nombre_local VARCHAR, nombre_visitante VARCHAR, escudo_local VARCHAR, escudo_visitante VARCHAR,
     resultado_local INTEGER, resultado_visitante INTEGER, fecha TIMESTAMP, lugar VARCHAR) AS
 $$
 BEGIN
     RETURN QUERY
-        SELECT P.id_partido, E.nombre, EE.nombre, E.escudo, EE.escudo, P.resultado_local, P.resultado_visitante, P.fecha, L.nombre
+        SELECT P.id_partido, P.equipo_local, P.equipo_visitante, E.nombre, EE.nombre, E.escudo, EE.escudo, P.resultado_local, P.resultado_visitante, P.fecha, L.nombre
         FROM PARTIDO P, EQUIPO E, EQUIPO EE, LUGAR L
         WHERE P.id_partido = partidoid AND
               P.equipo_local = E.id_equipo AND
