@@ -376,6 +376,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 100%;
+}
+
+.classification-team-name.mini
+{
+    font-size: 0.8em;
+    justify-content: center;
 }
 
 .classification-player-image
