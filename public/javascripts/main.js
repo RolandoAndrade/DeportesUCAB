@@ -266,6 +266,10 @@ function viewSelection(auxiliar)
 	{
 		showFaseador();
 	}
+	else if(url.indexOf("#modificar-partidos")!==-1)
+	{
+		showModificarPartidos();
+	}
 	else
 	{
         showInicio();

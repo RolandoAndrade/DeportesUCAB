@@ -207,8 +207,16 @@ function addJornada(jornada)
     $(".partidos-content").append(s);
 }
 
+function selectPartido(i)
+{
+    let url = document.location.href+'#modificar-partidos?partido='+i;
+    window.history.pushState('DeportesUCAB', 'DeportesUCAB', url);
+    viewSelection()
+}
+
 function addMatch(data)
 {
+    let id = data.id;
     let local = data.local;
     let visitante = data.visitante;
     let rlocal = data.resultado_local;
@@ -217,7 +225,7 @@ function addMatch(data)
     let escudo_visitante = data.escudo_visitante;
     let fecha = datePair(new Date(data.fecha));
     let estado = data.estado;
-    let s = '<div class="score-data preview">\n' +
+    let s = '<div class="score-data preview" onclick="selectPartido('+id+')">\n' +
         '                            <div class="score-data-team">\n' +
         '                                <div class="score-data-team-row">\n' +
         '                                    <div class="data-team">\n' +
