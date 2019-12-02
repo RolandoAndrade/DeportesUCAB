@@ -378,11 +378,23 @@
     align-items: center;
 }
 
+.classification-player-image
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-size: cover;
+    margin: 20px auto;
+}
+
 .classification-team-shield
 {
     padding: 20px;
 }
-
+.classification-player-name
+{
+    width: 80%;
+}
 .classification-team-shield>img
 {
     width: 1.5em;

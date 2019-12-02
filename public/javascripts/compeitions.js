@@ -58,13 +58,13 @@ function showCompetitionDetail()
         hideAll();
         $("#competition-detail").show(300);
         replaceIcon("back-icon");
-        retrieveEventAllData(event)
+        /*retrieveEventAllData(event)
         retrieveDetails(event);
         retrieveMatches(event);
         retrieveClassifications(event);
         retrieveQualifiers(event);
-        retrievePlayers(event);
-        changeViewTo({id: 'inicio'})
+        retrievePlayers(event);*/
+        changeViewTo({id: 'estadisticas'})
     }
     else
     {
