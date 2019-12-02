@@ -167,18 +167,43 @@
     padding: 5px;
     text-align: center;
 }
-
+.square-partido-card
+{
+    width: 20%;
+    max-width: 100px;
+}
 .note-icon
 {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 20px;
+    color: #FFFFFF;
     background: #4e73df;
+}
+.partidos-modificar
+{
+    border-left: #4e73df solid 10px;
+    border-right:  #858796 solid 10px;
+}
+.action-partido-card
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.note-icon.second
+{
+    opacity: 0.8;
 }
 .note-icon.blue
 {
     background: #4e73df;
 }
+
+
 
 .note-icon.red
 {
