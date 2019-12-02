@@ -40,7 +40,7 @@ function appendFinal(data)
         '                        Fin del partido\n' +
         '                    </div>\n' +
         '                    <div class="note-icon square-partido-card red">\n' +
-        '                        <i class="zmdi zmdi-time-interval"></i>\n' +
+        '                        <i class="zmdi zmdi-timer-off"></i> '+
         '                    </div>\n' +
         '                </div>'
 }
@@ -96,14 +96,17 @@ function showPartidoData(partido)
     {
         if(i.tipo === "inicio")
         {
+            $("#add-inicio-boton").hide();
             s+=appendInicio(i);
         }
         else if(i.tipo === 'fin')
         {
+            $("#add-final-boton").hide();
             s+=appendFinal(i);
         }
         else
         {
+
             s+=appendGol(i, idlocal);
         }
     })
