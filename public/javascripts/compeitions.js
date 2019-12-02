@@ -58,6 +58,7 @@ function showCompetitionDetail()
         hideAll();
         $("#competition-detail").show(300);
         replaceIcon("back-icon");
+        retrieveStats(event)
         /*retrieveEventAllData(event)
         retrieveDetails(event);
         retrieveMatches(event);
@@ -72,14 +73,59 @@ function showCompetitionDetail()
     }
 }
 
+function createResumeTable(data, title, ld)
+{
+    let players = "";
+    data.forEach((i)=>
+    {
+        let imagen = i.imagen;
+        let nombre = i.nombre+" "+i.apellido;
+        let goles = i.goles;
+        players+='<tr>\n' +
+            '                            <td>\n' +
+            '                                <div class="classification-player-image" style="background-image: url('+imagen+')">' +
+            '                                </div>\n' +
+            '                            </td>\n' +
+            '                            <td>' +
+                                            nombre+
+            '                            </td>' +
+            '                            <td class="classification-team-name mini">\n' +
+            '                                <div class="classification-team-shield">\n' +
+            '                                    <img src="images/pic09.jpg" alt="">\n' +
+            '                                </div>\n' +
+            '                                <div>Lorem upsum</div>\n' +
+            '                            </td>\n' +
+            '                            <td>'+goles+'</td>\n' +
+            '                        </tr>'
+    })
+    let s = '<div class="post-card results">\n' +
+        '                    <div class="result-title">\n' +
+                                title+
+        '                    </div>\n' +
+        '                    <table class="classification-table">\n' +
+                                +'<tr>\n' +
+        '                            <th></th>\n' +
+        '                            <th>NOMBRE</th>\n' +
+        '                            <th>EQUIPO</th>\n' +
+        '                            <th>'+ld+'</th>\n' +
+        '                        </tr>'+
+                                players+
+        '                    </table>\n' +
+        '            </div>';
+    $("#estadisticas-content").append(s);
+}
+
 function createStatsView(goleadores, asistentes)
 {
-
+    $("#estadisticas-content").empty();
+    createResumeTable(goleadores, "GOLEADORES", "GOLES");
+    createResumeTable(asistentes, "ASISTENTES", "ASISTENCIAS");
 }
 
 async function retrieveStats(event)
 {
-
+    let stats = (await new GetRequest("/api/v1/events/stats/"+event).execute()).data;
+    createStatsView(stats.goleadores,stats.asistentes);
 }
 
 function createPlayersView(players)
