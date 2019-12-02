@@ -59,13 +59,13 @@ function showCompetitionDetail()
         $("#competition-detail").show(300);
         replaceIcon("back-icon");
         retrieveStats(event)
-        /*retrieveEventAllData(event)
+        retrieveEventAllData(event)
         retrieveDetails(event);
         retrieveMatches(event);
         retrieveClassifications(event);
         retrieveQualifiers(event);
-        retrievePlayers(event);*/
-        changeViewTo({id: 'estadisticas'})
+        retrievePlayers(event);
+        changeViewTo({id: 'inicio'})
     }
     else
     {
@@ -81,6 +81,8 @@ function createResumeTable(data, title, ld)
         let imagen = i.imagen;
         let nombre = i.nombre+" "+i.apellido;
         let goles = i.goles;
+        let nombreequipo = i.nombre_equipo;
+        let escudoequipo = i.escudo_equipo;
         players+='<tr>\n' +
             '                            <td>\n' +
             '                                <div class="classification-player-image" style="background-image: url('+imagen+')">' +
@@ -91,9 +93,9 @@ function createResumeTable(data, title, ld)
             '                            </td>' +
             '                            <td class="classification-team-name mini">\n' +
             '                                <div class="classification-team-shield">\n' +
-            '                                    <img src="images/pic09.jpg" alt="">\n' +
+            '                                    <img src="'+escudoequipo+'" alt="">' +
             '                                </div>\n' +
-            '                                <div>Lorem upsum</div>\n' +
+            '                                <div>'+nombreequipo+'</div>\n' +
             '                            </td>\n' +
             '                            <td>'+goles+'</td>\n' +
             '                        </tr>'
