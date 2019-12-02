@@ -3,7 +3,7 @@
 CREATE TABLE LUGAR(
     id_lugar SERIAL PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL UNIQUE,
-    tipo VARCHAR(10) NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
     longitud DOUBLE PRECISION,
     latitud DOUBLE PRECISION,
 
@@ -19,7 +19,7 @@ CREATE TABLE ROL(
 CREATE TABLE DEPORTE(
     id_deporte SERIAL PRIMARY KEY,
     nombre VARCHAR(50),
-    genero VARCHAR(10)
+    genero VARCHAR(20)
 );
 
 CREATE TABLE EQUIPO(
@@ -36,8 +36,8 @@ CREATE TABLE USUARIO(
     apellido VARCHAR(50) NOT NULL,
     correo VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(50) NOT NULL,
-    genero VARCHAR(10) NOT NULL,
-    cedula VARCHAR(10) NOT NULL,
+    genero VARCHAR(20) NOT NULL,
+    cedula VARCHAR(20) NOT NULL,
     fecha_nac TIMESTAMP NOT NULL,
     imagen VARCHAR(200),
     token VARCHAR(50),
@@ -56,7 +56,7 @@ CREATE TABLE HABILIDAD(
 
 CREATE TABLE ATLETA(
     id_atleta SERIAL PRIMARY KEY,
-    estado VARCHAR(10) NOT NULL,
+    estado VARCHAR(20) NOT NULL,
     fecha_inicio TIMESTAMP NOT NULL,
     fecha_fin TIMESTAMP,
 
@@ -68,7 +68,7 @@ CREATE TABLE ENTRENAMIENTO(
     id_entrenamiento SERIAL PRIMARY KEY,
     fecha TIMESTAMP NOT NULL,
     duracion FLOAT NOT NULL,
-    estado VARCHAR(10) NOT NULL,
+    estado VARCHAR(20) NOT NULL,
 
     lugar_id INTEGER REFERENCES LUGAR(id_lugar)
 );
@@ -87,7 +87,7 @@ CREATE TABLE COMPETICION(
     fecha_inicio TIMESTAMP NOT NULL,
     fecha_fin TIMESTAMP NOT NULL,
     imagen VARCHAR(200),
-    estado VARCHAR(10) NOT NULL,
+    estado VARCHAR(20) NOT NULL,
 
     lugar_id INTEGER REFERENCES LUGAR(id_lugar) NOT NULL
 );
@@ -96,14 +96,14 @@ CREATE TABLE CARACTERISTICA(
     id_caracteristica SERIAL PRIMARY KEY,
     titulo VARCHAR(50) NOT NULL,
     descripcion text NOT NULL,
-    tipo VARCHAR(10) NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
 
     competicion_id INTEGER REFERENCES COMPETICION(id_competicion) NOT NULL
 );
 
 CREATE TABLE EVENTO(
     id_evento SERIAL PRIMARY KEY,
-    estado VARCHAR(10) NOT NULL,
+    estado VARCHAR(20) NOT NULL,
 
     deporte_id INTEGER REFERENCES DEPORTE(id_deporte) NOT NULL,
     competicion_id INTEGER REFERENCES COMPETICION(id_competicion) NOT NULL
@@ -147,7 +147,7 @@ CREATE TABLE PARTIDO(
     equipo_local INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
     equipo_visitante INTEGER REFERENCES EQUIPO(id_equipo) NOT NULL,
 
-    estado VARCHAR(10) NOT NULL,
+    estado VARCHAR(20) NOT NULL,
 
     eliminatoria_id INTEGER REFERENCES ELIMINATORIA(id_eliminatoria),
     clasificacion_id INTEGER REFERENCES CLASIFICACION(id_clasificacion)
@@ -155,7 +155,7 @@ CREATE TABLE PARTIDO(
 
 CREATE TABLE JUEGO_FUTBOL(
     id_juego_futbol SERIAL PRIMARY KEY,
-    posicion VARCHAR(10) NOT NULL,
+    posicion VARCHAR(20) NOT NULL,
     goles INTEGER,
     asistencias INTEGER,
     faltas INTEGER,
@@ -163,7 +163,7 @@ CREATE TABLE JUEGO_FUTBOL(
     tarjetas_rojas INTEGER,
     atajadas INTEGER,
 
-    tipo VARCHAR(10) NOT NULL,
+    tipo VARCHAR(20) NOT NULL,
 
     atleta_id INTEGER REFERENCES ATLETA(id_atleta) NOT NULL,
     partido_id INTEGER REFERENCES PARTIDO(id_partido) NOT NULL
@@ -171,7 +171,7 @@ CREATE TABLE JUEGO_FUTBOL(
 
 CREATE TABLE JUEGO_BALONCESTO(
      id_juego_baloncesto SERIAL PRIMARY KEY,
-     posicion VARCHAR(10) NOT NULL,
+     posicion VARCHAR(20) NOT NULL,
      puntos INTEGER,
      asistencias INTEGER,
      disparos_tres_puntos INTEGER,
@@ -197,7 +197,7 @@ CREATE TABLE JUEGO_VOLEIBOL(
 
 CREATE TABLE JUEGO_RUGBY(
      id_juego_rugby SERIAL PRIMARY KEY,
-     posicion VARCHAR(10) NOT NULL,
+     posicion VARCHAR(20) NOT NULL,
      puntos INTEGER,
      tries INTEGER,
      penalties INTEGER,
@@ -235,7 +235,7 @@ CREATE TABLE NOTIFICACION(
 
 CREATE TABLE BANDEJA_ENTRADA(
     id_bandeja_entrada SERIAL PRIMARY KEY,
-    estado VARCHAR(10) NOT NULL,
+    estado VARCHAR(20) NOT NULL,
 
     usuario_id INTEGER REFERENCES USUARIO(id_usuario) NOT NULL,
     notificacion_id INTEGER REFERENCES NOTIFICACION(id_notificacion) NOT NULL
