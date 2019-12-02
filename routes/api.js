@@ -599,6 +599,28 @@ router.get('/players/teams/:id(\\d+)',function (req, res, next)
     })
 });
 
+router.post('/situations',function (req, res, next)
+{
+    client.query('SELECT crearSituacion($1,$2,$3,$4,$5)',
+        [req.body.partido,req.body.minuto,req.body.tipo,req.body.goleador,req.body.asistente],(err, result)=>{
+        if(err)
+        {
+            console.log(err);
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
 
+            res.status(200).json({
+                status: 'success',
+                data: "Insertado suceso"
+            });
+        }
+    })
+});
 
 module.exports = router;

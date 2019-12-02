@@ -325,3 +325,24 @@ describe('GET /api/v1/players/teams/:id', function() {
             });
     });
 });
+
+describe('POST /api/v1/situations', function() {
+    it('Debe asignar una situación a un partido', function(done) {
+
+        chai.request(server)
+            .post('/api/v1/situations')
+            .set('content-type', 'application/json')
+            .send(
+                {
+                    partido: 1,
+                    minuto: 55,
+                    tipo: 'gol',
+                    goleador: 2
+                })
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
