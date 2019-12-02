@@ -192,8 +192,16 @@ function changeViewTo(view)
     $('#clasificacion-content').hide(300);
     $('#estadisticas-content').hide(300);
 	$('#jugadores-content').hide(300);
-	$("#"+view.id+"-content").show(300);
-	view.classList.add("selected");
+	try
+	{
+		$("#"+view.id+"-content").show(300);
+		view.classList.add("selected");
+	}
+	catch (e)
+	{
+		$("#inicio").addClass("selected");
+	}
+
 }
 
 
