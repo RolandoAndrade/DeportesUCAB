@@ -449,7 +449,7 @@ DECLARE
     atletaid INTEGER;
 BEGIN
     SELECT id_atleta INTO atletaid FROM ATLETA WHERE usuario_id = usuarioid;
-    RETURN (SELECT SUM(goles) FROM juego_futbol WHERE atletaid = atleta_id);
+    RETURN COALESCE((SELECT SUM(goles) FROM juego_futbol WHERE atletaid = atleta_id),0);
 END;
 $$ LANGUAGE 'plpgsql';
 
@@ -459,7 +459,7 @@ DECLARE
     atletaid INTEGER;
 BEGIN
     SELECT id_atleta INTO atletaid FROM ATLETA WHERE usuario_id = usuarioid;
-    RETURN (SELECT SUM(asistencias) FROM juego_futbol WHERE atletaid = atleta_id);
+    RETURN COALESCE((SELECT SUM(asistencias) FROM juego_futbol WHERE atletaid = atleta_id),0);
 END;
 $$ LANGUAGE 'plpgsql';
 
