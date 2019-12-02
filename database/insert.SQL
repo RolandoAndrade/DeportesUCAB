@@ -162,8 +162,11 @@ select crearsituacion(5,0,'inicio',null,null);
 select crearsituacion(5,90,'fin',null,null);
 select crearsituacion(6,0,'inicio',null,null);
 select crearsituacion(6,90,'fin',null,null);
-select crearsituacion(7,20,'gol',2,3);
-select crearsituacion(7,62,'gol',2,NULL);
+select crearsituacion(7,0,'inicio',null,null);
+select crearsituacion(7,90,'fin',null,null);
+
+select crearsituacion(1,20,'gol',2,3);
+select crearsituacion(1,62,'gol',2,NULL);
 
 select crearsituacion(2,10,'gol',8,10);
 select crearsituacion(2,25,'gol',9,8);
