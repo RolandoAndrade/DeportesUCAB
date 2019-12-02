@@ -226,7 +226,7 @@ function selectPlayers(local)
     }
 }
 
-async function retrievePlayers(local,visitante)
+async function retrievePlayersOfGame(local,visitante)
 {
     jugadoresLocal = (await new GetRequest("/api/v1/players/teams/"+local).execute()).data;
     jugadoresVisitante = (await new GetRequest("/api/v1/players/teams/"+visitante).execute()).data;
@@ -245,7 +245,7 @@ function showPartidoData(partido)
     let rvisitante = partido.resultado.resultado_visitante;
     let elocal = partido.resultado.escudo_local;
     let evisitante = partido.resultado.escudo_visitante;
-    retrievePlayers(idlocal,idvisitante);
+    retrievePlayersOfGame(idlocal,idvisitante);
     let s = '<div class="post-card results partidos-modificar">\n' +
         '                    <div class="final-section">\n' +
         '                        <div class="final-team-shield">\n' +
@@ -291,6 +291,5 @@ async function retrieveMatch()
 {
     let id = getPartidoFromUrl();
     let partido = (await new GetRequest("/api/v1/matches/"+id).execute()).data;
-    console.log(partido)
     showPartidoData(partido)
 }
