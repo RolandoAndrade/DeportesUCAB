@@ -123,20 +123,46 @@ function resetSelectedPlayers()
     })
 }
 
-function insertarSituacion(tipo)
+async function insertarSituacion(tipo, minuto)
 {
-    if (tipo === "gol")
-    {
 
-    }
-    else if(tipo === "inicio")
+    let goleador, asistente;
+    jugadoresLocal.forEach((i)=>
     {
-
-    }
-    else
+        if(i.goleador)
+        {
+            goleador = i.id;
+        }
+        else if(i.asistente)
+        {
+            asistente = i.id;
+        }
+    });
+    jugadoresVisitante.forEach((i)=>
     {
-
-    }
+        if(i.goleador)
+        {
+            goleador = i.id;
+        }
+        else if(i.asistente)
+        {
+            asistente = i.id;
+        }
+    });
+    let data = {
+        partido: getPartidoFromUrl(),
+        minuto: minuto,
+        tipo: tipo,
+        goleador: goleador,
+        asistente: asistente
+    };
+    let req = await new PostRequest(data,"/api/v1/situations").execute();
+    swal(
+        'Éxito',
+        'Se ha insertado satisfactoriamente',
+        'success'
+    );
+    retrieveMatch();
 }
 
 function selectPlayers(local)
@@ -170,9 +196,9 @@ function selectPlayers(local)
                     cancelButtonColor: '#bb4c41',
                     showConfirmButton: true,
                     showCancelButton: true,
-                    html: '<input id="crear-minuto-situacion" type="number" class="create-input validate" style="text-align: center" min="0">'
+                    html: '<input id="crear-minuto-situacion" type="number" class="create-input validate" style="text-align: center" min="1" value="1">'
                 }).then(function () {
-                    insertarSituacion("gol");
+                    insertarSituacion("gol", $("#crear-minuto-situacion").val());
                 }).catch((e)=>{
                     swal(
                         'Cancelado',
