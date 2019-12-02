@@ -227,6 +227,8 @@ function hideAll()
 	$("#creador-content").hide(300);
     $("#creador-partidos-content").hide(300);
 	$("#creador-fases-content").hide(300);
+    $("#estadisticas-content").hide(300);
+    $("#modificar-partidos-content").hide(300);
 }
 
 
