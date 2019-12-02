@@ -442,3 +442,39 @@ BEGIN
     RETURN TRUE;
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getGolesJugador(usuarioid INTEGER) RETURNS INTEGER AS
+$$
+DECLARE
+    atletaid INTEGER;
+BEGIN
+    SELECT id_atleta INTO atletaid FROM ATLETA WHERE usuario_id = usuarioid;
+    RETURN (SELECT SUM(goles) FROM juego_futbol WHERE atletaid = atleta_id);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getAsistenciasJugador(usuarioid INTEGER) RETURNS INTEGER AS
+$$
+DECLARE
+    atletaid INTEGER;
+BEGIN
+    SELECT id_atleta INTO atletaid FROM ATLETA WHERE usuario_id = usuarioid;
+    RETURN (SELECT SUM(asistencias) FROM juego_futbol WHERE atletaid = atleta_id);
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getGoleadores(eventid INTEGER) RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, imagen VARCHAR, goles INTEGER) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT P.*, getGolesJugador(P.id) golazos FROM getPlayers(eventid) P ORDER BY golazos DESC LIMIT 5;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getAsistentes(eventid INTEGER) RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, imagen VARCHAR, goles INTEGER) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT P.*, getAsistenciasJugador(P.id) golazos FROM getPlayers(eventid) P ORDER BY golazos DESC LIMIT 5;
+END;
+$$ LANGUAGE 'plpgsql';
