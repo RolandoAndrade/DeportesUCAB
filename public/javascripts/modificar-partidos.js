@@ -63,42 +63,86 @@ function appendGol(data, idlocal)
 
 }
 
-function escogerJugador(i,local)
+function escogerJugador(i,local,last)
 {
     if(local)
     {
         jugadoresLocal[i].check = true;
+        jugadoresLocal[i].goleador = !last;
+        jugadoresLocal[i].asistente = last;
     }
     else
     {
         jugadoresVisitante[i].check = true;
+        jugadoresVisitante[i].goleador = !last;
+        jugadoresVisitante[i].asistente = last;
     }
     swal.clickConfirm()
 }
 
-function selectPlayers(local)
+function modalPlayersData(local, last)
 {
     let s = "";
     let ax = local?jugadoresLocal:jugadoresVisitante;
 
     ax.forEach((i,k)=>
     {
-        let imagen = i.imagen;
-        let nombre = i.nombre;
-        let apellido = i.apellido;
-        let id = i.id;
-        s+='<div class="create-equipo-card">' +
-            '<div class="classification-player-image" style="background-image: url('+imagen+'); margin: auto auto;">' +
-            '</div>' +
-            '<div class="create-equipo-card-teamname" style="width: 60%">' + nombre+' '+apellido+
-            '</div>' +
-            '<div class="more-button-green team" onclick="escogerJugador('+k+','+local+')">' +
-            '<i class="zmdi zmdi-check"></i>' +
-            '</div>' +
-            '</div>';
+        if(!i.check)
+        {
+            let imagen = i.imagen;
+            let nombre = i.nombre;
+            let apellido = i.apellido;
+            let id = i.id;
+            s+='<div class="create-equipo-card">' +
+                '<div class="classification-player-image" style="background-image: url('+imagen+'); margin: auto auto;">' +
+                '</div>' +
+                '<div class="create-equipo-card-teamname" style="width: 60%">' + nombre+' '+apellido+
+                '</div>' +
+                '<div class="more-button-green team" onclick="escogerJugador('+k+','+local+','+last+')">' +
+                '<i class="zmdi zmdi-check"></i>' +
+                '</div>' +
+                '</div>';
+        }
     });
+    return s;
+}
 
-    if (ax.length > 0)
+function resetSelectedPlayers()
+{
+    jugadoresLocal.forEach((i)=>
+    {
+        i.check = false;
+        i.goleador = false;
+        i.asistente = false;
+    });
+    jugadoresVisitante.forEach((i)=>
+    {
+        i.check = false;
+        i.goleador = false;
+        i.asistente = false;
+    })
+}
+
+function insertarSituacion(tipo)
+{
+    if (tipo === "gol")
+    {
+
+    }
+    else if(tipo === "inicio")
+    {
+
+    }
+    else
+    {
+
+    }
+}
+
+function selectPlayers(local)
+{
+    let s = modalPlayersData(local,false);
+    if (s.length > 0)
     {
         swal({
             title: 'Selecciona al goleador',
@@ -108,8 +152,51 @@ function selectPlayers(local)
             showCancelButton: true,
             html: s
         }).then(function () {
-
-        }).catch((e)=>{});
+            swal({
+                title: 'Selecciona al asistente',
+                confirmButtonText: '<i class="zmdi zmdi-check"></i>  SALTAR',
+                cancelButtonText: '<i class="zmdi zmdi-close"></i>  CANCELAR',
+                confirmButtonColor: '#03A9F4',
+                cancelButtonColor: '#bb4c41',
+                showConfirmButton: true,
+                showCancelButton: true,
+                html: modalPlayersData(local,true)
+            }).then(function () {
+                swal({
+                    title: 'Indique el minuto del gol',
+                    confirmButtonText: '<i class="zmdi zmdi-check"></i>  ACEPTAR',
+                    cancelButtonText: '<i class="zmdi zmdi-close"></i>  CANCELAR',
+                    confirmButtonColor: '#03A9F4',
+                    cancelButtonColor: '#bb4c41',
+                    showConfirmButton: true,
+                    showCancelButton: true,
+                    html: '<input id="crear-minuto-situacion" type="number" class="create-input validate" style="text-align: center" min="0">'
+                }).then(function () {
+                    insertarSituacion("gol");
+                }).catch((e)=>{
+                    swal(
+                        'Cancelado',
+                        'El proceso ha sido cancelado',
+                        'error'
+                    );
+                    resetSelectedPlayers();
+                });
+            }).catch((e)=>{
+                swal(
+                    'Cancelado',
+                    'El proceso ha sido cancelado',
+                    'error'
+                );
+                resetSelectedPlayers();
+            });
+        }).catch((e)=>{
+            swal(
+                'Cancelado',
+                'El proceso ha sido cancelado',
+                'error'
+            );
+            resetSelectedPlayers();
+        });
     }
 }
 
