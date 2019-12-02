@@ -177,7 +177,7 @@ select crearsituacion(3,72,'gol',3,2);
 select crearsituacion(3,84,'gol',4,NULL);
 select crearsituacion(3,70,'gol',9,10);
 
-select crearsituacion(4,27,'gol',4,5);
+select crearsituacion(4,27,'gol',7,5);
 select crearsituacion(4,46,'gol',13,12);
 
 select crearsituacion(5,5,'gol',2,3);
