@@ -1,3 +1,5 @@
+let jugadoresLocal, jugadoresVisitante;
+
 function getPartidoFromUrl()
 {
     $("#loader-creador-partidos").hide();
@@ -61,6 +63,62 @@ function appendGol(data, idlocal)
 
 }
 
+function escogerJugador(i,local)
+{
+    if(local)
+    {
+        jugadoresLocal[i].check = true;
+    }
+    else
+    {
+        jugadoresVisitante[i].check = true;
+    }
+    swal.clickConfirm()
+}
+
+function selectPlayers(local)
+{
+    let s = "";
+    let ax = local?jugadoresLocal:jugadoresVisitante;
+
+    ax.forEach((i,k)=>
+    {
+        let imagen = i.imagen;
+        let nombre = i.nombre;
+        let apellido = i.apellido;
+        let id = i.id;
+        s+='<div class="create-equipo-card">' +
+            '<div class="classification-player-image" style="background-image: url('+imagen+'); margin: auto auto;">' +
+            '</div>' +
+            '<div class="create-equipo-card-teamname" style="width: 60%">' + nombre+' '+apellido+
+            '</div>' +
+            '<div class="more-button-green team" onclick="escogerJugador('+k+','+local+')">' +
+            '<i class="zmdi zmdi-check"></i>' +
+            '</div>' +
+            '</div>';
+    });
+
+    if (ax.length > 0)
+    {
+        swal({
+            title: 'Selecciona al goleador',
+            cancelButtonText: '<i class="zmdi zmdi-close"></i>  CANCELAR',
+            cancelButtonColor: '#03A9F4',
+            showConfirmButton: false,
+            showCancelButton: true,
+            html: s
+        }).then(function () {
+
+        }).catch((e)=>{});
+    }
+}
+
+async function retrievePlayers(local,visitante)
+{
+    jugadoresLocal = (await new GetRequest("/api/v1/players/teams/"+local).execute()).data;
+    jugadoresVisitante = (await new GetRequest("/api/v1/players/teams/"+visitante).execute()).data;
+}
+
 function showPartidoData(partido)
 {
     $("#resultado-actual").empty();
@@ -74,6 +132,7 @@ function showPartidoData(partido)
     let rvisitante = partido.resultado.resultado_visitante;
     let elocal = partido.resultado.escudo_local;
     let evisitante = partido.resultado.escudo_visitante;
+    retrievePlayers(idlocal,idvisitante);
     let s = '<div class="post-card results partidos-modificar">\n' +
         '                    <div class="final-section">\n' +
         '                        <div class="final-team-shield">\n' +
