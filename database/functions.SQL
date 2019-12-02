@@ -534,7 +534,8 @@ BEGIN
     RETURN QUERY
         SELECT S.id_situacion, S.minuto, S.tipo, U.nombre, U.apellido, A.equipo_id
         FROM SITUACION S LEFT JOIN USUARIO U ON S.usuario_id = U.id_usuario LEFT JOIN ATLETA A  ON U.id_usuario = A.usuario_id
-        WHERE S.partido_id = partidoid;
+        WHERE S.partido_id = partidoid
+        ORDER BY minuto;
 END;
 $$ LANGUAGE 'plpgsql';
 
@@ -552,4 +553,3 @@ BEGIN
               P.lugar_id = L.id_lugar;
 END;
 $$ LANGUAGE 'plpgsql';
-
