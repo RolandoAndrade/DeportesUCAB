@@ -463,18 +463,27 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION getGoleadores(eventid INTEGER) RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, imagen VARCHAR, goles INTEGER) AS
+
+CREATE OR REPLACE FUNCTION getGoleadores(eventid INTEGER) RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, imagen VARCHAR,
+goles INTEGER, nombre_equipo VARCHAR, escudo_equipo VARCHAR) AS
 $$
 BEGIN
     RETURN QUERY
-        SELECT P.*, getGolesJugador(P.id) golazos FROM getPlayers(eventid) P ORDER BY golazos DESC LIMIT 5;
+        SELECT P.*, getGolesJugador(P.id) golazos, E.nombre, E.escudo
+        FROM getPlayers(eventid) P, EQUIPO E, ATLETA A
+        WHERE A.equipo_id = E.id_equipo AND A.usuario_id = P.id
+        ORDER BY golazos DESC LIMIT 5;
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION getAsistentes(eventid INTEGER) RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, imagen VARCHAR, goles INTEGER) AS
+CREATE OR REPLACE FUNCTION getAsistentes(eventid INTEGER) RETURNS TABLE(id INTEGER,
+nombre VARCHAR, apellido VARCHAR, imagen VARCHAR, goles INTEGER, nombre_equipo VARCHAR, escudo_equipo VARCHAR) AS
 $$
 BEGIN
     RETURN QUERY
-        SELECT P.*, getAsistenciasJugador(P.id) golazos FROM getPlayers(eventid) P ORDER BY golazos DESC LIMIT 5;
+        SELECT P.*, getAsistenciasJugador(P.id) golazos, E.nombre, E.escudo
+        FROM getPlayers(eventid) P, EQUIPO E, ATLETA A
+        WHERE A.equipo_id = E.id_equipo AND A.usuario_id = P.id
+        ORDER BY golazos DESC LIMIT 5;
 END;
 $$ LANGUAGE 'plpgsql';
