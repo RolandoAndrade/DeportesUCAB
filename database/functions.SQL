@@ -526,3 +526,16 @@ BEGIN
     INSERT INTO SITUACION VALUES (DEFAULT,minutoP,tipoP,partidoid,jugadorid,auxiliarid);
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getSituacionesPartido(partidoid INTEGER)
+RETURNS TABLE(id INTEGER, minuto INTEGER, tipo VARCHAR, nombre VARCHAR, apellido VARCHAR, equipoid INTEGER) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT S.id_situacion, S.minuto, S.tipo, U.nombre, U.apellido, A.equipo_id
+        FROM SITUACION S, USUARIO U, ATLETA A
+        WHERE S.partido_id = partidoid AND
+              S.usuario_id = U.id_usuario AND
+              U.id_usuario = A.usuario_id;
+END;
+$$ LANGUAGE 'plpgsql';
