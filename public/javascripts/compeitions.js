@@ -72,6 +72,16 @@ function showCompetitionDetail()
     }
 }
 
+function createStatsView(goleadores, asistentes)
+{
+
+}
+
+async function retrieveStats(event)
+{
+
+}
+
 function createPlayersView(players)
 {
     $("#jugadores-content").empty();

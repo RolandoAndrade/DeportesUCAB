@@ -499,6 +499,45 @@ router.get('/players/events/:id(\\d+)',function (req, res, next)
     })
 });
 
+router.get('/events/stats/:id(\\d+)',function (req, res, next)
+{
+    client.query('SELECT * FROM getgoleadores($1)',[req.params.id],(err, result)=>{
+        if(err)
+        {
+            console.log(err)
+            res.status(500).json(
+                {
+                    status: 'error',
+                    data: err
+                });
+        }
+        else
+        {
+            let goleadores = result.rows;
+            client.query('SELECT * FROM getasistentes($1)',[req.params.id],(err, result)=>{
+                if(err)
+                {
+                    console.log(err)
+                    res.status(500).json(
+                        {
+                            status: 'error',
+                            data: err
+                        });
+                }
+                else
+                {
+                    let asistentes = result.rows;
+                    res.status(200).json({
+                        status: 'success',
+                        data: {goleadores: goleadores, asistentes: asistentes}
+                    });
+                }
+            });
+
+        }
+    })
+});
+
 
 
 module.exports = router;

@@ -289,3 +289,15 @@ describe('GET /api/v1/players/events/:id', function() {
             });
     });
 });
+
+describe('GET /api/v1/events/stats/:id', function() {
+    it('Retorna las estadísticas del evento', function(done) {
+        chai.request(server)
+            .get('/api/v1/events/stats/1')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
