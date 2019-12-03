@@ -12,12 +12,13 @@ function exitWindow()
 		  	text: "La sesión actual será cerrada",
 		  	type: 'warning',
 		  	showCancelButton: true,
-		  	confirmButtonColor: '#DC8502',
-		  	cancelButtonColor: '#F44336',
-		  	confirmButtonText: 'Sí, ¡quiero salir!',
-		  	cancelButtonText: 'No, cancelar!'
+		  	confirmButtonColor: '#4f9bff',
+		  	cancelButtonColor: '#bb4c41',
+		  	confirmButtonText: 'Sí, deseo salir',
+		  	cancelButtonText: 'No, cancelar'
 		}).then(function () {
-			window.location.href="index.html";
+			new Cookie("user_id",-10).setCookie("");
+			window.location.href="/";
 	});
 }
 
