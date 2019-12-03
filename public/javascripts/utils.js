@@ -9,3 +9,8 @@ function datePair(date)
 {
     return (date.getDate())+"/"+(date.getMonth()+1);
 }
+
+function dateTriple(date)
+{
+    return (date.getDate())+" de "+months[date.getMonth()]+" de "+date.getFullYear();
+}
