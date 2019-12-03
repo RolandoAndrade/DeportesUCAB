@@ -145,3 +145,9 @@ body
 	height: 1px;
 	margin: 20px 0;
 }
+
+.logo-login
+{
+	width: 70px;
+	opacity: 0.5;
+}

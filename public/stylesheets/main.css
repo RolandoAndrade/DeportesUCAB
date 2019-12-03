@@ -47,6 +47,12 @@ body, html{
 a{
 	cursor: pointer;
 }
+
+.logo-sidebar
+{
+	height: 30px;
+	margin: 10px;
+}
 .full-box{
 	margin: 0;
 	padding: 0;
