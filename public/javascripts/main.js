@@ -286,6 +286,10 @@ function viewSelection(auxiliar)
 	{
 		showJugadorInfo();
 	}
+	else if(url.indexOf("#vista-equipos")!==-1)
+	{
+		showVistaEquipos();
+	}
 	else
 	{
         showInicio();

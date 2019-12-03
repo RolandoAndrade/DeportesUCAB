@@ -82,7 +82,7 @@
                 </a>
             </li>
             <li>
-                <a href="#!" class="btn-sideBar-SubMenu">
+                <a href="#vista-equipos" class="btn-sideBar-SubMenu">
                     <i class="zmdi zmdi-accounts zmdi-hc-fw"></i> Equipos</i>
                 </a>
             </li>
@@ -134,6 +134,7 @@
             <div class="detail-exit">
                 <i id ="inicio-icon" class="zmdi zmdi-view-dashboard show"></i>
                 <i id ="creador-icon" class="zmdi zmdi-plus"></i>
+                <i id ="equipos-icon" class="zmdi zmdi-accounts"></i>
                 <i id ="back-icon" onclick="backToLast()" class="zmdi zmdi-arrow-left"></i>
             </div>
             <div id="detail-title" class="detail-title">
@@ -424,6 +425,22 @@
 
             </div>
         </div>
+        <!---VER EQUIPOS--->
+
+        <div id = "vista-equipos-content" class="creador-partidos-content">
+            <div class="team-card-info">
+                <div class="team-card-info-image">
+                    <img src="images/pic09.jpg" alt="">
+                </div>
+                <div class="team-card-info-label">
+
+                </div>
+            </div>
+            <div class="more-button send" onclick="backToLast()">
+                <i class="zmdi zmdi-check"></i>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -498,6 +515,7 @@
 <script src="javascripts/create-partidos.js"></script>
 <script src="javascripts/modificar-partidos.js"></script>
 <script src="javascripts/informacion-jugador.js"></script>
+<script src="javascripts/vista-equipos.js"></script>
 <script src="javascripts/main.js"></script>
 <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
 <script src="javascripts/upload-image-manager.js"></script>
