@@ -14,6 +14,8 @@ function showModificarPartidos()
     $("#modificar-partidos-content").show(300);
     $("#detail-title").html("Modificar partido");
     replaceIcon("back-icon");
+    $("#add-inicio-boton").show()
+    $("#add-final-boton").show();
     retrieveMatch();
 }
 
