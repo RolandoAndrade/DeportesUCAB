@@ -237,6 +237,7 @@ function hideAll()
 	$("#creador-fases-content").hide(300);
     $("#estadisticas-content").hide(300);
     $("#modificar-partidos-content").hide(300);
+	$("#jugador-info-content").hide(300);
 }
 
 

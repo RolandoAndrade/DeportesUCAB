@@ -46,7 +46,8 @@ function addEvents(events)
 
 function openPlayerDetails(player)
 {
-    window.history.pushState('DeportesUCAB', 'DeportesUCAB', '#informacion-jugador?jugador='+player);
+    let url = document.location.href+'#informacion-jugador?jugador='+player;
+    window.history.pushState('DeportesUCAB', 'DeportesUCAB', url);
     viewSelection();
 }
 
