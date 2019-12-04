@@ -9,7 +9,9 @@ function showVistaEquipos()
 
 function cambiarDetalleEquipo(id)
 {
-
+    let url = document.location.href+'#consultar-equipo?equipoid='+id;
+    window.history.pushState('DeportesUCAB', 'DeportesUCAB', url);
+    viewSelection()
 }
 
 function createViewVistaEquipos(teams)
