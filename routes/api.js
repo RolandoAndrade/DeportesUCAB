@@ -672,5 +672,28 @@ router.get('/matches/teams/:id(\\d+)',function (req, res, next)
         })
 });
 
+router.post('/teams',function (req, res, next)
+{
+    client.query('SELECT insertarequipo($1,$2,$3)',
+        [req.body.escudo,req.body.nombre,req.body.genero],(err, result)=>{
+            if(err)
+            {
+                console.log(err);
+                res.status(500).json(
+                    {
+                        status: 'error',
+                        data: err
+                    });
+            }
+            else
+            {
+
+                res.status(200).json({
+                    status: 'success',
+                    data: "Insertado equipo"
+                });
+            }
+        })
+});
 
 module.exports = router;

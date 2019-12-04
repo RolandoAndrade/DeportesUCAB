@@ -370,3 +370,23 @@ describe('GET /api/v1/matches/teams/:id', function() {
             });
     });
 });
+
+describe('POST /api/v1/teams', function() {
+    it('Debe insertar un equipo', function(done) {
+
+        chai.request(server)
+            .post('/api/v1/teams')
+            .set('content-type', 'application/json')
+            .send(
+                {
+                    escudo: 'images/pic01.jpg',
+                    nombre: 'Prueba API REST',
+                    genero: 1
+                })
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
