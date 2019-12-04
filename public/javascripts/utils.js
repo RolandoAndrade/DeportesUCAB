@@ -14,3 +14,8 @@ function dateTriple(date)
 {
     return (date.getDate())+" de "+months[date.getMonth()]+" de "+date.getFullYear();
 }
+
+function capitalize(s)
+{
+    return s.charAt(0).toUpperCase() + s.slice(1);
+}

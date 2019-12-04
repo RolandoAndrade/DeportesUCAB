@@ -23,19 +23,24 @@ function showPlayersOfTeam(data)
     data.forEach((i)=>
     {
         let imagen = i.imagen;
+        let posicion = capitalize(i.posicion);
         let nombre = i.nombre + " "+i.apellido;
         s+='                         <tr>' +
             '                           <td>\n' +
-            '                                <div class="classification-player-image" style="background-image: url('+imagen+'); width: 80px; height: 80px"></div>\n' +
+            '                                <div class="classification-player-image" style="background-image: url('+imagen+');"></div>\n' +
             '                            </td>\n' +
             '                            <td>\n' +
                                             nombre+
-            '                            </td></tr> '
+            '                            </td> ' +
+            '<td>' +
+                posicion+
+            '</td>' +
+            '</tr> '
     });
 
     s = '                        <tr>\n' +
         '                            <th></th>\n' +
-        '                            <th>NOMBRE</th>\n' +
+        '                            <th>NOMBRE</th> <th>POSICION</th>\n' +
         '                        </tr>'+s;
     $("#tabla-juadores").append(s);
 }
