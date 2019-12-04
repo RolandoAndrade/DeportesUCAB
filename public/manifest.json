@@ -3,7 +3,7 @@
     "lang": "es",
     "name": "DeportesUCAB",
     "scope": "/",
-    "display": "browser",
+    "display": "standalone",
     "start_url": "https://esdeportesucab.herokuapp.com/",
     "short_name": "DeportesUCAB",
     "theme_color": "transparent",
@@ -12,5 +12,9 @@
     "background_color": "transparent",
     "related_applications": [],
     "prefer_related_applications": false,
-    "icons": []
+    "icons": [
+        {
+        "src": "images/logo.png",
+        "type": "image/png"
+    }]
 }
