@@ -433,8 +433,36 @@
             <div class="player-card-container" id="teams-info-container">
 
             </div>
-            <div class="more-button send" onclick="backToLast()">
-                <i class="zmdi zmdi-plus"></i>
+            <div class="post-card create-form">
+                <div class="create-form-title">
+                    Agregar equipo
+                </div>
+                <div class="create-form-content">
+
+                    <div class="create-content-container">
+                        <div id = "crear-imagen-equipo" class="crear-imagen-equipo">
+                            <div class="crear-imagen-competicion-etiqueta mini">
+                                Seleccionar imagen
+                            </div>
+                        </div>
+                        <div class="input-container menor">
+                            <div class="input-field">
+                                <input id="crear-nombre-equipo" type="text" class="create-input validate">
+                                <label for="crear-nombre-equipo">Nombre del equipo</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="create-content-container">
+                        <div class="gender-selector">
+                            <div class="create-gender blue" onclick="changeGender(this)"><i class="zmdi zmdi-male-alt"></i></div>
+                            <div class="create-gender red" onclick="changeGender(this)"><i class="zmdi zmdi-female"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-button" onclick="addFase()">
+                    <i class="zmdi zmdi-plus"></i>
+                </div>
             </div>
         </div>
 
@@ -448,10 +476,9 @@
 
                 </div>
             <div class="more-button send" onclick="backToLast()">
-                <i class="zmdi zmdi-plus"></i>
+                <i class="zmdi zmdi-edit"></i>
             </div>
         </div>
-
     </div>
 </section>
 
