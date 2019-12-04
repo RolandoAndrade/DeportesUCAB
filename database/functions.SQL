@@ -564,3 +564,18 @@ BEGIN
         WHERE id_usuario = A.usuario_id AND A.equipo_id = equipoid;
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getAllTeams()
+    RETURNS TABLE(id INTEGER, nombre VARCHAR, escudo VARCHAR, genero TEXT) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT T.id_equipo, T.nombre, T.escudo, 'masculino'
+        FROM equipo T
+        WHERE deporte_id = 1 AND T.nombre != 'Por definir'
+        UNION
+        SELECT T.id_equipo, T.nombre, T.escudo, 'femenino'
+        FROM equipo T
+        WHERE deporte_id = 2 AND T.nombre != 'Por definir';
+END;
+$$ LANGUAGE 'plpgsql';
