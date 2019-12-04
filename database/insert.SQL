@@ -149,47 +149,47 @@ INSERT INTO PARTIDO VALUES
 (DEFAULT,'JORNADA 3','2019-10-02',0,0,2,1,4,'finalizado',null,1),
 (DEFAULT,'JORNADA 3','2019-10-02',0,0,2,2,3,'finalizado',null,1),
 (DEFAULT,'FINAL','2019-10-30',0,0,2,1,2,'finalizado',1,null);
+CREATE OR REPLACE FUNCTION insertsituaciones() RETURNS VOID AS
+$$
+BEGIN
+    PERFORM crearsituacion(1,0,'inicio',null,null);
+    PERFORM crearsituacion(1,90,'fin',null,null);
+    PERFORM crearsituacion(2,0,'inicio',null,null);
+    PERFORM crearsituacion(2,90,'fin',null,null);
+    PERFORM crearsituacion(3,0,'inicio',null,null);
+    PERFORM crearsituacion(3,90,'fin',null,null);
+    PERFORM crearsituacion(4,0,'inicio',null,null);
+    PERFORM crearsituacion(4,90,'fin',null,null);
+    PERFORM crearsituacion(5,0,'inicio',null,null);
+    PERFORM crearsituacion(5,90,'fin',null,null);
+    PERFORM crearsituacion(6,0,'inicio',null,null);
+    PERFORM crearsituacion(6,90,'fin',null,null);
+    PERFORM crearsituacion(7,0,'inicio',null,null);
+    PERFORM crearsituacion(7,90,'fin',null,null);
 
-select crearsituacion(1,0,'inicio',null,null);
-select crearsituacion(1,90,'fin',null,null);
-select crearsituacion(2,0,'inicio',null,null);
-select crearsituacion(2,90,'fin',null,null);
-select crearsituacion(3,0,'inicio',null,null);
-select crearsituacion(3,90,'fin',null,null);
-select crearsituacion(4,0,'inicio',null,null);
-select crearsituacion(4,90,'fin',null,null);
-select crearsituacion(5,0,'inicio',null,null);
-select crearsituacion(5,90,'fin',null,null);
-select crearsituacion(6,0,'inicio',null,null);
-select crearsituacion(6,90,'fin',null,null);
-select crearsituacion(7,0,'inicio',null,null);
-select crearsituacion(7,90,'fin',null,null);
+    PERFORM crearsituacion(1,20,'gol',2,3);
+    PERFORM crearsituacion(1,62,'gol',2,NULL);
+    PERFORM crearsituacion(2,10,'gol',8,10);
+    PERFORM crearsituacion(2,25,'gol',9,8);
+    PERFORM crearsituacion(2,15,'gol',11,NULL);
+    PERFORM crearsituacion(3,70,'gol',2,3);
+    PERFORM crearsituacion(3,72,'gol',3,2);
+    PERFORM crearsituacion(3,84,'gol',4,NULL);
+    PERFORM crearsituacion(3,70,'gol',9,10);
+    PERFORM crearsituacion(4,27,'gol',7,5);
+    PERFORM crearsituacion(4,46,'gol',13,12);
+    PERFORM crearsituacion(5,5,'gol',2,3);
+    PERFORM crearsituacion(5,10,'gol',2,3);
+    PERFORM crearsituacion(5,15,'gol',2,4);
+    PERFORM crearsituacion(5,45,'gol',3,4);
+    PERFORM crearsituacion(5,70,'gol',4,2);
+    PERFORM crearsituacion(6,20,'gol',6,7);
+    PERFORM crearsituacion(6,40,'gol',7,5);
+    PERFORM crearsituacion(6,30,'gol',9,NULL);
+    PERFORM crearsituacion(7,10,'gol',2,4);
+    PERFORM crearsituacion(7,90,'gol',4,NULL);
+    PERFORM crearsituacion(7,80,'gol',7,NULL);
+END;
+$$ LANGUAGE 'plpgsql';
 
-select crearsituacion(1,20,'gol',2,3);
-select crearsituacion(1,62,'gol',2,NULL);
-
-select crearsituacion(2,10,'gol',8,10);
-select crearsituacion(2,25,'gol',9,8);
-select crearsituacion(2,15,'gol',11,NULL);
-
-select crearsituacion(3,70,'gol',2,3);
-select crearsituacion(3,72,'gol',3,2);
-select crearsituacion(3,84,'gol',4,NULL);
-select crearsituacion(3,70,'gol',9,10);
-
-select crearsituacion(4,27,'gol',7,5);
-select crearsituacion(4,46,'gol',13,12);
-
-select crearsituacion(5,5,'gol',2,3);
-select crearsituacion(5,10,'gol',2,3);
-select crearsituacion(5,15,'gol',2,4);
-select crearsituacion(5,45,'gol',3,4);
-select crearsituacion(5,70,'gol',4,2);
-
-select crearsituacion(6,20,'gol',6,7);
-select crearsituacion(6,40,'gol',7,5);
-select crearsituacion(6,30,'gol',9,NULL);
-
-select crearsituacion(7,10,'gol',2,4);
-select crearsituacion(7,90,'gol',4,NULL);
-select crearsituacion(7,80,'gol',7,NULL);
+SELECT insertsituaciones()
