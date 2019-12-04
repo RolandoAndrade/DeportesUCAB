@@ -561,7 +561,7 @@ BEGIN
     RETURN QUERY
         SELECT U.id_usuario, U.nombre, U.apellido, U.imagen
         FROM USUARIO U, ATLETA A
-        WHERE id_usuario = A.usuario_id AND A.equipo_id = equipoid AND A.fecha_fin IS NOT NULL;
+        WHERE id_usuario = A.usuario_id AND A.equipo_id = equipoid AND A.fecha_fin IS NULL;
 END;
 $$ LANGUAGE 'plpgsql';
 
