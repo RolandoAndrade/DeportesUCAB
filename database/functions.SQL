@@ -600,3 +600,10 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION insertarEquipo(imagenP VARCHAR, nombreP VARCHAR, deporteid INTEGER) RETURNS VOID AS
+$$
+BEGIN
+    INSERT INTO EQUIPO VALUES (DEFAULT, nombreP, imagenP, deporteid);
+END;
+$$ LANGUAGE 'plpgsql';
