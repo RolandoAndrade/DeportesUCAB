@@ -1065,7 +1065,7 @@
     transition: 0.5s all;
 }
 
-.player-card:hover
+.team-card-info:hover
 {
     opacity: 0.8;
 }
