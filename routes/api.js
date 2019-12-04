@@ -647,5 +647,30 @@ router.get('/teams',function (req, res, next)
         })
 });
 
+router.get('/matches/teams/:id(\\d+)',function (req, res, next)
+{
+    client.query('SELECT * from getpartidosdeequipo($1)',
+        [req.params.id],(err, result)=>{
+            if(err)
+            {
+                console.log(err);
+                res.status(500).json(
+                    {
+                        status: 'error',
+                        data: err
+                    });
+            }
+            else
+            {
+
+
+                res.status(200).json({
+                    status: 'success',
+                    data: result.rows
+                });
+            }
+        })
+});
+
 
 module.exports = router;

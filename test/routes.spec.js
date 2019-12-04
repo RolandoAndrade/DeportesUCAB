@@ -358,3 +358,15 @@ describe('GET /api/v1/teams', function() {
             });
     });
 });
+
+describe('GET /api/v1/matches/teams/:id', function() {
+    it('Retorna todos los partidos del equipo', function(done) {
+        chai.request(server)
+            .get('/api/v1/matches/teams/1')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
