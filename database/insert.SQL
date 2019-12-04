@@ -74,7 +74,7 @@ INSERT INTO PARTICIPACION VALUES
 (DEFAULT,8,2);
 
 INSERT INTO USUARIO VALUES
-(DEFAULT,'Rolando', 'Andrade', 'rolandoandrade@gmail.com','12345678','masculino','26728918','1998-12-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575148700/accounts/photo_2019-11-21_17-24-37.jpg', null,1),
+(DEFAULT,'Rolando', 'Andrade', 'rolandoandrade@gmail.com','12345678','masculino','26728918','1998-12-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575148700/accounts/photo_2019-11-21_17-24-37.jpg', null,1,1),
 (DEFAULT,'Cristiano', 'Ronaldo', 'ronaldo@gmail.com','12345678','masculino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575230798/accounts/Cristiano_Ronaldo_Portugal.jpg', null,3),
 (DEFAULT,'Lionel', 'Messi', 'messi@gmail.com','12345678','masculino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575230854/accounts/26622.jpg', null,3),
 (DEFAULT,'Mohamed', 'Salah', 'salah@gmail.com','12345678','masculino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575231060/accounts/173692.jpg', null,3),

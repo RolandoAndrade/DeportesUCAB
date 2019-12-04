@@ -579,3 +579,24 @@ BEGIN
         WHERE deporte_id = 2 AND T.nombre != 'Por definir';
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION getPartidosDeEquipo(equipoid INTEGER)
+    RETURNS TABLE(id INTEGER, fecha TIMESTAMP, resultado_local INTEGER, resultado_visitante INTEGER,
+                  lugar VARCHAR, local VARCHAR, visitante VARCHAR, clasificacion VARCHAR, eliminatoria VARCHAR,
+                  escudo_local VARCHAR, escudo_visitante VARCHAR, nombre_partido VARCHAR, estado VARCHAR) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT E.id_partido, E.fecha, E.resultado_local, E.resultado_visitante, I.nombre,
+               J.nombre, K.nombre, C.nombre, D.nombre, J.escudo, K.escudo, E.nombre, E.estado
+        FROM CLASIFICACION C RIGHT JOIN PARTIDO E ON E.clasificacion_id = C.id_clasificacion LEFT JOIN
+        ELIMINATORIA D ON E.eliminatoria_id = D.id_eliminatoria,  LUGAR I, EQUIPO J, EQUIPO K
+        WHERE ((E.equipo_local = J.id_equipo AND E.equipo_local = equipoid AND
+                E.equipo_visitante = K.id_equipo) OR
+               (E.equipo_visitante = J.id_equipo AND E.equipo_visitante = equipoid AND
+                E.equipo_local = K.id_equipo)) AND
+              E.lugar_id = I.id_lugar
+         ORDER BY E.fecha;
+
+END;
+$$ LANGUAGE 'plpgsql';
