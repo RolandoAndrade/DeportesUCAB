@@ -346,3 +346,15 @@ describe('POST /api/v1/situations', function() {
             });
     });
 });
+
+describe('GET /api/v1/teams', function() {
+    it('Retorna todos los equipos', function(done) {
+        chai.request(server)
+            .get('/api/v1/teams')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
