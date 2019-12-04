@@ -262,7 +262,7 @@ function addMatch(data)
                                             fecha+"\n"+'<div class="partido-estado">'+estado+'</div>'+
         '                                </div>\n' +
         '                            </div>\n' +
-        '                        </div>'
+        '                        </div>';
     return s;
 }
 
