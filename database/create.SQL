@@ -41,7 +41,7 @@ CREATE TABLE USUARIO(
     fecha_nac TIMESTAMP NOT NULL,
     imagen VARCHAR(200),
     token VARCHAR(50),
-
+    posicion VARCHAR(50),
 
     rol_id INTEGER REFERENCES ROL(id_rol) NOT NULL,
     equipo_entrenado_id INTEGER REFERENCES EQUIPO(id_equipo)
