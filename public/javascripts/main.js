@@ -240,6 +240,7 @@ function hideAll()
     $("#modificar-partidos-content").hide(300);
 	$("#jugador-info-content").hide(300);
 	$("#vista-equipos-content").hide(300);
+	$("#consultar-equipo-content").hide(300);
 }
 
 
@@ -286,6 +287,10 @@ function viewSelection(auxiliar)
 	else if(url.indexOf("#informacion-jugador")!==-1)
 	{
 		showJugadorInfo();
+	}
+	else if(url.indexOf("#consultar-equipo")!==-1)
+	{
+		showConsultarEquipos();
 	}
 	else if(url.indexOf("#vista-equipos")!==-1)
 	{
