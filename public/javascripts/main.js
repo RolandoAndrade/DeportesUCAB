@@ -239,6 +239,7 @@ function hideAll()
     $("#estadisticas-content").hide(300);
     $("#modificar-partidos-content").hide(300);
 	$("#jugador-info-content").hide(300);
+	$("#vista-equipos-content").hide(300);
 }
 
 

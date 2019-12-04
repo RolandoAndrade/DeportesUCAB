@@ -1112,19 +1112,17 @@
         font-size: 0.8em;
     }
 
-    .classification-table
-    {
-        font-size: 0.8em;
-    }
     .classification-team-name div
     {
         font-size: 0.6em;
     }
 
-    .classification-team-name.mini div
+    .classification-table,.classification-team-name.mini div, .final-team-name
     {
         font-size: 0.8em;
     }
+
+
 
     .classification-player-image
     {
@@ -1137,5 +1135,13 @@
 @media (max-width: 600px){
     .post-card {
         width: 100%;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 400px){
+    .header-detail-option
+    {
+        font-size: 0.8em;
     }
 }
