@@ -804,6 +804,7 @@
     position: fixed;
     bottom: 30px;
     right: 50px;
+    z-index: 50;
 }
 
 .fase-selector
