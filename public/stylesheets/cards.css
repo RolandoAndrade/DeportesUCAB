@@ -1063,6 +1063,17 @@
     align-items: center;
     margin: 20px;
     transition: 0.5s all;
+
+}
+
+.team-card-info.masculino
+{
+    border-bottom: #0D47A1 solid 5px;
+}
+
+.team-card-info.femenino
+{
+    border-bottom: #e789cf solid 5px;
 }
 
 .team-card-info:hover
