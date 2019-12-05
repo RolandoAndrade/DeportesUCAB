@@ -31,11 +31,11 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION login(correoP VARCHAR, passwordP VARCHAR)
-    RETURNS TABLE(id INTEGER) AS
+    RETURNS TABLE(id INTEGER, rolid INTEGER) AS
 $$
     BEGIN
         RETURN QUERY
-        SELECT U.id_usuario
+        SELECT U.id_usuario, U.rol_id
         FROM USUARIO U
         WHERE U.correo = correoP AND
               U.password = passwordP;

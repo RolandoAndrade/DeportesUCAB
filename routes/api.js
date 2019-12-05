@@ -51,6 +51,7 @@ router.post('/login',function (req, res, next)
             if(result.rows.length>0)
             {
                 res.cookie("user_id",result.rows[0].id);
+                res.cookie("rol_id",result.rows[0].rolid);
                 res.status(200).json({
                     status: 'success',
                     data: result.rows
