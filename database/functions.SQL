@@ -601,9 +601,12 @@ BEGIN
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE OR REPLACE FUNCTION insertarEquipo(imagenP VARCHAR, nombreP VARCHAR, deporteid INTEGER) RETURNS VOID AS
+CREATE OR REPLACE FUNCTION insertarEquipo(imagenP VARCHAR, nombreP VARCHAR, deporteid INTEGER) RETURNS INTEGER AS
 $$
+DECLARE
+    equipoid INTEGER;
 BEGIN
-    INSERT INTO EQUIPO VALUES (DEFAULT, nombreP, imagenP, deporteid);
+    INSERT INTO EQUIPO VALUES (DEFAULT, nombreP, imagenP, deporteid) RETURNING id_equipo INTO equipoid;
+    RETURN equipoid;
 END;
 $$ LANGUAGE 'plpgsql';

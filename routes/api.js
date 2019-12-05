@@ -688,10 +688,9 @@ router.post('/teams',function (req, res, next)
             }
             else
             {
-
                 res.status(200).json({
                     status: 'success',
-                    data: "Insertado equipo"
+                    data: result.rows[0].insertarequipo
                 });
             }
         })
