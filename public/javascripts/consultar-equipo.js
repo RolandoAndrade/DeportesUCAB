@@ -39,15 +39,24 @@ function showPlayersOfTeam(data)
     if (s.length===0)
     {
         s=' <div class="result-title">No hay jugadores disponibles</div>';
-    }
-    s = '                    <div class="result-title">\n' +
+        s = '                    <div class="result-title">\n' +
         '                        JUGADORES\n' +
         '                    </div>\n' +
-        '                    <table class="classification-table" >\n' +
-    '                            <tr><th></th>\n' +
-    '                            <th>NOMBRE</th> <th>POSICION</th>\n' +
-    '                        </tr>'+s+
-        '                    </table>';
+        '                    <table class="classification-table" >\n' +s+
+        '                    </table>'
+    }
+    else
+    {
+        s = '                    <div class="result-title">\n' +
+            '                        JUGADORES\n' +
+            '                    </div>\n' +
+            '                    <table class="classification-table" >\n' +
+            '                            <tr><th></th>\n' +
+            '                            <th>NOMBRE</th> <th>POSICION</th>\n' +
+            '                        </tr>'+s+
+            '                    </table>';
+    }
+
     $("#tabla-juadores").append(s);
 }
 
