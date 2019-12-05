@@ -69,7 +69,7 @@ async function addEquipo()
     };
 
     let req = await new PostRequest(data,'/api/v1/teams').execute();
-    cambiarDetalleEquipo(req.id);
+    cambiarDetalleEquipo(req.data);
     $("#crear-nombre-equipo").val("");
     $("#team-gender").find(".seleccionado").removeClass("seleccionado");
     $("#crear-nombre-equipo-label").removeClass("active");
