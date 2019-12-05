@@ -1112,6 +1112,7 @@
     background-size: cover;
     border-radius: 50%;
     overflow: hidden;
+    margin: 10px;
 }
 
 .crear-imagen-competicion-etiqueta.mini
@@ -1122,8 +1123,8 @@
 
 .input-container.input-container.menor
 {
-    width: 80%;
-    margin: 2em 20px;
+    width: 70%;
+    margin: 2em 0;
 }
 
 @media (max-width: 800px){

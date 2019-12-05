@@ -42,3 +42,31 @@ async function retrieveTeamsForView()
     console.log(teams)
     createViewVistaEquipos(teams);
 }
+
+let generoT = null;
+function changeGenderTeam(container)
+{
+    $("#team-gender").find(".seleccionado").removeClass("seleccionado");
+    $(container).addClass("seleccionado");
+    if($(container).hasClass("red"))
+    {
+        generoT = 2;
+    }
+    else
+    {
+        generoT = 1;
+    }
+}
+
+async function addEquipo()
+{
+    let nombre = $("#crear-nombre-equipo").val();
+    let imagen = ($("#crear-imagen-equipo").css("background-image").match(/\(([^)]+)\)/)[1]).replace(/['"]+/g,'')
+    let data = {
+        nombre: nombre,
+        escudo: imagen,
+        genero: generoT
+    };
+
+    let req = await new PostRequest(data,'/api/v1/teams').execute();
+}

@@ -449,7 +449,7 @@
                 </div>
                 <div class="create-form-content">
 
-                    <div class="create-content-container">
+                    <div class="create-content-container" style="flex-shrink: 0">
                         <div id = "crear-imagen-equipo" class="crear-imagen-equipo">
                             <div class="crear-imagen-competicion-etiqueta mini">
                                 Seleccionar imagen
@@ -464,14 +464,14 @@
                         </div>
                     </div>
                     <div class="create-content-container">
-                        <div class="gender-selector">
-                            <div class="create-gender blue" onclick="changeGender(this)"><i class="zmdi zmdi-male-alt"></i></div>
-                            <div class="create-gender red" onclick="changeGender(this)"><i class="zmdi zmdi-female"></i></div>
+                        <div class="gender-selector" id="team-gender">
+                            <div class="create-gender blue" onclick="changeGenderTeam(this)"><i class="zmdi zmdi-male-alt"></i></div>
+                            <div class="create-gender red" onclick="changeGenderTeam(this)"><i class="zmdi zmdi-female"></i></div>
                         </div>
                     </div>
                 </div>
                 <div class="rol">
-                    <div class="more-button" onclick="addFase()">
+                    <div class="more-button" onclick="addEquipo()">
                         <i class="zmdi zmdi-plus"></i>
                     </div>
                 </div>
