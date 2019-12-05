@@ -592,6 +592,12 @@ a{
 		padding-left: 0;
 	}
 }
+
+.rol1
+{
+	display: none;
+}
+
 @media (min-width: 992px) and (max-width: 1199px){
 	.hide-sidebar{
 		pointer-events: none;

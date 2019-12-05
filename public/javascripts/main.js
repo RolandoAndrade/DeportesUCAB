@@ -3,6 +3,15 @@ async function beforeEverithing()
 	let userdata = (await new GetRequest("/api/v1/users/"+(new Cookie("user_id").getCookie())).execute()).data[0];
 	$("#imagen-usuario").attr("src",userdata.imagen);
 	$("#nombre-usuario").text(userdata.nombre+" "+userdata.apellido);
+	this.name = "rol_id";
+	if(new Cookie("rol_id").getCookie()===1)
+	{
+		$(".rol1").show();
+	}
+	else
+	{
+		$(".rol1").hide();
+	}
 }
 beforeEverithing();
 function exitWindow()
