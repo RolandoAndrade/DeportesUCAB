@@ -4,7 +4,7 @@ async function beforeEverithing()
 	$("#imagen-usuario").attr("src",userdata.imagen);
 	$("#nombre-usuario").text(userdata.nombre+" "+userdata.apellido);
 	this.name = "rol_id";
-	if(new Cookie("rol_id").getCookie()===1)
+	if(new Cookie("rol_id").getCookie()==1)
 	{
 		$(".rol1").show();
 	}
