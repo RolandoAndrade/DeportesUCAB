@@ -121,7 +121,7 @@ function addTeam()
             '<i class="zmdi zmdi-check"></i>' +
             '</div>' +
             '</div>';
-    })
+    });
 
     if (equiposList.length > 0)
     {

@@ -21,7 +21,10 @@ function showAsignarJugadores()
     retrieveFreeAgents();
 }
 
+
+
 async function retrieveFreeAgents()
 {
     console.log(await new GetRequest("/api/v1/freeagents/"+equipoParaJugadoresURL()).execute())
+    console.log(await new GetRequest("/api/v1/privateagents/"+equipoParaJugadoresURL()).execute())
 }
