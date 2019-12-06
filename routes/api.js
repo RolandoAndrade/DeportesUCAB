@@ -723,7 +723,7 @@ router.get('/freeagents/:id(\\d+)',function (req, res, next)
 
 router.get('/privateagents/:id(\\d+)',function (req, res, next)
 {
-    client.query('SELECT * from obtenerAgentesLibres($1)',
+    client.query('SELECT * from obteneragentesocupados($1)',
         [req.params.id],(err, result)=>{
             if(err)
             {

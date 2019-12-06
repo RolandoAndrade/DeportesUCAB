@@ -390,3 +390,27 @@ describe('POST /api/v1/teams', function() {
             });
     });
 });
+
+describe('GET /api/v1/freeagents/:id', function() {
+    it('Retorna todos los partidos del equipo', function(done) {
+        chai.request(server)
+            .get('/api/v1/freeagents/1')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
+
+describe('GET /api/v1/privateagents/:id', function() {
+    it('Retorna todos los partidos del equipo', function(done) {
+        chai.request(server)
+            .get('/api/v1/privateagents/1')
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});
