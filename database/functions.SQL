@@ -671,3 +671,15 @@ BEGIN
 
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION insertarJugador(nombreP VARCHAR, apellidoP VARCHAR,
+correoP VARCHAR, imagenP VARCHAR, generoP VARCHAR, posicionP VARCHAR) RETURNS INTEGER AS
+$$
+DECLARE
+    usuarioid INTEGER;
+BEGIN
+    INSERT INTO USUARIO VALUES (DEFAULT,nombreP, apellidoP, correoP, imagenP, generoP,
+                                '26728918', '1990-12-10', imagenP, null, posicionP, 3, null) RETURNING id_usuario INTO usuarioid;
+    RETURN usuarioid;
+END;
+$$ LANGUAGE 'plpgsql';
