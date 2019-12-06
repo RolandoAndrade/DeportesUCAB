@@ -610,3 +610,50 @@ BEGIN
     RETURN equipoid;
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION obtenerAgentesLibres(equipoid INTEGER) RETURNS
+TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, posicion VARCHAR, imagen VARCHAR) AS
+$$
+DECLARE
+    generov VARCHAR;
+BEGIN
+
+    SELECT D.genero INTO generov FROM DEPORTE D, EQUIPO E WHERE equipoid = id_equipo AND deporte_id = id_deporte;
+    RETURN QUERY
+    SELECT U.id_usuario, U.nombre, U.apellido, U.posicion, U.imagen
+    FROM USUARIO U
+    WHERE U.id_usuario NOT IN (SELECT usuario_id FROM ATLETA) AND
+          U.genero = generov;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION datosEquipoActual(usuarioid INTEGER) RETURNS
+    TABLE(id INTEGER, nombre VARCHAR, escudo VARCHAR) AS
+$$
+BEGIN
+    RETURN QUERY
+        SELECT E.id_equipo, E.nombre, E.escudo
+        FROM EQUIPO E, ATLETA A
+        WHERE E.id_equipo = A.equipo_id AND
+              usuarioid = A.usuario_id
+        ORDER BY fecha_inicio DESC
+        LIMIT 1;
+END;
+$$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION obtenerAgentesOcupados(equipoid INTEGER) RETURNS
+    TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, posicion VARCHAR, imagen VARCHAR, id_equipo INTEGER, escudo VARCHAR, nombre_equipo VARCHAR) AS
+$$
+DECLARE
+    generov VARCHAR;
+BEGIN
+
+    SELECT D.genero INTO generov FROM DEPORTE D, EQUIPO E WHERE equipoid = E.id_equipo AND deporte_id = id_deporte;
+    RETURN QUERY
+        SELECT DISTINCT U.id_usuario, U.nombre, U.apellido, U.posicion, U.imagen, D.id, D.escudo, D.nombre
+        FROM USUARIO U, datosEquipoActual(id_usuario) D
+        WHERE U.id_usuario IN (SELECT DISTINCT usuario_id FROM ATLETA) AND
+                U.genero = generov
+        ORDER BY U.posicion, U.apellido, U.nombre;
+END;
+$$ LANGUAGE 'plpgsql';
