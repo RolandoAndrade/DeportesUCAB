@@ -657,3 +657,16 @@ BEGIN
         ORDER BY U.posicion, U.apellido, U.nombre;
 END;
 $$ LANGUAGE 'plpgsql';
+
+CREATE OR REPLACE FUNCTION cambiarDeEquipo(jugadorid INTEGER, equipoid INTEGER) RETURNS
+    VOID AS
+$$
+BEGIN
+
+    UPDATE ATLETA
+    SET fecha_fin = NOW()
+    WHERE jugadorid = usuario_id AND fecha_fin IS NULL;
+    INSERT INTO ATLETA VALUES (DEFAULT,'activo',NOW(),null, jugadorid,equipoid);
+
+END;
+$$ LANGUAGE 'plpgsql';
