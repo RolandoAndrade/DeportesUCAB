@@ -414,3 +414,22 @@ describe('GET /api/v1/privateagents/:id', function() {
             });
     });
 });
+
+describe('POST /api/v1/players/teams', function() {
+    it('Debe insertar un jugador en equipo', function(done) {
+
+        chai.request(server)
+            .post('/api/v1/players/teams')
+            .set('content-type', 'application/json')
+            .send(
+                {
+                    equipo: 2,
+                    jugador: 2
+                })
+            .end(function(err, res) {
+                res.should.have.status(200);
+                console.log(res.body)
+                done();
+            });
+    });
+});

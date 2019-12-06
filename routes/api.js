@@ -746,4 +746,28 @@ router.get('/privateagents/:id(\\d+)',function (req, res, next)
         })
 });
 
+router.post('/players/teams',function (req, res, next)
+{
+    client.query('SELECT cambiarDeEquipo($1,$2)',
+        [req.body.jugador,req.body.equipo],(err, result)=>{
+            if(err)
+            {
+                console.log(err);
+                res.status(500).json(
+                    {
+                        status: 'error',
+                        data: err
+                    });
+            }
+            else
+            {
+                res.status(200).json({
+                    status: 'success',
+                    data: "Cambiado con éxito"
+                });
+            }
+        })
+});
+
+
 module.exports = router;

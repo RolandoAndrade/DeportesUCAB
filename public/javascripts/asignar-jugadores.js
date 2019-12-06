@@ -21,6 +21,29 @@ function showAsignarJugadores()
     retrieveFreeAgents();
 }
 
+function ficharJugador(id)
+{
+    swal({
+        title: '¿Estás seguro?',
+        text: "El jugador será transferido al equipo actual",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#4f9bff',
+        cancelButtonColor: '#bb4c41',
+        confirmButtonText: 'Sí, deseo mover al jugador',
+        cancelButtonText: 'No, cancelar',
+        showLoaderOnConfirm: true,
+        preConfirm: () => {
+            return new Pos
+        }
+    }).then(function () {
+
+    }).catch((e)=>{
+
+    });
+}
+
+
 function showFreeAgents(data)
 {
     let s = '';
@@ -28,10 +51,11 @@ function showFreeAgents(data)
 
     data.forEach((i)=>
     {
+        let id = i.id;
         let imagen = i.imagen;
         let posicion = capitalize(i.posicion);
         let nombre = i.nombre + " "+i.apellido;
-        s+='                         <tr class="agent-edit">' +
+        s+='                         <tr class="agent-edit" onclick="ficharJugador('+id+')">' +
             '                           <td>\n' +
             '                                <div class="classification-player-image" style="background-image: url('+imagen+');"></div>\n' +
             '                            </td>\n' +
@@ -65,10 +89,13 @@ function showPrivateAgents(data)
 
     data.forEach((i)=>
     {
+        let id = i.id;
         let imagen = i.imagen;
         let posicion = capitalize(i.posicion);
         let nombre = i.nombre + " "+i.apellido;
-        s+='                         <tr class="agent-edit">' +
+        let nombreequipo = i.nombre_equipo;
+        let escudoequipo = i.escudo;
+        s+='                         <tr class="agent-edit" onclick="ficharJugador('+id+')">' +
             '                           <td>\n' +
             '                                <div class="classification-player-image" style="background-image: url('+imagen+');"></div>\n' +
             '                            </td>\n' +
@@ -78,6 +105,12 @@ function showPrivateAgents(data)
             '<td>' +
             posicion+
             '</td>' +
+            '                            <td class="classification-team-name mini">\n' +
+            '                                <div class="classification-team-shield">\n' +
+            '                                    <img src="'+escudoequipo+'" alt="">' +
+            '                                </div>\n' +
+            '                                <div>'+nombreequipo+'</div>\n' +
+            '                            </td>\n' +
             '</tr> '
     });
     if (s.length!==0)
@@ -87,7 +120,7 @@ function showPrivateAgents(data)
             '                    </div>\n' +
             '                    <table class="classification-table" >\n' +
             '                            <tr><th></th>\n' +
-            '                            <th>NOMBRE</th> <th>POSICION</th>\n' +
+            '                            <th>NOMBRE</th> <th>POSICION</th><th>EQUIPO</th>\n' +
             '                        </tr>'+s+
             '                    </table>';
     }
