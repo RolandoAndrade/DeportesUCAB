@@ -250,6 +250,7 @@ function hideAll()
 	$("#jugador-info-content").hide(300);
 	$("#vista-equipos-content").hide(300);
 	$("#consultar-equipo-content").hide(300);
+	$("#asignar-jugadores-content").hide(300);
 }
 
 
@@ -296,6 +297,10 @@ function viewSelection(auxiliar)
 	else if(url.indexOf("#informacion-jugador")!==-1)
 	{
 		showJugadorInfo();
+	}
+	else if(url.indexOf("#asignar-jugadores"))
+	{
+		showAsignarJugadores();
 	}
 	else if(url.indexOf("#consultar-equipo")!==-1)
 	{
