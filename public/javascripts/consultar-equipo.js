@@ -120,7 +120,7 @@ function showMatchesOfTeam(data)
 
 async function retrievePlayersOfTeam()
 {
-    let data = (await new GetRequest("/api/v1/players/teams/"+getEquipoFromURL()).execute());
+    let data = (await new GetRequest("/api/v1/players/teams/"+getEquipoFromURL()+"?fecha="+(new Date())).execute());
     showPlayersOfTeam(data.data);
 
 }
