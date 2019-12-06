@@ -21,10 +21,86 @@ function showAsignarJugadores()
     retrieveFreeAgents();
 }
 
+function showFreeAgents(data)
+{
+    let s = '';
+    $("#agentes-libres").empty();
+
+    data.forEach((i)=>
+    {
+        let imagen = i.imagen;
+        let posicion = capitalize(i.posicion);
+        let nombre = i.nombre + " "+i.apellido;
+        s+='                         <tr class="agent-edit">' +
+            '                           <td>\n' +
+            '                                <div class="classification-player-image" style="background-image: url('+imagen+');"></div>\n' +
+            '                            </td>\n' +
+            '                            <td>\n' +
+            nombre+
+            '                            </td> ' +
+            '<td>' +
+            posicion+
+            '</td>' +
+            '</tr> '
+    });
+    if (s.length!==0)
+    {
+        s = '                    <div class="result-title">\n' +
+            '                        AGENTES LIBRES\n' +
+            '                    </div>\n' +
+            '                    <table class="classification-table" >\n' +
+            '                            <tr><th></th>\n' +
+            '                            <th>NOMBRE</th> <th>POSICION</th>\n' +
+            '                        </tr>'+s+
+            '                    </table>';
+    }
+
+    $("#agentes-libres").append(s);
+}
+
+function showPrivateAgents(data)
+{
+    let s = '';
+    $("#agentes-fijos").empty();
+
+    data.forEach((i)=>
+    {
+        let imagen = i.imagen;
+        let posicion = capitalize(i.posicion);
+        let nombre = i.nombre + " "+i.apellido;
+        s+='                         <tr class="agent-edit">' +
+            '                           <td>\n' +
+            '                                <div class="classification-player-image" style="background-image: url('+imagen+');"></div>\n' +
+            '                            </td>\n' +
+            '                            <td>\n' +
+            nombre+
+            '                            </td> ' +
+            '<td>' +
+            posicion+
+            '</td>' +
+            '</tr> '
+    });
+    if (s.length!==0)
+    {
+        s = '                    <div class="result-title">\n' +
+            '                        AGENTES FIJOS\n' +
+            '                    </div>\n' +
+            '                    <table class="classification-table" >\n' +
+            '                            <tr><th></th>\n' +
+            '                            <th>NOMBRE</th> <th>POSICION</th>\n' +
+            '                        </tr>'+s+
+            '                    </table>';
+    }
+
+    $("#agentes-fijos").append(s);
+}
 
 
 async function retrieveFreeAgents()
 {
-    console.log(await new GetRequest("/api/v1/freeagents/"+equipoParaJugadoresURL()).execute())
-    console.log(await new GetRequest("/api/v1/privateagents/"+equipoParaJugadoresURL()).execute())
+    let libres = (await new GetRequest("/api/v1/freeagents/"+equipoParaJugadoresURL()).execute()).data;
+    showFreeAgents(libres);
+
+    let ocupados = (await new GetRequest("/api/v1/privateagents/"+equipoParaJugadoresURL()).execute()).data;
+    showPrivateAgents(ocupados);
 }
