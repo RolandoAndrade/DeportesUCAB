@@ -94,7 +94,20 @@ INSERT INTO USUARIO VALUES
 (DEFAULT,'Kaylyn', 'Kyle', 'kk@gmail.com','12345678','femenino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232206/accounts/ef2254a7648c56da606ee9ffbc058d75.jpg', null,'delantero',3,null),
 (DEFAULT,'Ketlen', 'Wiggers', 'wiggers@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232359/accounts/4901099845_d2f3856ded_b.jpg', null,'mediocampista',3,null),
 (DEFAULT,'Nayeli', 'Rangel', 'rangel@gmail.com','12345678','femenino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232419/accounts/AAB5JKo.jpg', null,'defensa',3,null),
-(DEFAULT,'Nicole', 'Regnier', 'regnier@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232488/accounts/58e43101de5a2.r_1508777432316.0-86-807-571.jpg', null,'mediocampista',3,null);
+(DEFAULT,'Nicole', 'Regnier', 'regnier@gmail.com','12345678','femenino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575232488/accounts/58e43101de5a2.r_1508777432316.0-86-807-571.jpg', null,'mediocampista',3,null),
+(DEFAULT,'Neymar', 'Da Silva', 'neymar@gmail.com','12345678','masculino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575629537/accounts/15655185764110.jpg', null,'delantero',3,null),
+(DEFAULT,'Serge', 'Gnabri', 'gnabri@gmail.com','12345678','masculino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575629640/accounts/serge-gnabry-fc-bayern-munchen-1569996078-26223.jpg', null,'mediocampista',3,null),
+(DEFAULT,'Eden', 'Hazard', 'hazard@gmail.com','12345678','masculino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575629677/accounts/1165284877_20190731112611425-kHQH-U464101136206ggG-992x558_LaVanguardia-Web.jpg', null,'mediocampista',3,null),
+(DEFAULT,'Keylor', 'Navas', 'navas@gmail.com','12345678','masculino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575629719/accounts/1575245444_125960_1575245811_noticia_normal_recorte1.jpg', null,'portero',3,null),
+(DEFAULT,'Sergio', 'Ramos', 'ramos@gmail.com','12345678','masculino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575629787/accounts/1550919555_521513_1550919850_noticia_normal.jpg', null,'defensa',3,null),
+(DEFAULT,'Raphael', 'Varane', 'varane@gmail.com','12345678','masculino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575629861/accounts/raphael-varane-real-madrid-1552975750-21200.jpg', null,'portero',3,null),
+(DEFAULT,'Davison', 'Boateng', 'boateng@gmail.com','12345678','masculino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575629988/accounts/765229_Rect169_600.jpg', null,'defensa',3,null),
+(DEFAULT,'Mats', 'Hummels', 'hummels@gmail.com','12345678','masculino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575629921/accounts/mats-hummels-im-einsatz-fur-borussia-dortmund-1563271076-23632.jpg', null,'defensa',3,null),
+(DEFAULT,'Miroslav', 'Klose', 'klose@gmail.com','12345678','masculino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575630295/accounts/miroslav-klose-whoateallthepies.jpg', null,'delantero',3,null),
+(DEFAULT,'Juan', 'Arango', 'arango@gmail.com','12345678','masculino','26728918','1989-02-25','https://res.cloudinary.com/rolandoandrade/image/upload/v1575630340/accounts/1516573901_068442_1516573991_noticia_normal.jpg', null,'mediocampista',3,null),
+(DEFAULT,'Alain', 'Baroja', 'baroja@gmail.com','12345678','masculino','26728918','1991-04-27','https://res.cloudinary.com/rolandoandrade/image/upload/v1575630414/accounts/lREzxp1z_400x400.jpg', null,'portero',3,null),
+(DEFAULT,'Gabi', 'Fernández', 'fernandez@gmail.com','12345678','masculino','26728918','1996-10-10','https://res.cloudinary.com/rolandoandrade/image/upload/v1575630472/accounts/15301303426492.jpg', null,'defensa',3,null);
+                           ;
 --2,3,4 5,6,7 8,9,10 11,12,13
 INSERT INTO HABILIDAD VALUES
 (DEFAULT, 1,1),
@@ -117,7 +130,19 @@ INSERT INTO HABILIDAD VALUES
 (DEFAULT, 18,2),
 (DEFAULT, 19,2),
 (DEFAULT, 20,2),
-(DEFAULT, 21,2);
+(DEFAULT, 21,2),
+(DEFAULT, 22,1),
+(DEFAULT, 23,1),
+(DEFAULT, 24,1),
+(DEFAULT, 25,1),
+(DEFAULT, 26,1),
+(DEFAULT, 27,1),
+(DEFAULT, 28,1),
+(DEFAULT, 29,1),
+(DEFAULT, 30,1),
+(DEFAULT, 31,1),
+(DEFAULT, 32,1),
+(DEFAULT, 33,1);
 
 INSERT INTO ATLETA VALUES
 (DEFAULT, 'activo','2019-05-05',null,2,1),
@@ -139,7 +164,15 @@ INSERT INTO ATLETA VALUES
 (DEFAULT, 'activo','2019-05-05',null,18,7),
 (DEFAULT, 'activo','2019-05-05',null,19,7),
 (DEFAULT, 'activo','2019-05-05',null,20,8),
-(DEFAULT, 'activo','2019-05-05',null,21,8);
+(DEFAULT, 'activo','2019-05-05',null,21,8),
+(DEFAULT, 'activo','2019-05-05',null,22,1),
+(DEFAULT, 'activo','2019-05-05',null,23,1),
+(DEFAULT, 'activo','2019-05-05',null,24,2),
+(DEFAULT, 'activo','2019-05-05',null,25,2),
+(DEFAULT, 'activo','2019-05-05',null,26,3),
+(DEFAULT, 'activo','2019-05-05',null,27,3),
+(DEFAULT, 'activo','2019-05-05',null,28,4),
+(DEFAULT, 'activo','2019-05-05',null,29,4);
 
 INSERT INTO PARTIDO VALUES
 (DEFAULT,'JORNADA 1','2019-09-17',0,0,2,1,2,'finalizado',null,1),
