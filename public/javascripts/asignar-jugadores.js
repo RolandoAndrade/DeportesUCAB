@@ -1,3 +1,11 @@
+function accederAsignarJugadores()
+{
+    let id = getEquipoFromURL();
+    let url = document.location.href+'#asignar-jugadores';
+    window.history.pushState('DeportesUCAB', 'DeportesUCAB', url);
+    viewSelection()
+}
+
 function equipoParaJugadoresURL()
 {
     let url = document.location.href;

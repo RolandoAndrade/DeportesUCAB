@@ -298,7 +298,7 @@ function viewSelection(auxiliar)
 	{
 		showJugadorInfo();
 	}
-	else if(url.indexOf("#asignar-jugadores"))
+	else if(url.indexOf("#asignar-jugadores")!==-1)
 	{
 		showAsignarJugadores();
 	}

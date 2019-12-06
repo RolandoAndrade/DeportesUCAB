@@ -130,5 +130,4 @@ async function retrieveMatchesOfTeam()
 {
     let data = (await new GetRequest("/api/v1/matches/teams/"+getEquipoFromURL()).execute());
     showMatchesOfTeam(data.data);
-
 }
