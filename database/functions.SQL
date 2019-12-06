@@ -652,7 +652,7 @@ BEGIN
     RETURN QUERY
         SELECT DISTINCT U.id_usuario, U.nombre, U.apellido, U.posicion, U.imagen, D.id, D.escudo, D.nombre
         FROM USUARIO U, datosEquipoActual(id_usuario) D
-        WHERE U.id_usuario IN (SELECT DISTINCT usuario_id FROM ATLETA) AND
+        WHERE U.id_usuario IN (SELECT DISTINCT usuario_id FROM ATLETA WHERE equipoid != equipo_id) AND
                 U.genero = generov
         ORDER BY U.posicion, U.apellido, U.nombre;
 END;
