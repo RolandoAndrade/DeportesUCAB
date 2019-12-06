@@ -34,10 +34,18 @@ function ficharJugador(id)
         cancelButtonText: 'No, cancelar',
         showLoaderOnConfirm: true,
         preConfirm: () => {
-            return new Pos
-        }
-    }).then(function () {
-
+            return new PostRequest({
+                equipo: equipoParaJugadoresURL(),
+                jugador: id
+            },"/api/v1/players/teams").execute()
+        },
+        allowOutsideClick: () => !swal.isLoading()
+    }).then(async function () {
+        await retrieveFreeAgents();
+        swal({
+            title: 'Genial',
+            text: "El jugador ha sido transferido exitosamente",
+            type: 'success'}).catch((e)=>{})
     }).catch((e)=>{
 
     });
