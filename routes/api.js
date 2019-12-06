@@ -591,10 +591,20 @@ router.get('/players/teams/:id(\\d+)',function (req, res, next)
         }
         else
         {
-
+            let ans = [];
+            if (req.query.fecha)
+            {
+                result.rows.forEach((i)=>
+                {
+                    if (i.fechainicio<new Date(req.query.fecha))
+                    {
+                        ans.push(i);
+                    }
+                })
+            }
             res.status(200).json({
                 status: 'success',
-                data: result.rows
+                data: ans
             });
         }
     })

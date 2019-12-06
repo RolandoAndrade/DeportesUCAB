@@ -555,11 +555,11 @@ END;
 $$ LANGUAGE 'plpgsql';
 
 CREATE OR REPLACE FUNCTION getPlayersByTeam(equipoid INTEGER)
-RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, imagen VARCHAR, posicion VARCHAR) AS
+RETURNS TABLE(id INTEGER, nombre VARCHAR, apellido VARCHAR, imagen VARCHAR, posicion VARCHAR, fechainicio TIMESTAMP) AS
 $$
 BEGIN
     RETURN QUERY
-        SELECT U.id_usuario, U.nombre, U.apellido, U.imagen, U.posicion
+        SELECT U.id_usuario, U.nombre, U.apellido, U.imagen, U.posicion, A.fecha_inicio
         FROM USUARIO U, ATLETA A
         WHERE id_usuario = A.usuario_id AND A.equipo_id = equipoid AND A.fecha_fin IS NULL
         ORDER BY posicion, apellido, nombre;

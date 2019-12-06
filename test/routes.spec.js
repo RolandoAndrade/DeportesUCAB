@@ -317,7 +317,7 @@ describe('GET /api/v1/matches/:id', function() {
 describe('GET /api/v1/players/teams/:id', function() {
     it('Retorna los jugadores del equipo', function(done) {
         chai.request(server)
-            .get('/api/v1/players/teams/1')
+            .get('/api/v1/players/teams/1?fecha=2019-12-04')
             .end(function(err, res) {
                 res.should.have.status(200);
                 console.log(res.body)

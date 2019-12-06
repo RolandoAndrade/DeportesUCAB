@@ -228,10 +228,10 @@ function selectPlayers(local)
     }
 }
 
-async function retrievePlayersOfGame(local,visitante)
+async function retrievePlayersOfGame(local,visitante,fecha)
 {
-    jugadoresLocal = (await new GetRequest("/api/v1/players/teams/"+local).execute()).data;
-    jugadoresVisitante = (await new GetRequest("/api/v1/players/teams/"+visitante).execute()).data;
+    jugadoresLocal = (await new GetRequest("/api/v1/players/teams/"+local+"?fecha="+fecha).execute()).data;
+    jugadoresVisitante = (await new GetRequest("/api/v1/players/teams/"+visitante+"?fecha="+fecha).execute()).data;
 }
 
 function showPartidoData(partido)
@@ -247,7 +247,7 @@ function showPartidoData(partido)
     let rvisitante = partido.resultado.resultado_visitante;
     let elocal = partido.resultado.escudo_local;
     let evisitante = partido.resultado.escudo_visitante;
-    retrievePlayersOfGame(idlocal,idvisitante);
+    retrievePlayersOfGame(idlocal,idvisitante, fecha);
     let s = '<div class="post-card results partidos-modificar">\n' +
         '                    <div class="final-section">\n' +
         '                        <div class="final-team-shield">\n' +
@@ -266,6 +266,7 @@ function showPartidoData(partido)
         '                        </div>\n' +
         '                    </div>\n' +
         '                </div>';
+
     partido.situaciones.forEach((i)=>
     {
         if(i.tipo === "inicio")
